@@ -556,9 +556,14 @@ async function boot() {
     }
   };
   $('btn-voice-test').onclick = () => {
+    populateVoicePicker(); // voices may have loaded after boot
     unlock();
     speak('This is a pronunciation test. Distribute. Contribute.');
+    toast(`使用語音：${currentVoiceName() || '系統預設（未偵測到英文語音）'}`, 3000);
   };
+  window.addEventListener('tts-error', (e) => {
+    toast(`語音播放失敗（${e.detail}）——試著換一個語音`, 3500);
+  });
 
   renderStart();
 }

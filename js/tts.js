@@ -71,6 +71,7 @@ export function setPreferredVoice(name) {
 // button) so that later programmatic speak() calls work on iOS.
 export function unlock() {
   if (!ttsAvailable()) return;
+  speechSynthesis.resume(); // engine can wake up stuck in "paused"
   const u = new SpeechSynthesisUtterance(' ');
   u.volume = 0;
   speechSynthesis.speak(u);
@@ -79,10 +80,19 @@ export function unlock() {
 export function speak(text, rate = 0.95) {
   if (!ttsAvailable() || !text) return;
   if (!voice) pickVoice();
-  speechSynthesis.cancel();
   const u = new SpeechSynthesisUtterance(text);
   u.lang = voice ? voice.lang : 'en-US';
   if (voice) u.voice = voice;
   u.rate = rate;
-  speechSynthesis.speak(u);
+  // Surface failures to the UI (app.js listens and shows a toast).
+  u.onerror = (e) =>
+    window.dispatchEvent(new CustomEvent('tts-error', { detail: e.error || 'unknown' }));
+  // Chrome quirks: cancel() immediately followed by speak() can silently
+  // swallow the new utterance, and the engine sometimes sits in a paused
+  // state. Cancel, then speak on a short delay with an explicit resume.
+  speechSynthesis.cancel();
+  setTimeout(() => {
+    speechSynthesis.resume();
+    speechSynthesis.speak(u);
+  }, 60);
 }
