@@ -4,7 +4,11 @@
 
 const VOICE_KEY = 'learneng-voice';
 
+// Special voice-preference value: route single words to Youdao real audio.
+export const YOUDAO_VOICE = 'youdao';
+
 let voice = null;
+let preferYoudao = false;
 let speakSeq = 0;
 const changedCallbacks = [];
 
@@ -27,6 +31,11 @@ export function getEnglishVoices() {
 function pickVoice() {
   const voices = allVoices();
   const stored = localStorage.getItem(VOICE_KEY);
+  preferYoudao = stored === YOUDAO_VOICE;
+  if (preferYoudao) {
+    voice = null;
+    return;
+  }
   if (stored) {
     const match = voices.find((v) => v.name === stored);
     if (match) {
@@ -60,13 +69,18 @@ export function onVoicesChanged(cb) {
 }
 
 export function currentVoiceName() {
+  if (preferYoudao) return '有道真人發音（線上）';
   return voice ? `${voice.name}（${voice.lang}）` : null;
 }
 
-// True when single-word playback is routed to real dictionary audio
-// because the OS exposes no local English voice.
+export function getPreferredVoice() {
+  return localStorage.getItem(VOICE_KEY) || '';
+}
+
+// True when single-word playback is routed to real dictionary audio —
+// either chosen explicitly, or because the OS has no local English voice.
 export function usingFallbackAudio() {
-  return !hasLocalEnglishVoice();
+  return preferYoudao || !hasLocalEnglishVoice();
 }
 
 function hasLocalEnglishVoice() {
@@ -112,9 +126,9 @@ export function unlock() {
 
 export function speak(text, rate = 0.95) {
   if (!text) return;
-  // No local English voice → online voices are unreliable; play real
-  // dictionary audio for single words instead.
-  if (!text.trim().includes(' ') && !hasLocalEnglishVoice()) {
+  // Youdao chosen explicitly, or no local English voice (online voices
+  // are unreliable) → play real dictionary audio for single words.
+  if (!text.trim().includes(' ') && usingFallbackAudio()) {
     playViaAudio(text.trim());
     return;
   }

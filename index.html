@@ -111,6 +111,17 @@
         <h2>設定</h2>
 
         <div class="setting-row">
+          <div class="setting-label">外觀主題</div>
+          <div class="setting-control">
+            <select id="select-theme">
+              <option value="system">跟隨系統</option>
+              <option value="dark">深色</option>
+              <option value="light">淺色</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="setting-row">
           <div class="setting-label">每日練習時間
             <span class="setting-desc">計時只在頁面前景時進行；時間到會結束當日練習</span>
           </div>
@@ -131,7 +142,7 @@
 
         <div class="setting-row">
           <div class="setting-label">Gemini API key
-            <span class="setting-desc">「換一個鉤子」功能用。只存在這台裝置上，不會上傳；請勿放進公開的程式碼庫（會被 Google 自動撤銷）</span>
+            <span class="setting-desc">「換一個鉤子」功能使用，只儲存在這台裝置上</span>
           </div>
           <div class="setting-control">
             <input type="password" id="input-gemini-key" placeholder="貼上 API key" autocomplete="off">

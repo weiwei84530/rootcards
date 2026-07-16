@@ -28,7 +28,9 @@ import {
   onVoicesChanged,
   currentVoiceName,
   setPreferredVoice,
+  getPreferredVoice,
   usingFallbackAudio,
+  YOUDAO_VOICE,
 } from './tts.js';
 import {
   geminiAvailable,
@@ -50,6 +52,8 @@ let triageKnown = 0;
 
 const PRACTICE_PHASES = new Set(['front', 'back', 'spell', 'spell-feedback', 'learn', 'triage']);
 const STATE_NAMES = { 0: '新卡', 1: '學習中', 2: '複習', 3: '重學中' };
+const STATS_ROW_CAP = 200;
+let statsShowAll = false;
 
 const $ = (id) => document.getElementById(id);
 
@@ -300,7 +304,7 @@ function renderStats() {
   `;
 
   // Soonest-due first, so「接下來會考什麼」一眼可見.
-  const rows = tracked
+  const allRows = tracked
     .map((w) => {
       const r = getCard(progress, w.word, 'R');
       const s = getCard(progress, w.word, 'S');
@@ -308,6 +312,9 @@ function renderStats() {
       return { w, r, s, nextDue };
     })
     .sort((a, b) => a.nextDue - b.nextDue);
+  // Render cap keeps the tab instant even at 5,000+ tracked words;
+  // "show all" opts into the full table on demand.
+  const rows = statsShowAll ? allRows : allRows.slice(0, STATS_ROW_CAP);
 
   const statusChip = (w) => {
     const st = wordStatus(w);
@@ -336,8 +343,18 @@ function renderStats() {
       )
       .join('')}
   `;
-  $('stats-note').textContent =
-    `尚未開始的 ${words.length - tracked.length} 字不在表中。「複習」欄的到期時間就是 FSRS 預測你即將遺忘、需要再看的時間點。`;
+  const hidden = allRows.length - rows.length;
+  $('stats-note').innerHTML =
+    `尚未開始的 ${words.length - tracked.length} 字不在表中。到期時間是 FSRS 預測你即將遺忘、需要再看的時間點。` +
+    (hidden > 0
+      ? ` <button class="ghost small" id="btn-stats-all">顯示其餘 ${hidden} 筆</button>`
+      : '');
+  if (hidden > 0) {
+    $('btn-stats-all').onclick = () => {
+      statsShowAll = true;
+      renderStats();
+    };
+  }
   showScreen('stats');
 }
 
@@ -346,26 +363,37 @@ function renderStats() {
 function renderSettings() {
   phase = 'settings';
   $('input-minutes').value = settings.minutes;
+  $('select-theme').value = settings.theme || 'system';
   $('key-status').textContent = getGeminiKey() ? '✓ 已設定' : '未設定';
   populateVoicePicker();
   showScreen('settings');
 }
 
+// 'system' follows the OS via CSS media query; explicit choices pin the
+// data-theme attribute, which the stylesheet gives priority.
+function applyTheme() {
+  const t = settings.theme || 'system';
+  if (t === 'system') delete document.documentElement.dataset.theme;
+  else document.documentElement.dataset.theme = t;
+}
+
 function populateVoicePicker() {
   const sel = $('voice-select');
   const voices = getEnglishVoices();
-  if (voices.length === 0) {
-    sel.innerHTML = '<option value="">（找不到英文語音，將使用系統預設）</option>';
-    return;
-  }
+  const pref = getPreferredVoice();
   const activeName = currentVoiceName() || '';
-  sel.innerHTML = voices
-    .map((v) => {
+  const options = [
+    `<option value="${YOUDAO_VOICE}"${pref === YOUDAO_VOICE ? ' selected' : ''}>有道真人發音（單字・線上）</option>`,
+    ...voices.map((v) => {
       const label = `${v.name}（${v.lang}${v.localService ? '・本機' : '・線上'}）`;
-      const selected = activeName.startsWith(v.name) ? ' selected' : '';
+      const selected =
+        pref === v.name || (pref !== YOUDAO_VOICE && !pref && activeName.startsWith(v.name))
+          ? ' selected'
+          : '';
       return `<option value="${v.name}"${selected}>${label}</option>`;
-    })
-    .join('');
+    }),
+  ];
+  sel.innerHTML = options.join('');
 }
 
 // ---------- rapid triage ----------
@@ -633,12 +661,20 @@ async function forceRefresh() {
 
 function applyRating(rating) {
   const { word, type } = current;
+  const wasLearn = phase === 'learn';
   const now = new Date();
   const card = rateCard(progress, word.word, type, rating, now);
   saveProgress(progress);
   sessionReviews++;
   toast(`下次復習：${humanizeInterval(now, card.due)}`);
   if (needsRequeue(card)) queue.push({ word, type });
+  // After the learn card, delay the word's first spelling card by a few
+  // cards: typing it immediately would be short-term copy-typing, not
+  // recall, and would feed FSRS an inflated signal.
+  if (wasLearn && queue[0]?.word.word === word.word && queue[0].type === 'S') {
+    const [sibling] = queue.splice(0, 1);
+    queue.splice(Math.min(3, queue.length), 0, sibling);
+  }
   nextCard();
 }
 
@@ -693,7 +729,10 @@ async function boot() {
 
   // Tabs
   $('tab-cards').onclick = renderStart;
-  $('tab-stats').onclick = renderStats;
+  $('tab-stats').onclick = () => {
+    statsShowAll = false; // fresh visits start with the fast capped view
+    renderStats();
+  };
   $('tab-settings').onclick = renderSettings;
 
   // Cards tab
@@ -707,6 +746,15 @@ async function boot() {
   $('btn-triage-exit').onclick = endTriage;
 
   // Settings tab
+  applyTheme();
+  $('select-theme').onchange = (e) => {
+    settings.theme = e.target.value;
+    saveSettings(settings);
+    applyTheme();
+    toast(
+      e.target.value === 'system' ? '主題：跟隨系統' : e.target.value === 'dark' ? '主題：深色' : '主題：淺色'
+    );
+  };
   $('input-minutes').onchange = (e) => {
     const v = Math.max(5, Math.min(180, Number(e.target.value) || 30));
     e.target.value = v;
@@ -743,8 +791,10 @@ async function boot() {
     unlock();
     speak('distribute'); // single word = the path cards actually use
     const source = usingFallbackAudio()
-      ? '線上真人發音（系統無本機英文語音，單字改用字典音源）'
-      : `${currentVoiceName() || '系統預設'}`;
+      ? getPreferredVoice() === YOUDAO_VOICE
+        ? '有道真人發音（線上）'
+        : '有道真人發音（自動備援：系統無本機英文語音）'
+      : currentVoiceName() || '系統預設';
     toast(`發音來源：${source}`, 3500);
   };
   window.addEventListener('tts-error', (e) => {
