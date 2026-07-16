@@ -116,6 +116,7 @@ body {
 .timer .ring-bg { stroke: var(--surface-2); }
 .timer .ring-fg { stroke: var(--gold); transition: stroke-dashoffset 1s linear; }
 .timer.done .ring-fg { stroke: var(--good); }
+.timer.idle { opacity: 0.5; } /* visible on every tab, dimmed when not ticking */
 #timer-text { font-size: 0.82rem; color: var(--text-dim); min-width: 4.5em; }
 .brand { font-family: var(--serif); font-size: 1.15rem; letter-spacing: 0.5px; }
 .badge {
@@ -438,53 +439,64 @@ details.hook .regen:hover { opacity: 1; filter: none; }
   letter-spacing: 1px;
 }
 
+/* Settings rows: one shared control scale (0.88rem / 2.2rem height) so
+   selects, inputs and buttons all sit on the same typographic rhythm. */
 .setting-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 1rem;
-  padding: 0.9rem 0;
+  gap: 1.5rem;
+  padding: 1.15rem 0;
   border-bottom: 1px solid var(--line);
   flex-wrap: wrap;
 }
+.setting-row:first-of-type { padding-top: 0.4rem; }
 .setting-row:last-child { border-bottom: none; }
-.setting-label { font-size: 0.98rem; }
+.setting-label { font-size: 0.95rem; }
 .setting-desc {
   display: block;
   font-size: 0.78rem;
   color: var(--text-dim);
-  margin-top: 0.2rem;
-  max-width: 340px;
+  margin-top: 0.3rem;
+  line-height: 1.5;
+  max-width: 330px;
 }
-.setting-control { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+.setting-control { display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; }
+.setting-control select,
+.setting-control input,
+.setting-control button {
+  font-size: 0.88rem;
+  height: 2.2rem;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
 .setting-control input[type="number"] {
   width: 4.5em;
-  font: inherit;
+  font-family: inherit;
   background: var(--bg);
   color: var(--text);
   border: 1px solid var(--line);
-  border-radius: 8px;
-  padding: 0.35rem 0.5rem;
+  padding: 0 0.4rem;
   text-align: center;
 }
 .setting-control input[type="password"] {
-  font: inherit;
+  font-family: inherit;
   background: var(--bg);
   color: var(--text);
   border: 1px solid var(--line);
-  border-radius: 8px;
-  padding: 0.35rem 0.6rem;
-  width: 230px;
+  padding: 0 0.7rem;
+  width: 220px;
 }
 .setting-control select {
-  font: inherit;
+  font-family: inherit;
   background: var(--surface-2);
   color: var(--text);
   border: 1px solid var(--line);
-  border-radius: 8px;
-  padding: 0.35rem 0.6rem;
-  max-width: 240px;
+  padding: 0 0.6rem;
+  max-width: 230px;
 }
+.setting-control button { padding: 0 1rem; }
+#key-status { font-size: 0.82rem; }
 
 /* Stats table */
 .chip-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
@@ -512,10 +524,17 @@ details.hook .regen:hover { opacity: 1; filter: none; }
   font-weight: 500;
   padding: 0.45rem 0.6rem;
   border-bottom: 1px solid var(--line);
+  white-space: nowrap;
 }
 .stats-table td {
-  padding: 0.45rem 0.6rem;
+  padding: 0.5rem 0.6rem;
   border-bottom: 1px solid var(--line);
+  white-space: nowrap; /* keep "學習中 ・ 已到期" on one natural line */
+}
+.stats-table td.zh {
+  max-width: 7.5em;
+  overflow: hidden;
+  text-overflow: ellipsis; /* long glosses truncate instead of wrapping */
 }
 .stats-table .w { font-family: var(--serif); font-size: 1rem; }
 .st-chip {
@@ -531,7 +550,18 @@ details.hook .regen:hover { opacity: 1; filter: none; }
 .st-chip.lapse { color: var(--bad); border-color: var(--bad); }
 .due-now { color: var(--gold); }
 .small-note { font-size: 0.8rem; margin-top: 0.8rem; }
-.card-top-btns { display: flex; gap: 0.4rem; }
+
+/* In-card utility buttons: barely-there text, never compete with content */
+.card-top-btns { display: flex; gap: 0.9rem; }
+.card-top-btns button {
+  background: none;
+  border: none;
+  padding: 0.15rem 0.2rem;
+  font-size: 0.76rem;
+  color: var(--text-dim);
+  opacity: 0.55;
+}
+.card-top-btns button:hover { opacity: 1; filter: none; }
 
 /* Toast */
 .toast {

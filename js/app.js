@@ -148,7 +148,6 @@ function showScreen(name) {
   for (const s of ['start', 'session', 'triage', 'done', 'stats', 'settings']) {
     $(`screen-${s}`).classList.toggle('hidden', s !== name);
   }
-  $('session-stats').classList.toggle('hidden', name !== 'session');
   const tab = name === 'stats' ? 'stats' : name === 'settings' ? 'settings' : 'cards';
   for (const t of ['cards', 'stats', 'settings']) {
     $(`tab-${t}`).classList.toggle('active', t === tab);
@@ -167,8 +166,15 @@ function toast(msg, ms = 1800) {
   }, ms);
 }
 
-function updateSessionStats() {
-  $('session-stats').textContent = `剩餘 ${queue.length + (current ? 1 : 0)} 張`;
+// Header card counter: during a session it's the live queue; elsewhere
+// it's today's total workload (due reviews + words never introduced).
+// It shrinks as cards graduate past today — a global "how much is left".
+function updateHeaderStats() {
+  const inSession = PRACTICE_PHASES.has(phase) && phase !== 'triage';
+  const n = inSession
+    ? queue.length + (current ? 1 : 0)
+    : buildQueue(words, progress, new Date()).length;
+  $('session-stats').textContent = `剩 ${n} 張`;
 }
 
 // ---------- focus-time timer ----------
@@ -180,13 +186,18 @@ function goalSeconds() {
   return settings.minutes * 60;
 }
 
-function renderTimer(paused) {
+// Always rendered (every tab); ticks only while practicing in the
+// foreground. Idle state is dimmed, mid-practice blur shows ⏸.
+function renderTimer() {
   const day = dayStats(progress);
   const sec = day.seconds || 0;
   const pct = Math.min(1, sec / goalSeconds());
   $('ring-fg').style.strokeDashoffset = String(100 - pct * 100);
   $('timer-wrap').classList.toggle('done', pct >= 1);
-  if (paused) {
+  const practicing = PRACTICE_PHASES.has(phase);
+  const focused = !document.hidden && document.hasFocus();
+  $('timer-wrap').classList.toggle('idle', !(practicing && focused));
+  if (practicing && !focused) {
     $('timer-text').textContent = '⏸ 暫停';
   } else if (pct >= 1) {
     $('timer-text').textContent = '目標達成';
@@ -208,22 +219,20 @@ function timeUp() {
 function startTimerLoop() {
   setInterval(() => {
     const practicing = PRACTICE_PHASES.has(phase);
-    $('timer-wrap').classList.toggle('hidden', !practicing);
-    if (!practicing) return;
     const focused = !document.hidden && document.hasFocus();
-    if (!focused) {
-      renderTimer(true);
-      return;
+    if (practicing && focused) {
+      const day = dayStats(progress);
+      day.seconds = (day.seconds || 0) + 1;
+      if (day.seconds % 10 === 0) saveProgress(progress);
+      if (day.seconds >= goalSeconds() && !day.timeUpNotified) {
+        day.timeUpNotified = true;
+        saveProgress(progress);
+        renderTimer();
+        timeUp();
+        return;
+      }
     }
-    const day = dayStats(progress);
-    day.seconds = (day.seconds || 0) + 1;
-    if (day.seconds % 10 === 0) saveProgress(progress);
-    renderTimer(false);
-    if (day.seconds >= goalSeconds() && !day.timeUpNotified) {
-      day.timeUpNotified = true;
-      saveProgress(progress);
-      timeUp();
-    }
+    renderTimer();
   }, 1000);
 }
 
@@ -269,6 +278,7 @@ function renderStart() {
   $('progress-label').textContent =
     `已掌握 ${mastered} ・ 學習中 ${started} ・ 未開始 ${words.length - learned}`;
 
+  updateHeaderStats();
   showScreen('start');
 }
 
@@ -333,7 +343,7 @@ function renderStats() {
         ({ w, r, s }) => `
       <tr>
         <td class="w">${coloredWord(w)}</td>
-        <td class="dim">${w.zh.split('；')[0]}</td>
+        <td class="zh dim">${w.zh.split('；')[0]}</td>
         <td>${statusChip(w)}</td>
         <td>${dueCell(r, now)}</td>
         <td>${dueCell(s, now)}</td>
@@ -462,7 +472,7 @@ function nextCard() {
     return;
   }
   current = queue.shift();
-  updateSessionStats();
+  updateHeaderStats();
   const neverSeen = !progress.cards[`${current.word.word}|${current.type}`];
   if (current.type === 'R') {
     if (neverSeen) renderLearnCard();
@@ -802,6 +812,7 @@ async function boot() {
   });
 
   startTimerLoop();
+  renderTimer();
   renderStart();
 }
 
