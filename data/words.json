@@ -1,0 +1,729 @@
+[
+  {
+    "word": "distribute",
+    "ipa": "dɪˈstrɪbjuːt",
+    "pos": "vt.",
+    "zh": "分發；分配；配送",
+    "roots": [
+      { "text": "dis", "meaning": "apart（分開）" },
+      { "text": "tribut", "meaning": "to give（給予）" },
+      { "text": "e", "meaning": null }
+    ],
+    "rootStory": "dis（分開）+ tribut（給予）→ 分開來給 → 分發",
+    "example": "The company will distribute free samples at the trade show.",
+    "exampleZh": "公司將在商展上發放免費樣品。",
+    "hook": "想像發薪日經理把獎金「分開、一份份給」每個人——dis 分開、tribut 給予。"
+  },
+  {
+    "word": "contribute",
+    "ipa": "kənˈtrɪbjuːt",
+    "pos": "v.",
+    "zh": "貢獻；捐助；投稿",
+    "roots": [
+      { "text": "con", "meaning": "together（一起）" },
+      { "text": "tribut", "meaning": "to give（給予）" },
+      { "text": "e", "meaning": null }
+    ],
+    "rootStory": "con（一起）+ tribut（給予）→ 大家一起給 → 貢獻、捐助",
+    "example": "Everyone on the team contributed ideas to the project.",
+    "exampleZh": "團隊每個人都為這個專案貢獻了想法。",
+    "hook": "跟 distribute 是兄弟：dis 是「分開給」（分發），con 是「一起給」（捐、貢獻）。"
+  },
+  {
+    "word": "inspect",
+    "ipa": "ɪnˈspɛkt",
+    "pos": "vt.",
+    "zh": "檢查；視察",
+    "roots": [
+      { "text": "in", "meaning": "into（往內）" },
+      { "text": "spect", "meaning": "to look（看）" }
+    ],
+    "rootStory": "in（往內）+ spect（看）→ 往裡面仔細看 → 檢查",
+    "example": "Customs officers inspect all incoming shipments.",
+    "exampleZh": "海關人員檢查所有進口貨物。",
+    "hook": "spect 家族都是「看」：in 往內看＝檢查、pro 往前看＝前景、re 回頭再看＝尊敬。"
+  },
+  {
+    "word": "prospect",
+    "ipa": "ˈprɑːspɛkt",
+    "pos": "n.",
+    "zh": "前景；展望；潛在客戶",
+    "roots": [
+      { "text": "pro", "meaning": "forward（向前）" },
+      { "text": "spect", "meaning": "to look（看）" }
+    ],
+    "rootStory": "pro（向前）+ spect（看）→ 向前看到的東西 → 前景",
+    "example": "The sales team is meeting with a promising prospect next week.",
+    "exampleZh": "業務團隊下週將與一位有潛力的潛在客戶會面。",
+    "hook": "業務向前看（pro + spect）——看到的是「前景」，也是還沒成交的「潛在客戶」。"
+  },
+  {
+    "word": "respect",
+    "ipa": "rɪˈspɛkt",
+    "pos": "vt. n.",
+    "zh": "尊敬；尊重；方面",
+    "roots": [
+      { "text": "re", "meaning": "again / back（再、回）" },
+      { "text": "spect", "meaning": "to look（看）" }
+    ],
+    "rootStory": "re（再）+ spect（看）→ 值得回頭再看一眼 → 尊敬",
+    "example": "She earned the respect of her colleagues through hard work.",
+    "exampleZh": "她以努力工作贏得了同事的尊敬。",
+    "hook": "令人「回頭再看一眼」的人，就是值得尊敬的人。"
+  },
+  {
+    "word": "transfer",
+    "ipa": "trænsˈfɜːr",
+    "pos": "v. n.",
+    "zh": "轉移；調職；轉帳；轉乘",
+    "roots": [
+      { "text": "trans", "meaning": "across（跨越）" },
+      { "text": "fer", "meaning": "to carry（攜帶）" }
+    ],
+    "rootStory": "trans（跨越）+ fer（攜帶）→ 帶著跨過去 → 轉移",
+    "examples": [
+      { "label": "v. 轉帳、調職", "en": "Please transfer the funds to our overseas account.", "zh": "請將款項轉帳到我們的海外帳戶。" },
+      { "label": "n. 轉乘", "en": "You will need to make a transfer at Central Station.", "zh": "你需要在中央車站轉乘。" }
+    ],
+    "hook": "捷運「轉乘」就是 transfer——帶著（fer）自己跨越（trans）到另一條線。"
+  },
+  {
+    "word": "transform",
+    "ipa": "trænsˈfɔːrm",
+    "pos": "vt.",
+    "zh": "使轉變；改造",
+    "roots": [
+      { "text": "trans", "meaning": "across（跨越）" },
+      { "text": "form", "meaning": "shape（形狀）" }
+    ],
+    "rootStory": "trans（跨越）+ form（形狀）→ 從一種形狀跨到另一種 → 轉變",
+    "example": "Digital tools have transformed the way we work.",
+    "exampleZh": "數位工具已經改變了我們的工作方式。",
+    "hook": "《變形金剛》英文就是 Transformers——跨越（trans）形體（form）的機器人。"
+  },
+  {
+    "word": "confirm",
+    "ipa": "kənˈfɜːrm",
+    "pos": "vt.",
+    "zh": "確認；證實",
+    "roots": [
+      { "text": "con", "meaning": "fully（完全）" },
+      { "text": "firm", "meaning": "solid（穩固）" }
+    ],
+    "rootStory": "con（完全）+ firm（穩固）→ 使完全穩固 → 確認",
+    "example": "Please confirm your reservation by Friday.",
+    "exampleZh": "請在週五前確認您的訂位。",
+    "hook": "firm 本身就是「堅固的」——把事情弄得完全（con）穩固（firm），就是確認。"
+  },
+  {
+    "word": "predict",
+    "ipa": "prɪˈdɪkt",
+    "pos": "vt.",
+    "zh": "預測；預言",
+    "roots": [
+      { "text": "pre", "meaning": "before（在前）" },
+      { "text": "dict", "meaning": "to say（說）" }
+    ],
+    "rootStory": "pre（在前）+ dict（說）→ 事情發生前就說出來 → 預測",
+    "example": "Analysts predict strong growth in the next quarter.",
+    "exampleZh": "分析師預測下一季將強勁成長。",
+    "hook": "dict 是「說」：pre 先說＝預測、dictate 口述命令、dictionary 收錄所有「說法」的書。"
+  },
+  {
+    "word": "dictate",
+    "ipa": "ˈdɪkteɪt",
+    "pos": "v.",
+    "zh": "口述；命令；支配",
+    "roots": [
+      { "text": "dict", "meaning": "to say（說）" },
+      { "text": "ate", "meaning": "動詞字尾" }
+    ],
+    "rootStory": "dict（說）+ ate（動詞字尾）→ 用說的下指令 → 口述、命令",
+    "example": "The manager dictated a memo to his assistant.",
+    "exampleZh": "經理向助理口述了一份備忘錄。",
+    "hook": "獨裁者 dictator 就是「說了算」的人——dict（說）一個字就是命令。"
+  },
+  {
+    "word": "contract",
+    "ipa": "ˈkɑːntrækt",
+    "pos": "n. v.",
+    "zh": "合約；契約；收縮",
+    "roots": [
+      { "text": "con", "meaning": "together（一起）" },
+      { "text": "tract", "meaning": "to pull / draw（拉）" }
+    ],
+    "rootStory": "con（一起）+ tract（拉）→ 把雙方拉在一起 → 合約",
+    "examples": [
+      { "label": "n. 合約", "en": "Both parties signed the contract yesterday.", "zh": "雙方昨天簽署了合約。" },
+      { "label": "v. 感染；收縮", "en": "Travelers may contract the virus in crowded places.", "zh": "旅客在擁擠的場所可能感染病毒。" }
+    ],
+    "hook": "合約把兩邊「拉（tract）在一起（con）」綁定；肌肉「收縮」也是往一起拉。"
+  },
+  {
+    "word": "attract",
+    "ipa": "əˈtrækt",
+    "pos": "vt.",
+    "zh": "吸引",
+    "roots": [
+      { "text": "at", "meaning": "toward（朝向）" },
+      { "text": "tract", "meaning": "to pull / draw（拉）" }
+    ],
+    "rootStory": "at（朝向）+ tract（拉）→ 朝自己這邊拉過來 → 吸引",
+    "example": "The promotion attracted many new customers.",
+    "exampleZh": "這次促銷吸引了許多新顧客。",
+    "hook": "tract 家族都是「拉」：at 拉過來＝吸引、con 拉一起＝合約、ex 拉出去＝提取（extract）。"
+  },
+  {
+    "word": "extend",
+    "ipa": "ɪkˈstɛnd",
+    "pos": "v.",
+    "zh": "延長；擴展；給予",
+    "roots": [
+      { "text": "ex", "meaning": "out（向外）" },
+      { "text": "tend", "meaning": "to stretch（伸展）" }
+    ],
+    "rootStory": "ex（向外）+ tend（伸展）→ 向外伸出去 → 延長、擴展",
+    "example": "We decided to extend the deadline by one week.",
+    "exampleZh": "我們決定將截止日期延長一週。",
+    "hook": "把橡皮筋向外（ex）伸展（tend）——就是延長。延長線叫 extension cord。"
+  },
+  {
+    "word": "attend",
+    "ipa": "əˈtɛnd",
+    "pos": "v.",
+    "zh": "出席；參加；照料",
+    "roots": [
+      { "text": "at", "meaning": "toward（朝向）" },
+      { "text": "tend", "meaning": "to stretch（伸展）" }
+    ],
+    "rootStory": "at（朝向）+ tend（伸展）→ 把注意力伸向某處 → 出席、照料",
+    "example": "More than 200 people attended the conference.",
+    "exampleZh": "超過兩百人出席了這場會議。",
+    "hook": "把心思「伸（tend）向（at）」會場——人到了、心也到了，就是出席。"
+  },
+  {
+    "word": "conclude",
+    "ipa": "kənˈkluːd",
+    "pos": "v.",
+    "zh": "下結論；結束；締結",
+    "roots": [
+      { "text": "con", "meaning": "together（一起）" },
+      { "text": "clud", "meaning": "to close（關閉）" },
+      { "text": "e", "meaning": null }
+    ],
+    "rootStory": "con（一起）+ clud（關閉）→ 把所有討論一起收攏關上 → 下結論",
+    "example": "The meeting concluded with a vote on the proposal.",
+    "exampleZh": "會議以對提案的表決作結。",
+    "hook": "clud/clos 都是「關」：conclude 關上討論＝結束、include 關進來＝包含、exclude 關出去＝排除。"
+  },
+  {
+    "word": "exceed",
+    "ipa": "ɪkˈsiːd",
+    "pos": "vt.",
+    "zh": "超過；超出",
+    "roots": [
+      { "text": "ex", "meaning": "out / beyond（向外、超出）" },
+      { "text": "ceed", "meaning": "to go（走）" }
+    ],
+    "rootStory": "ex（超出）+ ceed（走）→ 走到界線之外 → 超過",
+    "example": "Sales this quarter exceeded all expectations.",
+    "exampleZh": "本季銷售超出了所有預期。",
+    "hook": "ceed/cede 是「走」：ex 走出界＝超過、pro 往前走＝繼續進行（proceed）。"
+  },
+  {
+    "word": "proceed",
+    "ipa": "proʊˈsiːd",
+    "pos": "vi.",
+    "zh": "繼續進行；前進",
+    "roots": [
+      { "text": "pro", "meaning": "forward（向前）" },
+      { "text": "ceed", "meaning": "to go（走）" }
+    ],
+    "rootStory": "pro（向前）+ ceed（走）→ 往前走 → 繼續進行",
+    "example": "After the break, we will proceed with the presentation.",
+    "exampleZh": "休息過後，我們將繼續進行簡報。",
+    "hook": "機場廣播常說 please proceed to gate 5——往前走（pro + ceed）到五號登機門。"
+  },
+  {
+    "word": "reduce",
+    "ipa": "rɪˈduːs",
+    "pos": "vt.",
+    "zh": "減少；降低",
+    "roots": [
+      { "text": "re", "meaning": "back（往回）" },
+      { "text": "duc", "meaning": "to lead（引導）" },
+      { "text": "e", "meaning": null }
+    ],
+    "rootStory": "re（往回）+ duc（引導）→ 把數量引導回去 → 減少",
+    "example": "The new process reduced costs by 15 percent.",
+    "exampleZh": "新流程使成本降低了百分之十五。",
+    "hook": "duc 是「引導」：re 往回引＝減少、intro 引進去＝介紹（introduce）、produce 引出來＝生產。"
+  },
+  {
+    "word": "submit",
+    "ipa": "səbˈmɪt",
+    "pos": "v.",
+    "zh": "提交；呈遞；屈服",
+    "roots": [
+      { "text": "sub", "meaning": "under（在下）" },
+      { "text": "mit", "meaning": "to send（送）" }
+    ],
+    "rootStory": "sub（在下）+ mit（送）→ 從下位往上送 → 提交",
+    "example": "Please submit your report by the end of the day.",
+    "exampleZh": "請在今天下班前提交報告。",
+    "hook": "mit 是「送」：sub 由下往上送＝提交、per 允許通過送＝許可、com 把自己送進去＝承諾。"
+  },
+  {
+    "word": "permit",
+    "ipa": "pərˈmɪt",
+    "pos": "v. n.",
+    "zh": "允許；許可證",
+    "roots": [
+      { "text": "per", "meaning": "through（穿過）" },
+      { "text": "mit", "meaning": "to send（送）" }
+    ],
+    "rootStory": "per（穿過）+ mit（送）→ 放行讓它送過去 → 允許",
+    "examples": [
+      { "label": "v. 允許", "en": "Photography is not permitted inside the museum.", "zh": "博物館內不允許攝影。" },
+      { "label": "n. 許可證", "en": "You must obtain a work permit before starting the job.", "zh": "開始工作前必須先取得工作許可證。" }
+    ],
+    "hook": "海關蓋章放行——讓你「送（mit）過去（per）」，就是許可。工作許可證叫 work permit。"
+  },
+  {
+    "word": "commit",
+    "ipa": "kəˈmɪt",
+    "pos": "v.",
+    "zh": "承諾；投入；犯（罪）",
+    "roots": [
+      { "text": "com", "meaning": "together / fully（完全）" },
+      { "text": "mit", "meaning": "to send（送）" }
+    ],
+    "rootStory": "com（完全）+ mit（送）→ 把自己完全送出去 → 承諾、投入",
+    "example": "The firm committed itself to reducing emissions.",
+    "exampleZh": "該公司承諾減少排放。",
+    "hook": "git commit 就是把程式碼「完全送出去」交付——承諾這版是算數的。"
+  },
+  {
+    "word": "compete",
+    "ipa": "kəmˈpiːt",
+    "pos": "vi.",
+    "zh": "競爭；比賽",
+    "roots": [
+      { "text": "com", "meaning": "together（一起）" },
+      { "text": "pet", "meaning": "to seek / strive（追求）" },
+      { "text": "e", "meaning": null }
+    ],
+    "rootStory": "com（一起）+ pet（追求）→ 大家一起追同一個目標 → 競爭",
+    "example": "Several firms are competing for the government contract.",
+    "exampleZh": "數家公司正在競爭這份政府合約。",
+    "hook": "appetite（食慾）同字根——pet 是「追求」；一群人一起追（com + pet）就是競爭。"
+  },
+  {
+    "word": "depart",
+    "ipa": "dɪˈpɑːrt",
+    "pos": "vi.",
+    "zh": "離開；出發",
+    "roots": [
+      { "text": "de", "meaning": "away（離開）" },
+      { "text": "part", "meaning": "part（部分、分開）" }
+    ],
+    "rootStory": "de（離開）+ part（分開）→ 與原地分開 → 出發",
+    "example": "The flight departs at 9:30 from Gate 12.",
+    "exampleZh": "班機九點三十分從十二號登機門起飛。",
+    "hook": "機場看板的 Departures（出境）——和這片土地「分開（part）離去（de）」。"
+  },
+  {
+    "word": "deposit",
+    "ipa": "dɪˈpɑːzɪt",
+    "pos": "n. v.",
+    "zh": "訂金；存款；存放",
+    "roots": [
+      { "text": "de", "meaning": "down（向下）" },
+      { "text": "posit", "meaning": "to place（放置）" }
+    ],
+    "rootStory": "de（向下）+ posit（放置）→ 把錢放下去 → 存款、訂金",
+    "examples": [
+      { "label": "n. 訂金、存款", "en": "A 20% deposit is required to secure the booking.", "zh": "需支付兩成訂金以確保預訂。" },
+      { "label": "v. 存放", "en": "Please deposit the check at the nearest branch.", "zh": "請到最近的分行存入這張支票。" }
+    ],
+    "hook": "把錢「放（posit）下（de）」在銀行或櫃檯——就是存款和訂金。"
+  },
+  {
+    "word": "dispose",
+    "ipa": "dɪˈspoʊz",
+    "pos": "v.",
+    "zh": "處理；丟棄（dispose of）",
+    "roots": [
+      { "text": "dis", "meaning": "apart（分開）" },
+      { "text": "pos", "meaning": "to place（放置）" },
+      { "text": "e", "meaning": null }
+    ],
+    "rootStory": "dis（分開）+ pos（放置）→ 分開放到別處 → 處理掉",
+    "example": "Please dispose of batteries at designated recycling points.",
+    "exampleZh": "請將電池丟棄在指定的回收點。",
+    "hook": "pos 是「放」：dis 分開放＝丟棄、pro 往前放＝提議、de 往下放＝存放。"
+  },
+  {
+    "word": "propose",
+    "ipa": "prəˈpoʊz",
+    "pos": "v.",
+    "zh": "提議；建議；求婚",
+    "roots": [
+      { "text": "pro", "meaning": "forward（向前）" },
+      { "text": "pos", "meaning": "to place（放置）" },
+      { "text": "e", "meaning": null }
+    ],
+    "rootStory": "pro（向前）+ pos（放置）→ 把想法放到大家面前 → 提議",
+    "example": "She proposed a new marketing strategy at the meeting.",
+    "exampleZh": "她在會議上提出了新的行銷策略。",
+    "hook": "求婚也是 propose——把戒指「放（pos）到對方面前（pro）」。"
+  },
+  {
+    "word": "postpone",
+    "ipa": "poʊstˈpoʊn",
+    "pos": "vt.",
+    "zh": "延期；推遲",
+    "roots": [
+      { "text": "post", "meaning": "after（在後）" },
+      { "text": "pon", "meaning": "to place（放置）" },
+      { "text": "e", "meaning": null }
+    ],
+    "rootStory": "post（在後）+ pon（放置）→ 放到後面去 → 延期",
+    "example": "The outdoor event was postponed due to heavy rain.",
+    "exampleZh": "戶外活動因大雨而延期。",
+    "hook": "post 是「後」（postwar 戰後）——把事情「放（pon）到後面（post）」就是延期。"
+  },
+  {
+    "word": "maintain",
+    "ipa": "meɪnˈteɪn",
+    "pos": "vt.",
+    "zh": "維持；保養；主張",
+    "roots": [
+      { "text": "main", "meaning": "hand（手，源自 manu）" },
+      { "text": "tain", "meaning": "to hold（握住）" }
+    ],
+    "rootStory": "main（手）+ tain（握住）→ 用手一直握著 → 維持",
+    "example": "Regular service helps maintain the equipment in good condition.",
+    "exampleZh": "定期保養有助於讓設備保持良好狀態。",
+    "hook": "tain 是「握」：main 用手握著＝維持、ob 努力握到＝獲得、con 握在裡面＝包含。"
+  },
+  {
+    "word": "obtain",
+    "ipa": "əbˈteɪn",
+    "pos": "vt.",
+    "zh": "獲得；取得",
+    "roots": [
+      { "text": "ob", "meaning": "toward（朝向）" },
+      { "text": "tain", "meaning": "to hold（握住）" }
+    ],
+    "rootStory": "ob（朝向）+ tain（握住）→ 伸手過去握到 → 獲得",
+    "example": "You must obtain a permit before starting construction.",
+    "exampleZh": "開工前必須先取得許可證。",
+    "hook": "伸手朝向（ob）目標並握住（tain）——比 get 正式的「取得」。"
+  },
+  {
+    "word": "contain",
+    "ipa": "kənˈteɪn",
+    "pos": "vt.",
+    "zh": "包含；容納；抑制",
+    "roots": [
+      { "text": "con", "meaning": "together（一起）" },
+      { "text": "tain", "meaning": "to hold（握住）" }
+    ],
+    "rootStory": "con（一起）+ tain（握住）→ 把東西全握在一起 → 包含、容納",
+    "example": "This document contains confidential information.",
+    "exampleZh": "這份文件包含機密資訊。",
+    "hook": "貨櫃叫 container——把貨物全部「握（tain）在一起（con）」的大箱子。"
+  },
+  {
+    "word": "require",
+    "ipa": "rɪˈkwaɪər",
+    "pos": "vt.",
+    "zh": "需要；要求",
+    "roots": [
+      { "text": "re", "meaning": "again（再）" },
+      { "text": "quir", "meaning": "to seek / ask（尋求）" },
+      { "text": "e", "meaning": null }
+    ],
+    "rootStory": "re（再）+ quir（尋求）→ 一再地尋求 → 要求、需要",
+    "example": "This position requires at least three years of experience.",
+    "exampleZh": "這個職位要求至少三年的經驗。",
+    "hook": "quir/quest 都是「尋求」：re 一再求＝要求、in 進去問＝詢問、ac 求到手＝取得。"
+  },
+  {
+    "word": "inquire",
+    "ipa": "ɪnˈkwaɪər",
+    "pos": "v.",
+    "zh": "詢問；查詢",
+    "roots": [
+      { "text": "in", "meaning": "into（往內）" },
+      { "text": "quir", "meaning": "to seek / ask（尋求）" },
+      { "text": "e", "meaning": null }
+    ],
+    "rootStory": "in（往內）+ quir（尋求）→ 深入探求 → 詢問",
+    "example": "Several customers inquired about the delivery schedule.",
+    "exampleZh": "幾位顧客詢問了出貨時程。",
+    "hook": "客服信開頭常見 Thank you for your inquiry——你「深入尋求」的那個問題。"
+  },
+  {
+    "word": "acquire",
+    "ipa": "əˈkwaɪər",
+    "pos": "vt.",
+    "zh": "獲得；習得；收購",
+    "roots": [
+      { "text": "ac", "meaning": "toward（朝向）" },
+      { "text": "quir", "meaning": "to seek / ask（尋求）" },
+      { "text": "e", "meaning": null }
+    ],
+    "rootStory": "ac（朝向）+ quir（尋求）→ 追求到手 → 獲得、收購",
+    "example": "The corporation acquired two startups last year.",
+    "exampleZh": "該企業去年收購了兩家新創公司。",
+    "hook": "新聞常見「A 公司 acquire B 公司」——追求（quir）到手（ac）＝收購。"
+  },
+  {
+    "word": "announce",
+    "ipa": "əˈnaʊns",
+    "pos": "vt.",
+    "zh": "宣布；聲明",
+    "roots": [
+      { "text": "an", "meaning": "toward（朝向）" },
+      { "text": "nounc", "meaning": "to report（報告）" },
+      { "text": "e", "meaning": null }
+    ],
+    "rootStory": "an（朝向）+ nounc（報告）→ 向大家報告 → 宣布",
+    "example": "The CEO announced the merger this morning.",
+    "exampleZh": "執行長今天早上宣布了合併案。",
+    "hook": "nounc/nunci 是「報告」：announce 向眾人報＝宣布、pronounce 往外發聲＝發音。"
+  },
+  {
+    "word": "revise",
+    "ipa": "rɪˈvaɪz",
+    "pos": "vt.",
+    "zh": "修訂；修改",
+    "roots": [
+      { "text": "re", "meaning": "again（再）" },
+      { "text": "vis", "meaning": "to see（看）" },
+      { "text": "e", "meaning": null }
+    ],
+    "rootStory": "re（再）+ vis（看）→ 再看一次 → 修訂",
+    "example": "We revised the proposal based on client feedback.",
+    "exampleZh": "我們根據客戶回饋修改了提案。",
+    "hook": "vis 是「看」：re 再看＝修訂、super 從上往下看＝監督、tele+vis 遠距看＝電視。"
+  },
+  {
+    "word": "supervise",
+    "ipa": "ˈsuːpərvaɪz",
+    "pos": "vt.",
+    "zh": "監督；管理",
+    "roots": [
+      { "text": "super", "meaning": "above（在上）" },
+      { "text": "vis", "meaning": "to see（看）" },
+      { "text": "e", "meaning": null }
+    ],
+    "rootStory": "super（在上）+ vis（看）→ 從上面往下看 → 監督",
+    "example": "She supervises a team of twelve engineers.",
+    "exampleZh": "她管理一個十二人的工程師團隊。",
+    "hook": "supervisor（主管）就是站在上面（super）看著（vis）大家工作的人。"
+  },
+  {
+    "word": "evaluate",
+    "ipa": "ɪˈvæljueɪt",
+    "pos": "vt.",
+    "zh": "評估；評價",
+    "roots": [
+      { "text": "e", "meaning": "out（向外）" },
+      { "text": "valu", "meaning": "worth（價值）" },
+      { "text": "ate", "meaning": "動詞字尾" }
+    ],
+    "rootStory": "e（向外）+ valu（價值）+ ate → 把價值找出來 → 評估",
+    "example": "Managers evaluate employee performance twice a year.",
+    "exampleZh": "主管每年評估員工績效兩次。",
+    "hook": "value（價值）藏在正中間——評估就是把「價值」挖出來（e-）。"
+  },
+  {
+    "word": "respond",
+    "ipa": "rɪˈspɑːnd",
+    "pos": "vi.",
+    "zh": "回應；回覆",
+    "roots": [
+      { "text": "re", "meaning": "back（往回）" },
+      { "text": "spond", "meaning": "to promise / answer（承諾、應答）" }
+    ],
+    "rootStory": "re（往回）+ spond（應答）→ 把答覆送回去 → 回應",
+    "example": "Please respond to the invitation by Monday.",
+    "exampleZh": "請在週一前回覆邀請。",
+    "hook": "responsible（負責的）同字根——會「回應」的人才是可靠、負責的人。"
+  },
+  {
+    "word": "prevent",
+    "ipa": "prɪˈvɛnt",
+    "pos": "vt.",
+    "zh": "防止；預防",
+    "roots": [
+      { "text": "pre", "meaning": "before（在前）" },
+      { "text": "vent", "meaning": "to come（來）" }
+    ],
+    "rootStory": "pre（在前）+ vent（來）→ 搶在事情來之前 → 預防",
+    "example": "Regular backups prevent data loss.",
+    "exampleZh": "定期備份可防止資料遺失。",
+    "hook": "ven/vent 是「來」：pre 搶先來到＝預防、con 一起來＝召集、in 來到腦中＝發明。"
+  },
+  {
+    "word": "convene",
+    "ipa": "kənˈviːn",
+    "pos": "v.",
+    "zh": "召集（會議）；集會",
+    "roots": [
+      { "text": "con", "meaning": "together（一起）" },
+      { "text": "ven", "meaning": "to come（來）" },
+      { "text": "e", "meaning": null }
+    ],
+    "rootStory": "con（一起）+ ven（來）→ 大家一起來 → 召集",
+    "example": "The board will convene next Tuesday to discuss the budget.",
+    "exampleZh": "董事會將於下週二召開會議討論預算。",
+    "hook": "convention（大會）就是大家「一起來（con + ven）」的場合。"
+  },
+  {
+    "word": "convenient",
+    "ipa": "kənˈviːniənt",
+    "pos": "adj.",
+    "zh": "方便的；便利的",
+    "roots": [
+      { "text": "con", "meaning": "together（一起）" },
+      { "text": "ven", "meaning": "to come（來）" },
+      { "text": "ient", "meaning": "形容詞字尾" }
+    ],
+    "rootStory": "con（一起）+ ven（來）+ ient → 一切剛好湊到一起來 → 方便的",
+    "example": "Is 3 p.m. a convenient time for you?",
+    "exampleZh": "下午三點對您方便嗎？",
+    "hook": "便利商店 convenience store——什麼東西都「一起來到」你面前，超方便。"
+  },
+  {
+    "word": "revenue",
+    "ipa": "ˈrɛvənuː",
+    "pos": "n.",
+    "zh": "收入；營收；稅收",
+    "roots": [
+      { "text": "re", "meaning": "back（往回）" },
+      { "text": "ven", "meaning": "to come（來）" },
+      { "text": "ue", "meaning": null }
+    ],
+    "rootStory": "re（往回）+ ven（來）→ 錢流回來 → 營收",
+    "example": "Annual revenue grew by 8 percent this year.",
+    "exampleZh": "今年年營收成長了百分之八。",
+    "hook": "投資出去的錢「回（re）來（ven）」了——公司帳上的營收。"
+  },
+  {
+    "word": "inventory",
+    "ipa": "ˈɪnvəntɔːri",
+    "pos": "n.",
+    "zh": "存貨；庫存清單",
+    "roots": [
+      { "text": "in", "meaning": "in / upon（在內）" },
+      { "text": "vent", "meaning": "to come（來）" },
+      { "text": "ory", "meaning": "名詞字尾（場所、物）" }
+    ],
+    "rootStory": "in（在內）+ vent（來）+ ory → 清點時一件件「浮現出來」的東西 → 庫存",
+    "example": "The warehouse conducts an inventory check every month.",
+    "exampleZh": "倉庫每個月進行一次庫存盤點。",
+    "hook": "盤點就是讓倉庫裡的東西一件件「來到（vent）」清單上（-ory）。"
+  },
+  {
+    "word": "refund",
+    "ipa": "ˈriːfʌnd",
+    "pos": "n. v.",
+    "zh": "退款；退還",
+    "roots": [
+      { "text": "re", "meaning": "back（往回）" },
+      { "text": "fund", "meaning": "money / bottom（資金）" }
+    ],
+    "rootStory": "re（往回）+ fund（資金）→ 把錢退回去 → 退款",
+    "examples": [
+      { "label": "n. 退款", "en": "You may request a full refund within 30 days.", "zh": "三十天內可要求全額退款。" },
+      { "label": "v. 退還", "en": "The store refunded the full amount within three days.", "zh": "店家在三天內退還了全額。" }
+    ],
+    "hook": "fund 就是「資金、基金」——資金往回（re）流，就是退款。"
+  },
+  {
+    "word": "estimate",
+    "ipa": "ˈɛstɪmeɪt",
+    "pos": "v. n.",
+    "zh": "估計；估價；報價單",
+    "roots": [
+      { "text": "estim", "meaning": "to value（評價，源自拉丁 aestimare）" },
+      { "text": "ate", "meaning": "動詞字尾" }
+    ],
+    "rootStory": "estim（評價）+ ate → 給出一個大概的價值 → 估計",
+    "examples": [
+      { "label": "n. 估價單", "en": "The contractor gave us an estimate for the renovation.", "zh": "承包商給了我們一份裝修估價單。" },
+      { "label": "v. 估計", "en": "We estimate that the project will take three months.", "zh": "我們估計這個專案需要三個月。" }
+    ],
+    "hook": "esteem（敬重）同源——都是「評定價值」；估價是評物，敬重是評人。"
+  },
+  {
+    "word": "applicant",
+    "ipa": "ˈæplɪkənt",
+    "pos": "n.",
+    "zh": "申請人；應徵者",
+    "roots": [
+      { "text": "ap", "meaning": "toward（朝向）" },
+      { "text": "plic", "meaning": "to fold（摺疊）" },
+      { "text": "ant", "meaning": "名詞字尾（做…的人）" }
+    ],
+    "rootStory": "ap（朝向）+ plic（摺疊）+ ant（人）→ 把履歷摺好遞過去的人 → 申請人",
+    "example": "Over fifty applicants applied for the position.",
+    "exampleZh": "超過五十位應徵者申請了這個職位。",
+    "hook": "apply、application 同家族——古人把申請書「摺（plic）好呈上（ap）」；-ant 是「做這件事的人」。"
+  },
+  {
+    "word": "employee",
+    "ipa": "ɪmˈplɔɪiː",
+    "pos": "n.",
+    "zh": "員工；受僱者",
+    "roots": [
+      { "text": "employ", "meaning": "to hire（僱用）" },
+      { "text": "ee", "meaning": "名詞字尾（被…的人）" }
+    ],
+    "rootStory": "employ（僱用）+ ee（被…的人）→ 被僱用的人 → 員工",
+    "example": "All employees must attend the safety training.",
+    "exampleZh": "所有員工都必須參加安全訓練。",
+    "hook": "-er 是主動方、-ee 是被動方：employer 僱主、employee 員工；trainer 教練、trainee 學員。"
+  },
+  {
+    "word": "budget",
+    "ipa": "ˈbʌdʒɪt",
+    "pos": "n. v.",
+    "zh": "預算；編列預算",
+    "roots": null,
+    "rootStory": null,
+    "examples": [
+      { "label": "n. 預算", "en": "We need to stay within the marketing budget this quarter.", "zh": "本季我們必須把行銷支出控制在預算內。" },
+      { "label": "v. 編列預算", "en": "The team budgeted $20,000 for advertising this year.", "zh": "團隊今年編列了兩萬美元的廣告預算。" }
+    ],
+    "hook": "源自古法語 bougette「小錢包」——預算就是那個裝錢的小袋子有多大。"
+  },
+  {
+    "word": "staff",
+    "ipa": "stæf",
+    "pos": "n. v.",
+    "zh": "全體員工；配置人員",
+    "roots": null,
+    "rootStory": null,
+    "example": "The hotel staff were friendly and helpful.",
+    "exampleZh": "飯店員工友善又樂於助人。",
+    "hook": "原意是「手杖、桿子」——撐起整個組織的那群人，就是 staff。注意它是集合名詞。"
+  },
+  {
+    "word": "schedule",
+    "ipa": "ˈskɛdʒuːl",
+    "pos": "n. v.",
+    "zh": "時程表；排定",
+    "roots": null,
+    "rootStory": null,
+    "examples": [
+      { "label": "n. 時程表", "en": "The project is currently ahead of schedule.", "zh": "專案目前進度超前。" },
+      { "label": "v. 排定", "en": "The meeting is scheduled for Monday morning.", "zh": "會議排定在週一上午。" }
+    ],
+    "hook": "常考搭配：on schedule 準時、ahead of schedule 超前、behind schedule 落後。"
+  }
+]

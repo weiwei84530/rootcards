@@ -1,0 +1,11 @@
+# Local source of the Gemini key. js/config.js is generated from it by
+# scripts/gen-config.mjs and IS committed (the key is deliberately public;
+# it is protected by an HTTP referrer restriction on the Google side).
+.env
+
+# Local Claude Code settings (auto-accumulated permissions)
+.claude/
+
+# OS noise
+Thumbs.db
+.DS_Store

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>RootCards 字根單字卡</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">RootCards <span class="badge">沙盒 50 字</span></div>
+    <div id="session-stats" class="session-stats hidden"></div>
+  </header>
+
+  <main id="app">
+    <!-- Start screen -->
+    <section id="screen-start" class="screen">
+      <div class="start-card">
+        <h1>今晚的練習</h1>
+        <div class="progress-wrap">
+          <div class="progress-bar">
+            <div class="bar-seg bar-mastered" id="bar-mastered"></div>
+            <div class="bar-seg bar-started" id="bar-started"></div>
+          </div>
+          <div class="progress-label" id="progress-label"></div>
+        </div>
+        <ul class="stat-list">
+          <li><span id="stat-due">0</span> 張到期復習卡</li>
+          <li><span id="stat-new">0</span> 個今日可導入新字</li>
+          <li>已學 <span id="stat-learned">0</span> / <span id="stat-total">50</span> 字
+              <span id="stat-skipped" class="dim"></span></li>
+        </ul>
+        <button id="btn-start" class="primary big">開始練習</button>
+        <button id="btn-triage" class="ghost">快速分流：篩掉已會的字（剩 <span id="stat-untriaged">0</span> 字）</button>
+        <div class="voice-row">
+          <label for="voice-select">發音語音</label>
+          <select id="voice-select"></select>
+          <button id="btn-voice-test" class="ghost small">試聽</button>
+        </div>
+        <div class="maint-row">
+          <button id="btn-refresh" class="ghost small">更新版本（清快取重載）</button>
+          <button id="btn-reset" class="ghost small">重設進度</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Rapid triage screen -->
+    <section id="screen-triage" class="screen hidden">
+      <div class="card">
+        <div class="card-top">
+          <span class="card-type">快速分流 ─ 認識這個字嗎？憑直覺，別想太久</span>
+          <span id="triage-progress" class="dim"></span>
+        </div>
+        <div id="triage-body"></div>
+      </div>
+      <div class="actions">
+        <button class="rate-again" id="btn-unknown">不認識<span class="key-hint">1 / ←</span></button>
+        <button class="rate-good" id="btn-known">認識<span class="key-hint">2 / →</span></button>
+      </div>
+      <div class="actions">
+        <button class="ghost small" id="btn-triage-exit">結束分流，回首頁</button>
+      </div>
+    </section>
+
+    <!-- Session screen -->
+    <section id="screen-session" class="screen hidden">
+      <div class="card" id="card">
+        <div class="card-top">
+          <span id="card-type-label" class="card-type"></span>
+          <button id="btn-skip" class="ghost small" title="這個字我已經會了">已會了，跳過</button>
+        </div>
+        <div id="card-body"></div>
+      </div>
+      <div id="card-actions" class="actions"></div>
+    </section>
+
+    <!-- Done screen -->
+    <section id="screen-done" class="screen hidden">
+      <div class="start-card">
+        <h1>今晚完成 🎉</h1>
+        <p id="done-summary"></p>
+        <button id="btn-home" class="primary big">回首頁</button>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <!-- Optional, gitignored; regenerated from .env by scripts/gen-config.mjs.
+       Plain script tag so a missing file degrades gracefully (no Gemini button). -->
+  <script src="js/config.js"></script>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
