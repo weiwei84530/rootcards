@@ -20,6 +20,7 @@ import {
   onVoicesChanged,
   currentVoiceName,
   setPreferredVoice,
+  usingFallbackAudio,
 } from './tts.js';
 import { geminiAvailable, regenerateHook } from './gemini.js';
 
@@ -558,8 +559,11 @@ async function boot() {
   $('btn-voice-test').onclick = () => {
     populateVoicePicker(); // voices may have loaded after boot
     unlock();
-    speak('This is a pronunciation test. Distribute. Contribute.');
-    toast(`使用語音：${currentVoiceName() || '系統預設（未偵測到英文語音）'}`, 3000);
+    speak('distribute'); // single word = the path cards actually use
+    const source = usingFallbackAudio()
+      ? '線上真人發音（系統無本機英文語音，單字改用字典音源）'
+      : `${currentVoiceName() || '系統預設'}`;
+    toast(`發音來源：${source}`, 3500);
   };
   window.addEventListener('tts-error', (e) => {
     toast(`語音播放失敗（${e.detail}）——試著換一個語音`, 3500);

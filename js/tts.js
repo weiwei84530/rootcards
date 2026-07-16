@@ -63,6 +63,33 @@ export function currentVoiceName() {
   return voice ? `${voice.name}（${voice.lang}）` : null;
 }
 
+// True when single-word playback is routed to real dictionary audio
+// because the OS exposes no local English voice.
+export function usingFallbackAudio() {
+  return !hasLocalEnglishVoice();
+}
+
+function hasLocalEnglishVoice() {
+  return getEnglishVoices().some((v) => v.localService);
+}
+
+// --- Real-audio fallback (Youdao dictvoice) ---
+// Used for single words when the OS has no local English voice: Chrome's
+// "Google ... (online)" voices are known to fail silently (end without
+// start). Sentences still go through speechSynthesis.
+let fallbackAudio = null;
+const SILENT_WAV =
+  'data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQAAAAA=';
+
+function playViaAudio(text) {
+  if (!fallbackAudio) fallbackAudio = new Audio();
+  fallbackAudio.pause();
+  fallbackAudio.src = `https://dict.youdao.com/dictvoice?audio=${encodeURIComponent(text)}&type=2`;
+  fallbackAudio.play().catch((err) => {
+    window.dispatchEvent(new CustomEvent('tts-error', { detail: err.name || 'audio-blocked' }));
+  });
+}
+
 export function setPreferredVoice(name) {
   localStorage.setItem(VOICE_KEY, name);
   pickVoice();
@@ -71,6 +98,11 @@ export function setPreferredVoice(name) {
 // Must be called synchronously inside a user gesture (e.g. the start
 // button) so that later programmatic speak() calls work on iOS.
 export function unlock() {
+  // Prime the fallback <audio> element inside this user gesture so that
+  // later programmatic plays pass Chrome's autoplay policy.
+  if (!fallbackAudio) fallbackAudio = new Audio();
+  fallbackAudio.src = SILENT_WAV;
+  fallbackAudio.play().catch(() => {});
   if (!ttsAvailable()) return;
   speechSynthesis.resume(); // engine can wake up stuck in "paused"
   const u = new SpeechSynthesisUtterance(' ');
@@ -79,7 +111,14 @@ export function unlock() {
 }
 
 export function speak(text, rate = 0.95) {
-  if (!ttsAvailable() || !text) return;
+  if (!text) return;
+  // No local English voice → online voices are unreliable; play real
+  // dictionary audio for single words instead.
+  if (!text.trim().includes(' ') && !hasLocalEnglishVoice()) {
+    playViaAudio(text.trim());
+    return;
+  }
+  if (!ttsAvailable()) return;
   if (!voice) pickVoice();
   const u = new SpeechSynthesisUtterance(text);
   u.lang = voice ? voice.lang : 'en-US';
