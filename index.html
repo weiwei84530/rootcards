@@ -98,6 +98,24 @@
       <div class="panel">
         <h2>學習數據</h2>
         <div id="stats-summary" class="chip-row"></div>
+        <div class="stats-toolbar">
+          <input type="search" id="stats-search" placeholder="搜尋單字或中文…"
+                 autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
+          <select id="stats-filter">
+            <option value="all">追蹤中</option>
+            <option value="learning">學習中</option>
+            <option value="lapse">需加強</option>
+            <option value="mastered">已掌握</option>
+            <option value="skipped">已跳過</option>
+            <option value="new">未開始</option>
+          </select>
+          <select id="stats-sort">
+            <option value="due">最快到期</option>
+            <option value="alpha">字母順序</option>
+            <option value="reps">復習最多</option>
+            <option value="lapses">忘記最多</option>
+          </select>
+        </div>
         <div class="table-wrap">
           <table class="stats-table" id="stats-table"></table>
         </div>

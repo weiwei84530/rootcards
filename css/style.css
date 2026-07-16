@@ -512,6 +512,39 @@ details.hook .regen:hover { opacity: 1; filter: none; }
 .chip.c-learning b { color: var(--gold); }
 .chip.c-lapse b { color: var(--bad); }
 
+/* Stats toolbar: same 0.88rem / 2.2rem control scale as settings */
+.stats-toolbar {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+.stats-toolbar input[type="search"],
+.stats-toolbar select {
+  font-family: inherit;
+  font-size: 0.88rem;
+  height: 2.2rem;
+  box-sizing: border-box;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0 0.7rem;
+}
+.stats-toolbar input[type="search"] { flex: 1; min-width: 150px; }
+.stats-toolbar select { background: var(--surface-2); }
+
+.undo-skip {
+  background: none;
+  border: none;
+  padding: 0 0.2rem;
+  font-size: 0.76rem;
+  color: var(--text-dim);
+  text-decoration: underline dotted;
+  opacity: 0.7;
+}
+.undo-skip:hover { opacity: 1; filter: none; }
+
 .table-wrap { overflow-x: auto; }
 .stats-table {
   width: 100%;

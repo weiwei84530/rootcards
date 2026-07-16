@@ -15,6 +15,7 @@ import {
   buildQueue,
   rateCard,
   skipWord,
+  unskipWord,
   humanizeInterval,
   needsRequeue,
   dayStats,
@@ -253,6 +254,16 @@ function wordStatus(w) {
   return 'learning';
 }
 
+// Finer-grained status for the stats page: repeated forgetting surfaces
+// as its own bucket so problem words are findable.
+function wordStatusEx(w) {
+  const st = wordStatus(w);
+  if (st !== 'learning') return st;
+  const lapses =
+    (getCard(progress, w.word, 'R')?.lapses || 0) + (getCard(progress, w.word, 'S')?.lapses || 0);
+  return lapses >= 3 ? 'lapse' : 'learning';
+}
+
 function renderStart() {
   phase = 'start';
   current = null;
@@ -313,49 +324,82 @@ function renderStats() {
     <span class="chip"><b>${Math.floor((day.seconds || 0) / 60)}</b>今日分鐘</span>
   `;
 
-  // Soonest-due first, so「接下來會考什麼」一眼可見.
-  const allRows = tracked
-    .map((w) => {
-      const r = getCard(progress, w.word, 'R');
-      const s = getCard(progress, w.word, 'S');
-      const nextDue = Math.min(r ? r.due.getTime() : Infinity, s ? s.due.getTime() : Infinity);
-      return { w, r, s, nextDue };
-    })
-    .sort((a, b) => a.nextDue - b.nextDue);
+  // Candidate set: search covers every word (incl. untracked); otherwise
+  // the status filter decides ('all' = every tracked word).
+  const query = $('stats-search').value.trim().toLowerCase();
+  const filter = $('stats-filter').value;
+  const sortBy = $('stats-sort').value;
+
+  let candidates = query
+    ? words.filter((w) => w.word.toLowerCase().includes(query) || w.zh.includes(query))
+    : words;
+  candidates = candidates.filter((w) => {
+    const st = wordStatusEx(w);
+    if (filter === 'all') return query ? true : st !== 'new';
+    return st === filter;
+  });
+
+  const allRows = candidates.map((w) => {
+    const r = getCard(progress, w.word, 'R');
+    const s = getCard(progress, w.word, 'S');
+    const nextDue = Math.min(r ? r.due.getTime() : Infinity, s ? s.due.getTime() : Infinity);
+    return { w, r, s, nextDue };
+  });
+  const sorters = {
+    due: (a, b) => a.nextDue - b.nextDue,
+    alpha: (a, b) => a.w.word.localeCompare(b.w.word),
+    reps: (a, b) => (b.r?.reps || 0) + (b.s?.reps || 0) - ((a.r?.reps || 0) + (a.s?.reps || 0)),
+    lapses: (a, b) =>
+      (b.r?.lapses || 0) + (b.s?.lapses || 0) - ((a.r?.lapses || 0) + (a.s?.lapses || 0)),
+  };
+  allRows.sort(sorters[sortBy] || sorters.due);
+
   // Render cap keeps the tab instant even at 5,000+ tracked words;
   // "show all" opts into the full table on demand.
   const rows = statsShowAll ? allRows : allRows.slice(0, STATS_ROW_CAP);
 
-  const statusChip = (w) => {
-    const st = wordStatus(w);
-    if (st === 'mastered') return '<span class="st-chip mastered">已掌握</span>';
-    if (st === 'skipped') return '<span class="st-chip">已跳過</span>';
-    const lapses = (getCard(progress, w.word, 'R')?.lapses || 0) + (getCard(progress, w.word, 'S')?.lapses || 0);
-    return lapses >= 3
-      ? '<span class="st-chip lapse">需加強</span>'
-      : '<span class="st-chip learning">學習中</span>';
+  const CHIPS = {
+    mastered: '<span class="st-chip mastered">已掌握</span>',
+    skipped: '<span class="st-chip">已跳過</span>',
+    lapse: '<span class="st-chip lapse">需加強</span>',
+    learning: '<span class="st-chip learning">學習中</span>',
+    new: '<span class="st-chip">未開始</span>',
   };
 
   $('stats-table').innerHTML = `
     <tr><th>單字</th><th>中文</th><th>狀態</th><th>認讀卡</th><th>拼寫卡</th><th>復習</th><th>忘記</th></tr>
     ${rows
-      .map(
-        ({ w, r, s }) => `
+      .map(({ w, r, s }) => {
+        const st = wordStatusEx(w);
+        const undo =
+          st === 'skipped'
+            ? ` <button class="undo-skip" data-word="${w.word}" title="撤銷跳過，回到學習流程">取回</button>`
+            : '';
+        return `
       <tr>
         <td class="w">${coloredWord(w)}</td>
         <td class="zh dim">${w.zh.split('；')[0]}</td>
-        <td>${statusChip(w)}</td>
+        <td>${CHIPS[st]}${undo}</td>
         <td>${dueCell(r, now)}</td>
         <td>${dueCell(s, now)}</td>
         <td>${(r?.reps || 0) + (s?.reps || 0)}</td>
         <td>${(r?.lapses || 0) + (s?.lapses || 0) || ''}</td>
-      </tr>`
-      )
+      </tr>`;
+      })
       .join('')}
   `;
+  document.querySelectorAll('.undo-skip').forEach((btn) => {
+    btn.onclick = () => {
+      unskipWord(progress, btn.dataset.word);
+      saveProgress(progress);
+      toast(`「${btn.dataset.word}」已取回，將以新單字重新學習`);
+      renderStats();
+    };
+  });
+
   const hidden = allRows.length - rows.length;
   $('stats-note').innerHTML =
-    `尚未開始的 ${words.length - tracked.length} 字不在表中。到期時間是 FSRS 預測你即將遺忘、需要再看的時間點。` +
+    `到期時間是 FSRS 預測你即將遺忘、需要再看的時間點。未開始的字可用搜尋或「未開始」過濾查看。` +
     (hidden > 0
       ? ` <button class="ghost small" id="btn-stats-all">顯示其餘 ${hidden} 筆</button>`
       : '');
@@ -742,6 +786,15 @@ async function boot() {
   $('tab-stats').onclick = () => {
     statsShowAll = false; // fresh visits start with the fast capped view
     renderStats();
+  };
+  $('stats-search').addEventListener('input', () => {
+    if (phase === 'stats') renderStats();
+  });
+  $('stats-filter').onchange = () => {
+    if (phase === 'stats') { statsShowAll = false; renderStats(); }
+  };
+  $('stats-sort').onchange = () => {
+    if (phase === 'stats') renderStats();
   };
   $('tab-settings').onclick = renderSettings;
 

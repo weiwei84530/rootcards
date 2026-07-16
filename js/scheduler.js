@@ -135,6 +135,16 @@ export function skipWord(progress, word, now = new Date()) {
   progress.introduced[word] = true;
 }
 
+// Undo an accidental skip: the word returns to the pipeline as a brand-new
+// word (learn card first). Its triaged flag is kept so it won't reappear
+// in rapid triage; the review log keeps its history.
+export function unskipWord(progress, word) {
+  delete progress.skipped[word];
+  delete progress.introduced[word];
+  delete progress.cards[cardId(word, 'R')];
+  delete progress.cards[cardId(word, 'S')];
+}
+
 // Human-readable "next review in ..." for the toast.
 export function humanizeInterval(from, to) {
   const mins = Math.round((to - from) / 60000);

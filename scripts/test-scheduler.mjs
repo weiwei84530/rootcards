@@ -9,6 +9,7 @@ import {
   buildQueue,
   rateCard,
   skipWord,
+  unskipWord,
   humanizeInterval,
   needsRequeue,
   dayStats,
@@ -56,6 +57,14 @@ check('skipped word absent from queue', !q2.some((it) => it.word.word === skipTa
 const skippedCard = progress.cards[`${skipTarget}|R`];
 const daysOut = (new Date(skippedCard.due) - now) / 86400000;
 check('skipped card due ~120 days out', daysOut > 110 && daysOut < 130);
+
+// 4b. Unskip restores the word to the pipeline as brand-new.
+unskipWord(progress, skipTarget);
+const q2b = buildQueue(words, progress, now);
+check('unskipped word re-enters queue as fresh R card',
+  q2b.some((it) => it.word.word === skipTarget && it.type === 'R'));
+check('unskipped word has no stored cards', getCard(progress, skipTarget, 'R') === null);
+skipWord(progress, skipTarget, now); // restore skip for later checks
 
 // 5. Introduced words no longer reappear as fresh pairs.
 check('introduced word not offered as fresh again',
