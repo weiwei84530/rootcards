@@ -5,6 +5,7 @@
 const VOICE_KEY = 'learneng-voice';
 
 let voice = null;
+let speakSeq = 0;
 const changedCallbacks = [];
 
 export function ttsAvailable() {
@@ -87,6 +88,19 @@ export function speak(text, rate = 0.95) {
   // Surface failures to the UI (app.js listens and shows a toast).
   u.onerror = (e) =>
     window.dispatchEvent(new CustomEvent('tts-error', { detail: e.error || 'unknown' }));
+  // Watchdog: network voices (e.g. "Google US English") can fail with no
+  // sound AND no error event. If playback hasn't started in 2.5s, say so —
+  // unless a newer speak() superseded this utterance in the meantime.
+  const mySeq = ++speakSeq;
+  let started = false;
+  u.onstart = () => { started = true; };
+  setTimeout(() => {
+    if (!started && mySeq === speakSeq) {
+      window.dispatchEvent(
+        new CustomEvent('tts-error', { detail: '2.5 秒內未開始播放——若目前是「線上」語音，請換成標「本機」的語音' })
+      );
+    }
+  }, 2500);
   // Chrome quirks: cancel() immediately followed by speak() can silently
   // swallow the new utterance, and the engine sometimes sits in a paused
   // state. Cancel, then speak on a short delay with an explicit resume.
