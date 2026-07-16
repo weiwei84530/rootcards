@@ -6,7 +6,9 @@
 
 ## 特色
 
-- **FSRS v6 排程**（vendored [ts-fsrs](https://github.com/open-spaced-repetition/ts-fsrs)）：目標保持率 0.9，每日新字上限 20，所有復習紀錄保留供未來個人化參數優化。
+- **FSRS v6 排程**（vendored [ts-fsrs](https://github.com/open-spaced-repetition/ts-fsrs)）：目標保持率 0.9，所有復習紀錄保留供未來個人化參數優化。
+- **專注計時器**：以每日練習時間（預設 30 分鐘）取代每日新字配額；只在頁面前景時計時，切到背景自動暫停，時間到會提醒並結束當日練習。
+- **數據頁**：每個追蹤中的單字的兩張卡狀態、下次到期、復習與遺忘次數全部攤開，排程不是黑箱。
 - **雙卡型獨立排程**：認讀卡（英→中，自評）與拼寫卡（中→英，鍵盤輸入自動判定）分開追蹤，各自有自己的記憶曲線。
 - **字根彩色拆解**：`dis|tribut|e` 以位置色序（苔綠／琥珀／陶土／灰藍）標示，一眼看出組成；拼寫卡未畢業前以虛線字根當提示，畢業後全憑記憶。無法有意義拆解的字不硬拆。
 - **新字先教再考**：首見顯示完整詞條（字根、例句、發音），空白鍵繼續；拼寫練習由後續的拼寫卡負責。
@@ -25,7 +27,7 @@ node scripts/analyze.mjs         # TOEIC/TOEFL word list overlap report
 node scripts/gen-config.mjs      # regenerate js/config.js from .env
 ```
 
-`.env` 內容：`GEMINI_API_KEY=<your key>`。`js/config.js` 由腳本生成並隨站發布（本專案的 key 刻意公開，靠 Google 端的 HTTP referrer 限制保護；fork 的人請換自己的 key）。
+Gemini key 請在 App 的「設定」頁貼上（只存於該裝置的 localStorage）。**不要把 key 放進 repo**：GitHub 會把外洩的 GCP key 回報給 Google，幾小時內就會被自動撤銷。本機開發可用 `.env` ＋ `node scripts/gen-config.mjs` 生成 gitignored 的 `js/config.js` 作為備用來源。
 
 ## 資料來源
 

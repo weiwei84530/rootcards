@@ -1,6 +1,13 @@
-// Main UI state machine for the LearnEng sandbox prototype.
+// Main UI state machine for RootCards: three tabs (cards / stats /
+// settings), a focus-time practice timer, and the card session flow.
 
-import { loadProgress, saveProgress, resetProgress } from './storage.js';
+import {
+  loadProgress,
+  saveProgress,
+  resetProgress,
+  loadSettings,
+  saveSettings,
+} from './storage.js';
 import {
   Rating,
   State,
@@ -8,9 +15,10 @@ import {
   buildQueue,
   rateCard,
   skipWord,
-  remainingNewToday,
   humanizeInterval,
   needsRequeue,
+  dayStats,
+  getCard,
 } from './scheduler.js';
 import {
   speak,
@@ -22,17 +30,26 @@ import {
   setPreferredVoice,
   usingFallbackAudio,
 } from './tts.js';
-import { geminiAvailable, regenerateHook } from './gemini.js';
+import {
+  geminiAvailable,
+  regenerateHook,
+  getGeminiKey,
+  setGeminiKey,
+} from './gemini.js';
 
 let words = [];
 let progress = null;
+let settings = loadSettings();
 let queue = [];
 let current = null; // { word, type, spell? }
-let phase = 'start'; // start | front | back | spell | spell-feedback | triage | done
+let phase = 'start'; // start | front | back | spell | spell-feedback | learn | triage | done | stats | settings
 let sessionReviews = 0;
 let triageList = [];
 let triageIdx = 0;
 let triageKnown = 0;
+
+const PRACTICE_PHASES = new Set(['front', 'back', 'spell', 'spell-feedback', 'learn', 'triage']);
+const STATE_NAMES = { 0: '新卡', 1: '學習中', 2: '複習', 3: '重學中' };
 
 const $ = (id) => document.getElementById(id);
 
@@ -86,6 +103,13 @@ function exampleBlocks(w) {
     .join('');
 }
 
+function wireExampleSpeakers(w) {
+  const list = examplesOf(w);
+  document.querySelectorAll('.btn-speak-ex').forEach((btn) => {
+    btn.onclick = () => speak(list[Number(btn.dataset.i)].en);
+  });
+}
+
 // Memory hook block: shows the (possibly user-regenerated) hook with a
 // Gemini-powered "give me another one" button when a key is configured.
 function hookBlock(w) {
@@ -116,18 +140,15 @@ function wireHookRegen(w) {
   };
 }
 
-function wireExampleSpeakers(w) {
-  const list = examplesOf(w);
-  document.querySelectorAll('.btn-speak-ex').forEach((btn) => {
-    btn.onclick = () => speak(list[Number(btn.dataset.i)].en);
-  });
-}
-
 function showScreen(name) {
-  for (const s of ['start', 'session', 'triage', 'done']) {
+  for (const s of ['start', 'session', 'triage', 'done', 'stats', 'settings']) {
     $(`screen-${s}`).classList.toggle('hidden', s !== name);
   }
   $('session-stats').classList.toggle('hidden', name !== 'session');
+  const tab = name === 'stats' ? 'stats' : name === 'settings' ? 'settings' : 'cards';
+  for (const t of ['cards', 'stats', 'settings']) {
+    $(`tab-${t}`).classList.toggle('active', t === tab);
+  }
 }
 
 function toast(msg, ms = 1800) {
@@ -146,12 +167,77 @@ function updateSessionStats() {
   $('session-stats').textContent = `剩餘 ${queue.length + (current ? 1 : 0)} 張`;
 }
 
+// ---------- focus-time timer ----------
+// Practice time only accrues while a practice screen is showing AND the
+// page is in the foreground (visible + focused). Hitting the daily goal
+// ends the session with a clear notice.
+
+function goalSeconds() {
+  return settings.minutes * 60;
+}
+
+function renderTimer(paused) {
+  const day = dayStats(progress);
+  const sec = day.seconds || 0;
+  const pct = Math.min(1, sec / goalSeconds());
+  $('ring-fg').style.strokeDashoffset = String(100 - pct * 100);
+  $('timer-wrap').classList.toggle('done', pct >= 1);
+  if (paused) {
+    $('timer-text').textContent = '⏸ 暫停';
+  } else if (pct >= 1) {
+    $('timer-text').textContent = '目標達成';
+  } else {
+    const remain = Math.ceil((goalSeconds() - sec) / 60);
+    $('timer-text').textContent = `剩 ${remain} 分`;
+  }
+}
+
+function timeUp() {
+  toast(`${settings.minutes} 分鐘到了，今天的練習完成！`, 4000);
+  if (phase === 'triage') {
+    endTriage();
+  } else {
+    finishSession('時間到 ⏰');
+  }
+}
+
+function startTimerLoop() {
+  setInterval(() => {
+    const practicing = PRACTICE_PHASES.has(phase);
+    $('timer-wrap').classList.toggle('hidden', !practicing);
+    if (!practicing) return;
+    const focused = !document.hidden && document.hasFocus();
+    if (!focused) {
+      renderTimer(true);
+      return;
+    }
+    const day = dayStats(progress);
+    day.seconds = (day.seconds || 0) + 1;
+    if (day.seconds % 10 === 0) saveProgress(progress);
+    renderTimer(false);
+    if (day.seconds >= goalSeconds() && !day.timeUpNotified) {
+      day.timeUpNotified = true;
+      saveProgress(progress);
+      timeUp();
+    }
+  }, 1000);
+}
+
 // ---------- start screen ----------
 
 function untriagedWords() {
   return words.filter(
     (w) => !progress.introduced[w.word] && !progress.skipped[w.word] && !progress.triaged[w.word]
   );
+}
+
+function wordStatus(w) {
+  if (progress.skipped[w.word]) return 'skipped';
+  const r = getCard(progress, w.word, 'R');
+  const s = getCard(progress, w.word, 'S');
+  if (!r && !s) return 'new';
+  if (r?.state === State.Review && s?.state === State.Review) return 'mastered';
+  return 'learning';
 }
 
 function renderStart() {
@@ -162,37 +248,108 @@ function renderStart() {
   const dueCount = allDue.filter((it) => progress.cards[`${it.word.word}|${it.type}`]).length;
   const learned = Object.keys(progress.introduced || {}).length;
   const skipped = Object.keys(progress.skipped || {}).length;
+  const day = dayStats(progress, now);
 
   $('stat-due').textContent = dueCount;
-  $('stat-new').textContent = Math.min(
-    remainingNewToday(progress, now),
-    words.filter((w) => !progress.introduced[w.word]).length
-  );
+  $('stat-time').textContent = Math.floor((day.seconds || 0) / 60);
+  $('stat-time-goal').textContent = settings.minutes;
   $('stat-learned').textContent = learned;
   $('stat-total').textContent = words.length;
   $('stat-skipped').textContent = skipped ? `（含跳過 ${skipped} 字）` : '';
   $('stat-untriaged').textContent = untriagedWords().length;
 
-  // Progress bar: mastered = both cards graduated to Review state;
-  // started = introduced (incl. skipped) but not yet mastered.
-  const mastered = words.filter((w) =>
-    ['R', 'S'].every((t) => {
-      const c = progress.cards[`${w.word}|${t}`];
-      return c && c.state === State.Review;
-    })
-  ).length;
+  const mastered = words.filter((w) => wordStatus(w) === 'mastered').length;
   const started = learned - mastered;
-  const pctM = (mastered / words.length) * 100;
-  const pctS = (started / words.length) * 100;
-  $('bar-mastered').style.width = `${pctM}%`;
-  $('bar-started').style.width = `${pctS}%`;
+  $('bar-mastered').style.width = `${(mastered / words.length) * 100}%`;
+  $('bar-started').style.width = `${(started / words.length) * 100}%`;
   $('progress-label').textContent =
     `已掌握 ${mastered} ・ 學習中 ${started} ・ 未開始 ${words.length - learned}`;
 
   showScreen('start');
 }
 
-// ---------- voice picker ----------
+// ---------- stats tab ----------
+
+function dueCell(card, now) {
+  if (!card) return '<span class="dim">未開始</span>';
+  const state = STATE_NAMES[card.state] ?? card.state;
+  const due =
+    card.due <= now
+      ? '<span class="due-now">已到期</span>'
+      : humanizeInterval(now, card.due);
+  return `${state} ・ ${due}`;
+}
+
+function renderStats() {
+  phase = 'stats';
+  const now = new Date();
+
+  const tracked = words.filter((w) => wordStatus(w) !== 'new');
+  const counts = { mastered: 0, learning: 0, skipped: 0 };
+  for (const w of tracked) counts[wordStatus(w)]++;
+  const totalReviews = progress.log.length;
+  const day = dayStats(progress, now);
+
+  $('stats-summary').innerHTML = `
+    <span class="chip c-mastered"><b>${counts.mastered}</b>已掌握</span>
+    <span class="chip c-learning"><b>${counts.learning}</b>學習中</span>
+    <span class="chip"><b>${counts.skipped}</b>已跳過</span>
+    <span class="chip"><b>${words.length - tracked.length}</b>未開始</span>
+    <span class="chip"><b>${totalReviews}</b>總復習次數</span>
+    <span class="chip"><b>${Math.floor((day.seconds || 0) / 60)}</b>今日分鐘</span>
+  `;
+
+  // Soonest-due first, so「接下來會考什麼」一眼可見.
+  const rows = tracked
+    .map((w) => {
+      const r = getCard(progress, w.word, 'R');
+      const s = getCard(progress, w.word, 'S');
+      const nextDue = Math.min(r ? r.due.getTime() : Infinity, s ? s.due.getTime() : Infinity);
+      return { w, r, s, nextDue };
+    })
+    .sort((a, b) => a.nextDue - b.nextDue);
+
+  const statusChip = (w) => {
+    const st = wordStatus(w);
+    if (st === 'mastered') return '<span class="st-chip mastered">已掌握</span>';
+    if (st === 'skipped') return '<span class="st-chip">已跳過</span>';
+    const lapses = (getCard(progress, w.word, 'R')?.lapses || 0) + (getCard(progress, w.word, 'S')?.lapses || 0);
+    return lapses >= 3
+      ? '<span class="st-chip lapse">需加強</span>'
+      : '<span class="st-chip learning">學習中</span>';
+  };
+
+  $('stats-table').innerHTML = `
+    <tr><th>單字</th><th>中文</th><th>狀態</th><th>認讀卡</th><th>拼寫卡</th><th>復習</th><th>忘記</th></tr>
+    ${rows
+      .map(
+        ({ w, r, s }) => `
+      <tr>
+        <td class="w">${coloredWord(w)}</td>
+        <td class="dim">${w.zh.split('；')[0]}</td>
+        <td>${statusChip(w)}</td>
+        <td>${dueCell(r, now)}</td>
+        <td>${dueCell(s, now)}</td>
+        <td>${(r?.reps || 0) + (s?.reps || 0)}</td>
+        <td>${(r?.lapses || 0) + (s?.lapses || 0) || ''}</td>
+      </tr>`
+      )
+      .join('')}
+  `;
+  $('stats-note').textContent =
+    `尚未開始的 ${words.length - tracked.length} 字不在表中。「複習」欄的到期時間就是 FSRS 預測你即將遺忘、需要再看的時間點。`;
+  showScreen('stats');
+}
+
+// ---------- settings tab ----------
+
+function renderSettings() {
+  phase = 'settings';
+  $('input-minutes').value = settings.minutes;
+  $('key-status').textContent = getGeminiKey() ? '✓ 已設定' : '未設定';
+  populateVoicePicker();
+  showScreen('settings');
+}
 
 function populateVoicePicker() {
   const sel = $('voice-select');
@@ -260,7 +417,7 @@ function endTriage() {
 
 function startSession() {
   unlock(); // enable TTS inside this user gesture (iOS requirement)
-  if (!ttsAvailable()) toast('此瀏覽器不支援語音合成，發音功能停用');
+  if (!ttsAvailable() && !usingFallbackAudio()) toast('此瀏覽器不支援語音合成，發音功能停用');
   queue = buildQueue(words, progress, new Date());
   sessionReviews = 0;
   if (queue.length === 0) {
@@ -287,10 +444,13 @@ function nextCard() {
   }
 }
 
-function finishSession() {
+function finishSession(title = '今晚完成 🎉') {
   phase = 'done';
   current = null;
-  $('done-summary').textContent = `本次共復習 ${sessionReviews} 張卡片。`;
+  const day = dayStats(progress);
+  $('done-title').textContent = title;
+  $('done-summary').textContent =
+    `本次共復習 ${sessionReviews} 張卡片，今日已練習 ${Math.floor((day.seconds || 0) / 60)} 分鐘。`;
   showScreen('done');
 }
 
@@ -369,7 +529,7 @@ function renderReadingBack() {
 // The answer is always the FULL word. While the card is still young
 // (not yet in long-term Review state), the word is shown with one root
 // segment blanked out as a visual scaffold; once the card graduates,
-// the scaffold disappears (audio + meaning only). Words without a root
+// the scaffold disappears (meaning only). Words without a root
 // breakdown never get a scaffold.
 function decideSpellingMode(w) {
   if (!w.roots) return { mode: 'full' };
@@ -421,7 +581,7 @@ function renderSpellingFront() {
   input.focus();
 }
 
-// answer === null means the user gave up (pressed Enter).
+// answer === null means the user gave up.
 function submitSpelling(answer) {
   const w = current.word;
   const correct = answer !== null && answer.trim().toLowerCase() === w.word.toLowerCase();
@@ -531,13 +691,36 @@ async function boot() {
   progress.log ??= [];
   progress.hooks ??= {};
 
+  // Tabs
+  $('tab-cards').onclick = renderStart;
+  $('tab-stats').onclick = renderStats;
+  $('tab-settings').onclick = renderSettings;
+
+  // Cards tab
   $('btn-start').onclick = startSession;
   $('btn-home').onclick = renderStart;
   $('btn-skip').onclick = handleSkip;
+  $('btn-exit-session').onclick = renderStart;
   $('btn-triage').onclick = startTriage;
   $('btn-unknown').onclick = () => triageDecide(false);
   $('btn-known').onclick = () => triageDecide(true);
   $('btn-triage-exit').onclick = endTriage;
+
+  // Settings tab
+  $('input-minutes').onchange = (e) => {
+    const v = Math.max(5, Math.min(180, Number(e.target.value) || 30));
+    e.target.value = v;
+    settings.minutes = v;
+    saveSettings(settings);
+    toast(`每日練習時間：${v} 分鐘`);
+  };
+  $('btn-save-key').onclick = () => {
+    const v = $('input-gemini-key').value.trim();
+    setGeminiKey(v);
+    $('input-gemini-key').value = '';
+    $('key-status').textContent = getGeminiKey() ? '✓ 已設定' : '未設定';
+    toast(v ? 'API key 已儲存在此裝置' : 'API key 已清除');
+  };
   $('btn-refresh').onclick = forceRefresh;
   $('btn-reset').onclick = () => {
     if (confirm('確定要清除所有學習進度嗎？此動作無法復原。')) {
@@ -548,7 +731,6 @@ async function boot() {
     }
   };
 
-  populateVoicePicker();
   onVoicesChanged(populateVoicePicker);
   $('voice-select').onchange = (e) => {
     if (e.target.value) {
@@ -566,9 +748,10 @@ async function boot() {
     toast(`發音來源：${source}`, 3500);
   };
   window.addEventListener('tts-error', (e) => {
-    toast(`語音播放失敗（${e.detail}）——試著換一個語音`, 3500);
+    toast(`語音播放失敗（${e.detail}）——到設定頁換一個語音`, 3500);
   });
 
+  startTimerLoop();
   renderStart();
 }
 

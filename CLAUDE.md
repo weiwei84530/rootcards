@@ -18,12 +18,12 @@ node scripts/gen-config.mjs      # .env -> js/config.js (Gemini key)
 
 | 檔案 | 職責 |
 |---|---|
-| `js/app.js` | UI 狀態機（`phase`：start / front / back / spell / spell-feedback / learn / triage / done） |
+| `js/app.js` | UI 狀態機（`phase`：start / front / back / spell / spell-feedback / learn / triage / done / stats / settings）；三頁籤（單字卡／數據／設定）與專注計時器 |
 | `js/scheduler.js` | ts-fsrs 包裝：雙卡型排程、佇列組裝、progress 序列化 |
 | `js/storage.js` | localStorage（key `learneng-progress-v1`） |
 | `js/tts.js` | Web Speech API 包裝（語音挑選存 `learneng-voice`） |
 | `js/gemini.js` | 「換一個鉤子」（模型 `gemini-3.1-flash-lite`；勿用會思考的模型，慢 20 倍） |
-| `js/config.js` | 由 gen-config.mjs 生成，**刻意進版控**（key 公開，靠 referrer 限制保護） |
+| `js/config.js` | gitignored 本機開發備用。**Gemini key 絕不進版控**：GitHub 會回報外洩的 GCP key 給 Google 自動撤銷（第一組 key 就是這樣死的）。正式管道是設定頁貼 key 存 localStorage（`learneng-gemini-key`） |
 | `lib/ts-fsrs.mjs` | vendored ts-fsrs 5.4.1，勿手改 |
 | `data/words.json` | 單字資料；`data/raw/` 為原始字表 |
 
@@ -37,6 +37,8 @@ node scripts/gen-config.mjs      # .env -> js/config.js (Gemini key)
 - **視覺定位**：單字（襯線大字）→ 字根 → 例句為主角；記憶鉤子是最後手段，維持註腳等級的低調，靠右收合。
 - **多義字**用 `examples` 陣列（含 `label` 標注義項）；單義字用 `example`/`exampleZh`，渲染端已相容兩者。
 - `progress.log` 記錄每次評分，是未來 FSRS 個人化參數的原料，**不可省略或清除**。
+- **每日額度是「時間」不是「字數」**：settings.minutes（預設 30，存 `learneng-settings-v1`），只在練習畫面且頁面前景（visible＋focused）時累積 `progress.days[日期].seconds`；時間到（timeUpNotified 防重複）結束當日練習。buildQueue 不設新字配額。
+- 數據頁必須維持「無黑箱」：每字兩張卡的狀態、下次到期、復習/遺忘次數都要可見。
 
 ## 部署
 

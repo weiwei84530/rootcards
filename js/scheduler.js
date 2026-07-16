@@ -12,7 +12,6 @@ import {
 
 export { Rating, State };
 
-export const NEW_WORDS_PER_DAY = 20;
 const SKIP_STABILITY_DAYS = 120; // "already known" words resurface after ~4 months
 
 const params = generatorParameters({
@@ -52,22 +51,18 @@ export function todayKey(now = new Date()) {
   return `${y}-${m}-${d}`;
 }
 
-function dayStats(progress, now) {
+export function dayStats(progress, now = new Date()) {
   const key = todayKey(now);
-  if (!progress.days[key]) progress.days[key] = { newCount: 0, reviews: 0 };
+  if (!progress.days[key]) progress.days[key] = { newCount: 0, reviews: 0, seconds: 0 };
   return progress.days[key];
 }
 
-export function remainingNewToday(progress, now = new Date()) {
-  return Math.max(0, NEW_WORDS_PER_DAY - dayStats(progress, now).newCount);
-}
-
-// Queue = all due review cards (oldest first), then new cards for up to
-// the remaining daily quota of new words (reading card before spelling
-// card for each word).
+// Queue = all due review cards (oldest first), then every not-yet-introduced
+// word (reading card before spelling card). Intake is no longer capped per
+// day — the daily practice TIMER is what bounds a session now.
 export function buildQueue(words, progress, now = new Date()) {
   const due = [];
-  const freshByWord = new Map();
+  const fresh = [];
 
   for (const w of words) {
     if (progress.skipped[w.word]) continue;
@@ -76,26 +71,21 @@ export function buildQueue(words, progress, now = new Date()) {
       if (stored) {
         const card = deserializeCard(stored);
         if (card.due <= now) due.push({ word: w, type, due: card.due });
-      } else if (!progress.introduced[w.word]) {
-        if (!freshByWord.has(w.word)) freshByWord.set(w.word, []);
-        freshByWord.get(w.word).push({ word: w, type });
       }
+    }
+    if (!progress.introduced[w.word] && !progress.cards[cardId(w.word, 'R')]) {
+      fresh.push({ word: w, type: 'R' }, { word: w, type: 'S' });
     }
   }
 
   due.sort((a, b) => a.due - b.due);
-
-  const quota = remainingNewToday(progress, now);
-  const fresh = [];
-  let taken = 0;
-  for (const items of freshByWord.values()) {
-    if (taken >= quota) break;
-    items.sort((a, b) => (a.type < b.type ? -1 : 1)); // R before S
-    fresh.push(...items);
-    taken++;
-  }
-
   return [...due, ...fresh];
+}
+
+// Deserialized card for display (stats page); null if the card is new.
+export function getCard(progress, word, type) {
+  const stored = progress.cards[cardId(word, type)];
+  return stored ? deserializeCard(stored) : null;
 }
 
 // Apply a rating and persist the FSRS state. Returns the updated card.

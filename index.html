@@ -8,12 +8,28 @@
 </head>
 <body>
   <header class="topbar">
-    <div class="brand">RootCards <span class="badge">沙盒 50 字</span></div>
-    <div id="session-stats" class="session-stats hidden"></div>
+    <div class="brand">RootCards</div>
+    <nav class="tabs">
+      <button class="tab active" id="tab-cards">單字卡</button>
+      <button class="tab" id="tab-stats">數據</button>
+      <button class="tab" id="tab-settings">設定</button>
+    </nav>
+    <div class="topbar-right">
+      <div id="timer-wrap" class="timer hidden" title="今日練習時間">
+        <svg viewBox="0 0 36 36" width="26" height="26">
+          <circle class="ring-bg" cx="18" cy="18" r="15.9" fill="none" stroke-width="3.5"/>
+          <circle class="ring-fg" id="ring-fg" cx="18" cy="18" r="15.9" fill="none"
+                  stroke-width="3.5" stroke-dasharray="100" stroke-dashoffset="100"
+                  transform="rotate(-90 18 18)" stroke-linecap="round"/>
+        </svg>
+        <span id="timer-text"></span>
+      </div>
+      <div id="session-stats" class="session-stats hidden"></div>
+    </div>
   </header>
 
   <main id="app">
-    <!-- Start screen -->
+    <!-- Start screen (cards tab home) -->
     <section id="screen-start" class="screen">
       <div class="start-card">
         <h1>今晚的練習</h1>
@@ -26,21 +42,12 @@
         </div>
         <ul class="stat-list">
           <li><span id="stat-due">0</span> 張到期復習卡</li>
-          <li><span id="stat-new">0</span> 個今日可導入新字</li>
+          <li>今日已練 <span id="stat-time">0</span> / <span id="stat-time-goal">30</span> 分鐘</li>
           <li>已學 <span id="stat-learned">0</span> / <span id="stat-total">50</span> 字
               <span id="stat-skipped" class="dim"></span></li>
         </ul>
         <button id="btn-start" class="primary big">開始練習</button>
         <button id="btn-triage" class="ghost">快速分流：篩掉已會的字（剩 <span id="stat-untriaged">0</span> 字）</button>
-        <div class="voice-row">
-          <label for="voice-select">發音語音</label>
-          <select id="voice-select"></select>
-          <button id="btn-voice-test" class="ghost small">試聽</button>
-        </div>
-        <div class="maint-row">
-          <button id="btn-refresh" class="ghost small">更新版本（清快取重載）</button>
-          <button id="btn-reset" class="ghost small">重設進度</button>
-        </div>
       </div>
     </section>
 
@@ -67,7 +74,10 @@
       <div class="card" id="card">
         <div class="card-top">
           <span id="card-type-label" class="card-type"></span>
-          <button id="btn-skip" class="ghost small" title="這個字我已經會了">已會了，跳過</button>
+          <span class="card-top-btns">
+            <button id="btn-skip" class="ghost small" title="這個字我已經會了">已會了，跳過</button>
+            <button id="btn-exit-session" class="ghost small" title="進度已即時保存">返回首頁</button>
+          </span>
         </div>
         <div id="card-body"></div>
       </div>
@@ -77,17 +87,73 @@
     <!-- Done screen -->
     <section id="screen-done" class="screen hidden">
       <div class="start-card">
-        <h1>今晚完成 🎉</h1>
+        <h1 id="done-title">今晚完成 🎉</h1>
         <p id="done-summary"></p>
         <button id="btn-home" class="primary big">回首頁</button>
+      </div>
+    </section>
+
+    <!-- Stats tab -->
+    <section id="screen-stats" class="screen hidden">
+      <div class="panel">
+        <h2>學習數據</h2>
+        <div id="stats-summary" class="chip-row"></div>
+        <div class="table-wrap">
+          <table class="stats-table" id="stats-table"></table>
+        </div>
+        <p class="dim small-note" id="stats-note"></p>
+      </div>
+    </section>
+
+    <!-- Settings tab -->
+    <section id="screen-settings" class="screen hidden">
+      <div class="panel">
+        <h2>設定</h2>
+
+        <div class="setting-row">
+          <div class="setting-label">每日練習時間
+            <span class="setting-desc">計時只在頁面前景時進行；時間到會結束當日練習</span>
+          </div>
+          <div class="setting-control">
+            <input type="number" id="input-minutes" min="5" max="180" step="5"> 分鐘
+          </div>
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-label">發音語音
+            <span class="setting-desc">找不到英文「本機」語音時，單字自動改用線上真人發音</span>
+          </div>
+          <div class="setting-control">
+            <select id="voice-select"></select>
+            <button id="btn-voice-test" class="ghost small">試聽</button>
+          </div>
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-label">Gemini API key
+            <span class="setting-desc">「換一個鉤子」功能用。只存在這台裝置上，不會上傳；請勿放進公開的程式碼庫（會被 Google 自動撤銷）</span>
+          </div>
+          <div class="setting-control">
+            <input type="password" id="input-gemini-key" placeholder="貼上 API key" autocomplete="off">
+            <button id="btn-save-key" class="ghost small">儲存</button>
+            <span id="key-status" class="dim"></span>
+          </div>
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-label">維護</div>
+          <div class="setting-control">
+            <button id="btn-refresh" class="ghost small">更新版本（清快取重載）</button>
+            <button id="btn-reset" class="ghost small">重設進度</button>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
   <div id="toast" class="toast hidden"></div>
 
-  <!-- Optional, gitignored; regenerated from .env by scripts/gen-config.mjs.
-       Plain script tag so a missing file degrades gracefully (no Gemini button). -->
+  <!-- Optional, gitignored dev fallback for the Gemini key. -->
   <script src="js/config.js"></script>
   <script type="module" src="js/app.js"></script>
 </body>

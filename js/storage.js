@@ -19,3 +19,18 @@ export function saveProgress(progress) {
 export function resetProgress() {
   localStorage.removeItem(KEY);
 }
+
+const SETTINGS_KEY = 'learneng-settings-v1';
+const DEFAULT_SETTINGS = { minutes: 30 };
+
+export function loadSettings() {
+  try {
+    return { ...DEFAULT_SETTINGS, ...JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}') };
+  } catch {
+    return { ...DEFAULT_SETTINGS };
+  }
+}
+
+export function saveSettings(settings) {
+  localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
+}
