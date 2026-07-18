@@ -11203,5 +11203,5541 @@
       }
     ],
     "hook": "美國路牌 YIELD＝讓路；讓出去的另一面是「生出」——投資產出報酬。"
+  },
+  {
+    "word": "cabinet",
+    "ipa": "ˈkæbɪnət",
+    "pos": "n.",
+    "zh": "內閣；櫥櫃，陳列櫃",
+    "roots": null,
+    "rootStory": null,
+    "examples": [
+      {
+        "label": "n. 內閣",
+        "en": "The prime minister reshuffled the cabinet last month.",
+        "zh": "首相上個月改組了內閣。"
+      },
+      {
+        "label": "n. 櫥櫃，陳列櫃",
+        "en": "She keeps the good china in the glass cabinet.",
+        "zh": "她把好瓷器收在玻璃展示櫃裡。"
+      }
+    ],
+    "hook": "字面是「小房間」，引申成放東西的櫃子，也指政府的核心決策小圈子。"
+  },
+  {
+    "word": "calendar",
+    "ipa": "ˈkælɪndər",
+    "pos": "n.",
+    "zh": "日曆；曆法；行事曆",
+    "roots": null,
+    "rootStory": null,
+    "example": "Please check the calendar before scheduling the meeting.",
+    "exampleZh": "排會議前請先確認一下行事曆。",
+    "hook": "跟 calends（羅馬曆每月初一）同源，本義是「記帳日的本子」。"
+  },
+  {
+    "word": "carbon",
+    "ipa": "ˈkɑːrbən",
+    "pos": "n.",
+    "zh": "碳；碳排放",
+    "roots": null,
+    "rootStory": null,
+    "example": "Carbon is one of the most abundant elements in living organisms.",
+    "exampleZh": "碳是生物體內含量最豐富的元素之一。",
+    "hook": "環保新聞常見 carbon footprint（碳足跡）、low-carbon（低碳）。"
+  },
+  {
+    "word": "tardy",
+    "ipa": "ˈtɑːrdi",
+    "pos": "adj.",
+    "zh": "遲到的；遲緩的",
+    "roots": null,
+    "rootStory": null,
+    "example": "Students who are tardy three times will receive a warning.",
+    "exampleZh": "遲到三次的學生將會收到警告。",
+    "hook": "比 late 更正式，常見於學校出缺勤紀錄用語。"
+  },
+  {
+    "word": "capability",
+    "ipa": "ˌkeɪpəˈbɪləti",
+    "pos": "n.",
+    "zh": "能力；性能；容量",
+    "roots": [
+      {
+        "text": "cap",
+        "meaning": "to take（拿取）"
+      },
+      {
+        "text": "abil",
+        "meaning": "able（能夠，源自拉丁 habilis）"
+      },
+      {
+        "text": "ity",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "cap（拿取）+ abil（能夠）+ ity（名詞字尾）→ 能夠掌握運用的性質 → 能力",
+    "example": "The new software has the capability to process large datasets.",
+    "exampleZh": "這套新軟體有能力處理大型資料集。",
+    "hook": "跟 capable 是一家人，字尾換成 -ity 名詞化。"
+  },
+  {
+    "word": "lay",
+    "ipa": "leɪ",
+    "pos": "vt./adj.",
+    "zh": "放置；產（卵）；提出（想法）；非專業的，外行的",
+    "roots": null,
+    "rootStory": null,
+    "examples": [
+      {
+        "label": "vt. 放置",
+        "en": "Lay the documents on the desk before you leave.",
+        "zh": "離開前把文件放在桌上。"
+      },
+      {
+        "label": "adj. 非專業的",
+        "en": "The report was written for a lay audience, not experts.",
+        "zh": "這份報告是寫給非專業讀者看的，不是給專家。"
+      }
+    ],
+    "hook": "小心跟 lie 的過去式也是 lay 搞混；及物用 lay，不及物用 lie。"
+  },
+  {
+    "word": "amateur",
+    "ipa": "ˈæmətʃər",
+    "pos": "n./adj.",
+    "zh": "業餘愛好者；業餘的，非專業的",
+    "roots": [
+      {
+        "text": "am",
+        "meaning": "to love（愛，拉丁 amare）"
+      },
+      {
+        "text": "ateur",
+        "meaning": "名詞字尾（做…的人，源自法語 -ateur）"
+      }
+    ],
+    "rootStory": "am（愛）+ ateur（做…的人）→ 因為愛好而做的人 → 業餘愛好者",
+    "example": "He is an amateur photographer who sells prints on weekends.",
+    "exampleZh": "他是業餘攝影師，週末會賣照片。",
+    "hook": "字源是「因愛而做」，跟職業 professional 對比。"
+  },
+  {
+    "word": "embezzle",
+    "ipa": "ɪmˈbezl",
+    "pos": "vt.",
+    "zh": "侵占；挪用（公款）；貪污",
+    "roots": null,
+    "rootStory": null,
+    "example": "The accountant was caught embezzling company funds.",
+    "exampleZh": "這名會計被抓到挪用公司資金。",
+    "hook": "常跟 embezzlement（貪污罪）、fraud 一起出現在財經新聞。"
+  },
+  {
+    "word": "chamber",
+    "ipa": "ˈtʃeɪmbər",
+    "pos": "n.",
+    "zh": "議事廳，商會；（器官的）室，腔；彈膛",
+    "roots": null,
+    "rootStory": null,
+    "examples": [
+      {
+        "label": "n. 商會，議事廳",
+        "en": "The proposal was debated in the chamber of commerce.",
+        "zh": "這項提案在商會裡被討論。"
+      },
+      {
+        "label": "n. （心臟等的）室",
+        "en": "The heart has four separate chambers.",
+        "zh": "心臟有四個獨立的腔室。"
+      }
+    ],
+    "hook": "chamber of commerce（商會）是常見的商用片語。"
+  },
+  {
+    "word": "depression",
+    "ipa": "dɪˈpreʃn",
+    "pos": "n.",
+    "zh": "蕭條；憂鬱症，沮喪；凹陷，低氣壓",
+    "roots": [
+      {
+        "text": "de",
+        "meaning": "away（離開，此處表下降）"
+      },
+      {
+        "text": "press",
+        "meaning": "to press（壓）"
+      },
+      {
+        "text": "ion",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "de（向下）+ press（壓）+ ion（名詞字尾）→ 被向下壓 → 蕭條；沮喪",
+    "examples": [
+      {
+        "label": "n. （經濟）蕭條",
+        "en": "The Great Depression left millions of people unemployed.",
+        "zh": "經濟大蕭條讓數百萬人失業。"
+      },
+      {
+        "label": "n. 憂鬱症，沮喪",
+        "en": "He has been suffering from depression since the divorce.",
+        "zh": "離婚後他一直深受憂鬱症所苦。"
+      }
+    ],
+    "hook": "跟 press（壓）、express（表達）是同一字根家族。"
+  },
+  {
+    "word": "haggle",
+    "ipa": "ˈhæɡl",
+    "pos": "vi.",
+    "zh": "討價還價；爭論",
+    "roots": null,
+    "rootStory": null,
+    "example": "Tourists often haggle over prices at the local market.",
+    "exampleZh": "遊客常在當地市場上討價還價。",
+    "hook": "想像市場攤販一來一往拉扯喊價，就是 haggle。"
+  },
+  {
+    "word": "bill",
+    "ipa": "bɪl",
+    "pos": "n.",
+    "zh": "帳單；法案；鈔票",
+    "roots": null,
+    "rootStory": null,
+    "examples": [
+      {
+        "label": "n. 帳單",
+        "en": "Please remember to pay the electricity bill by Friday.",
+        "zh": "記得在星期五前繳電費帳單。"
+      },
+      {
+        "label": "n. （國會）法案",
+        "en": "The senate passed the bill after a long debate.",
+        "zh": "參議院經過長時間辯論後通過了這項法案。"
+      }
+    ],
+    "hook": "餐廳結帳問 Can I have the bill? 就是這個字。"
+  },
+  {
+    "word": "dealer",
+    "ipa": "ˈdiːlər",
+    "pos": "n.",
+    "zh": "商人；經銷商",
+    "roots": [
+      {
+        "text": "deal",
+        "meaning": "to deal（交易，處理）"
+      },
+      {
+        "text": "er",
+        "meaning": "名詞字尾（做…的人／物）"
+      }
+    ],
+    "rootStory": "deal（交易）+ er（做…的人）→ 做交易的人 → 經銷商",
+    "example": "The car dealer offered a discount for cash payment.",
+    "exampleZh": "這位汽車經銷商提供現金付款折扣。",
+    "hook": "跟 deal（交易，處理）是同一家，car dealer 就是車商。"
+  },
+  {
+    "word": "articulate",
+    "ipa": "ɑːrˈtɪkjələt",
+    "pos": "adj./vt.",
+    "zh": "表達清晰的，口齒清楚的；清楚地表達",
+    "roots": [
+      {
+        "text": "articul",
+        "meaning": "joint（關節，拉丁 articulus）"
+      },
+      {
+        "text": "ate",
+        "meaning": "動詞字尾"
+      }
+    ],
+    "rootStory": "articul（關節）+ ate（動詞字尾）→ 使音節如關節般分明相連 → 清楚地表達",
+    "example": "She is remarkably articulate when presenting her research.",
+    "exampleZh": "她在報告研究成果時表達得格外清晰。",
+    "hook": "本義是「有關節的」，引申成說話一節一節講得分明。"
+  },
+  {
+    "word": "breakthrough",
+    "ipa": "ˈbreɪkθruː",
+    "pos": "n.",
+    "zh": "突破；重大進展",
+    "roots": [
+      {
+        "text": "break",
+        "meaning": "to break（打破）"
+      },
+      {
+        "text": "through",
+        "meaning": "through（穿過）"
+      }
+    ],
+    "rootStory": "break（打破）+ through（穿過）→ 打破並穿越過去 → 突破",
+    "example": "Scientists announced a breakthrough in cancer treatment.",
+    "exampleZh": "科學家宣布在癌症治療上有重大突破。",
+    "hook": "字面就是「打破後穿過去」，中英文邏輯一致好記。"
+  },
+  {
+    "word": "conclusive",
+    "ipa": "kənˈkluːsɪv",
+    "pos": "adj.",
+    "zh": "確鑿的；決定性的",
+    "roots": [
+      {
+        "text": "con",
+        "meaning": "together（一起，此處表完全）"
+      },
+      {
+        "text": "clus",
+        "meaning": "to close（關閉）"
+      },
+      {
+        "text": "ive",
+        "meaning": "形容詞字尾"
+      }
+    ],
+    "rootStory": "con（完全）+ clus（關閉）→ 把討論完全關上 → 確鑿的，有定論的",
+    "example": "The investigation found no conclusive evidence of fraud.",
+    "exampleZh": "調查並未找到詐欺的確鑿證據。",
+    "hook": "跟 close、exclude 是同一字根家族，關上就是有定論。"
+  },
+  {
+    "word": "converse",
+    "ipa": "kənˈvɜːrs",
+    "pos": "adj./vi.",
+    "zh": "相反的；交談",
+    "roots": [
+      {
+        "text": "con",
+        "meaning": "together（一起）"
+      },
+      {
+        "text": "vers",
+        "meaning": "to turn（轉）"
+      },
+      {
+        "text": "e",
+        "meaning": null
+      }
+    ],
+    "rootStory": "con（一起）+ vers（轉）→ 彼此轉身面對面 → 交談；轉個方向就是相反的",
+    "examples": [
+      {
+        "label": "adj. 相反的",
+        "en": "The converse of this statement is not necessarily true.",
+        "zh": "這句話的相反陳述不一定成立。"
+      },
+      {
+        "label": "vi. 交談",
+        "en": "They conversed quietly in the corner of the room.",
+        "zh": "他們在房間角落輕聲交談。"
+      }
+    ],
+    "hook": "跟 conversation（對話）、reverse（反轉）同一字根。"
+  },
+  {
+    "word": "diplomacy",
+    "ipa": "dɪˈploʊməsi",
+    "pos": "n.",
+    "zh": "外交；外交手腕",
+    "roots": null,
+    "rootStory": null,
+    "example": "The crisis was resolved through diplomacy rather than force.",
+    "exampleZh": "這場危機是靠外交手段而非武力解決的。",
+    "hook": "diplomat（外交官）的抽象名詞，多了 -acy 字尾。"
+  },
+  {
+    "word": "leading",
+    "ipa": "ˈliːdɪŋ",
+    "pos": "adj.",
+    "zh": "主要的；領先的；領導的",
+    "roots": null,
+    "rootStory": null,
+    "example": "The company is a leading provider of cloud storage services.",
+    "exampleZh": "這家公司是雲端儲存服務的主要供應商。",
+    "hook": "就是 lead（帶領）加 -ing，走在最前面的。"
+  },
+  {
+    "word": "mode",
+    "ipa": "moʊd",
+    "pos": "n.",
+    "zh": "方式；模式；風格",
+    "roots": [
+      {
+        "text": "mod",
+        "meaning": "measure（尺度）"
+      },
+      {
+        "text": "e",
+        "meaning": null
+      }
+    ],
+    "rootStory": "mod（尺度）+ e → 衡量出來的樣子 → 方式，模式",
+    "example": "Switch the printer to draft mode to save ink.",
+    "exampleZh": "把印表機切到草稿模式以節省墨水。",
+    "hook": "跟 modern、model 是同一字根，都跟量出來的樣式有關。"
+  },
+  {
+    "word": "satellite",
+    "ipa": "ˈsætəlaɪt",
+    "pos": "n.",
+    "zh": "衛星；人造衛星",
+    "roots": null,
+    "rootStory": null,
+    "example": "The satellite transmits weather data every hour.",
+    "exampleZh": "這顆衛星每小時傳送一次氣象資料。",
+    "hook": "字源是「隨從」，衛星就像繞著行星走的隨從。"
+  },
+  {
+    "word": "laboratory",
+    "ipa": "ˈlæbrətɔːri",
+    "pos": "n.",
+    "zh": "實驗室",
+    "roots": [
+      {
+        "text": "labor",
+        "meaning": "work（勞動）"
+      },
+      {
+        "text": "atory",
+        "meaning": "place（場所，拉丁字尾 -atorium）"
+      }
+    ],
+    "rootStory": "labor（勞動）+ atory（場所字尾）→ 做工的地方 → 實驗室",
+    "example": "The samples were sent to the laboratory for analysis.",
+    "exampleZh": "這些樣本被送到實驗室做分析。",
+    "hook": "跟 labor（勞動）同字根，實驗室就是做工的地方。"
+  },
+  {
+    "word": "maintenance",
+    "ipa": "ˈmeɪntənəns",
+    "pos": "n.",
+    "zh": "維護；保養；維修；贍養費",
+    "roots": [
+      {
+        "text": "main",
+        "meaning": "hand（手，源自拉丁 manu）"
+      },
+      {
+        "text": "ten",
+        "meaning": "to hold（握住）"
+      },
+      {
+        "text": "ance",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "main（手）+ ten（握住）+ ance（名詞字尾）→ 用手握住不放 → 維持，維護",
+    "example": "Regular maintenance can extend the machine's lifespan.",
+    "exampleZh": "定期維護能延長機器的使用壽命。",
+    "hook": "跟 maintain 是一家，字面是用手握住不讓它壞掉。"
+  },
+  {
+    "word": "petroleum",
+    "ipa": "pəˈtroʊliəm",
+    "pos": "n.",
+    "zh": "石油",
+    "roots": [
+      {
+        "text": "petr",
+        "meaning": "rock（岩石，希臘文 petra）"
+      },
+      {
+        "text": "oleum",
+        "meaning": "oil（油，拉丁文）"
+      }
+    ],
+    "rootStory": "petr（岩石）+ oleum（油）→ 岩石裡的油 → 石油",
+    "example": "Petroleum remains a major source of global energy.",
+    "exampleZh": "石油仍是全球主要的能源來源之一。",
+    "hook": "字面是岩石的油，跟 petrify（嚇到石化）同字根。"
+  },
+  {
+    "word": "solar",
+    "ipa": "ˈsoʊlər",
+    "pos": "adj.",
+    "zh": "太陽的；太陽能的",
+    "roots": [
+      {
+        "text": "sol",
+        "meaning": "sun（太陽，拉丁文）"
+      },
+      {
+        "text": "ar",
+        "meaning": "形容詞字尾"
+      }
+    ],
+    "rootStory": "sol（太陽）+ ar（形容詞字尾）→ 太陽的",
+    "example": "The office building is powered entirely by solar energy.",
+    "exampleZh": "這棟辦公大樓完全靠太陽能供電。",
+    "hook": "跟 solstice（至日）同字根 sol，都跟太陽有關。"
+  },
+  {
+    "word": "static",
+    "ipa": "ˈstætɪk",
+    "pos": "adj./n.",
+    "zh": "靜態的；不變的；靜電，雜訊",
+    "roots": [
+      {
+        "text": "stat",
+        "meaning": "to stand（站立）"
+      },
+      {
+        "text": "ic",
+        "meaning": "形容詞字尾"
+      }
+    ],
+    "rootStory": "stat（站立）+ ic（形容詞字尾）→ 站著不動的 → 靜態的",
+    "examples": [
+      {
+        "label": "adj. 靜態的",
+        "en": "Sales have remained static for the past two quarters.",
+        "zh": "過去兩季的銷售額一直維持不變。"
+      },
+      {
+        "label": "n. 靜電，雜訊",
+        "en": "There was too much static on the phone line to hear clearly.",
+        "zh": "電話線雜訊太多，聽不清楚。"
+      }
+    ],
+    "hook": "跟 status、state 同字根 stat，都跟站立不動有關。"
+  },
+  {
+    "word": "cable",
+    "ipa": "ˈkeɪbl",
+    "pos": "n.",
+    "zh": "電纜；纜繩",
+    "roots": null,
+    "rootStory": null,
+    "example": "The technician replaced the damaged network cable.",
+    "exampleZh": "技術人員更換了損壞的網路線。",
+    "hook": "cable TV（有線電視）就是靠這種粗電纜傳訊號。"
+  },
+  {
+    "word": "delete",
+    "ipa": "dɪˈliːt",
+    "pos": "vt.",
+    "zh": "刪除",
+    "roots": [
+      {
+        "text": "de",
+        "meaning": "away（離開）"
+      },
+      {
+        "text": "lete",
+        "meaning": "to wipe out（抹去，拉丁 delere）"
+      }
+    ],
+    "rootStory": "de（離開）+ lete（抹去）→ 把它抹掉離開 → 刪除",
+    "example": "Please delete any duplicate files before submitting the report.",
+    "exampleZh": "提交報告前請刪除任何重複的檔案。",
+    "hook": "電腦鍵盤上的 Delete 鍵，就是這個字。"
+  },
+  {
+    "word": "terminology",
+    "ipa": "ˌtɜːrməˈnɑːlədʒi",
+    "pos": "n.",
+    "zh": "術語；專門用語",
+    "roots": [
+      {
+        "text": "termin",
+        "meaning": "end / boundary（界限）"
+      },
+      {
+        "text": "ology",
+        "meaning": "study of（…學，希臘文 logos）"
+      }
+    ],
+    "rootStory": "termin（界限）+ ology（…學）→ 界定詞義的學問 → 術語",
+    "example": "Legal terminology can be confusing for non-native speakers.",
+    "exampleZh": "法律術語對非母語人士來說可能很難懂。",
+    "hook": "跟 terminate（終結）同字根 termin，術語劃定意義的界限。"
+  },
+  {
+    "word": "command",
+    "ipa": "kəˈmænd",
+    "pos": "n./vt.",
+    "zh": "命令；指揮；掌握",
+    "roots": [
+      {
+        "text": "com",
+        "meaning": "fully（完全）"
+      },
+      {
+        "text": "mand",
+        "meaning": "to entrust / order（託付，命令）"
+      }
+    ],
+    "rootStory": "com（完全）+ mand（命令）→ 完全下達命令 → 命令，指揮",
+    "example": "The general gave the command to retreat.",
+    "exampleZh": "將軍下達了撤退的命令。",
+    "hook": "跟 demand（要求）、mandate（授權）同字根 mand。"
+  },
+  {
+    "word": "configuration",
+    "ipa": "kənˌfɪɡjəˈreɪʃn",
+    "pos": "n.",
+    "zh": "構造；配置；外形",
+    "roots": [
+      {
+        "text": "con",
+        "meaning": "together（一起）"
+      },
+      {
+        "text": "figur",
+        "meaning": "shape（形狀，拉丁 figura）"
+      },
+      {
+        "text": "ation",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "con（一起）+ figur（形狀）+ ation（名詞字尾）→ 共同組成的形狀 → 配置，構造",
+    "example": "Check the network configuration if the connection fails.",
+    "exampleZh": "如果連線失敗，請檢查網路配置。",
+    "hook": "跟 figure（外形，數字）同字根 figur。"
+  },
+  {
+    "word": "switch",
+    "ipa": "swɪtʃ",
+    "pos": "n./vt.",
+    "zh": "開關；轉換",
+    "roots": null,
+    "rootStory": null,
+    "example": "She switched careers from teaching to marketing.",
+    "exampleZh": "她把職業從教書轉換成行銷。",
+    "hook": "電燈開關 light switch，就是這個字最直覺的用法。"
+  },
+  {
+    "word": "virus",
+    "ipa": "ˈvaɪrəs",
+    "pos": "n.",
+    "zh": "病毒",
+    "roots": null,
+    "rootStory": null,
+    "example": "The lab is researching a vaccine against the new virus.",
+    "exampleZh": "實驗室正在研究對抗這種新病毒的疫苗。",
+    "hook": "電腦中毒 computer virus 也是借用這個字。"
+  },
+  {
+    "word": "cohesive",
+    "ipa": "koʊˈhiːsɪv",
+    "pos": "adj.",
+    "zh": "有凝聚力的；緊密結合的",
+    "roots": [
+      {
+        "text": "co",
+        "meaning": "together（一起）"
+      },
+      {
+        "text": "hes",
+        "meaning": "to stick（黏著，拉丁 haerere）"
+      },
+      {
+        "text": "ive",
+        "meaning": "形容詞字尾"
+      }
+    ],
+    "rootStory": "co（一起）+ hes（黏著）+ ive（形容詞字尾）→ 黏在一起的 → 有凝聚力的",
+    "example": "A cohesive team can handle pressure much better.",
+    "exampleZh": "有凝聚力的團隊更能承受壓力。",
+    "hook": "跟 hesitate（猶豫，卡住）同字根 hes，都跟黏住有關。"
+  },
+  {
+    "word": "response",
+    "ipa": "rɪˈspɑːns",
+    "pos": "n.",
+    "zh": "回應；反應；回答",
+    "roots": [
+      {
+        "text": "re",
+        "meaning": "again（再，此處表回應）"
+      },
+      {
+        "text": "spons",
+        "meaning": "to promise / answer（承諾，應答）"
+      },
+      {
+        "text": "e",
+        "meaning": null
+      }
+    ],
+    "rootStory": "re（回）+ spons（應答）→ 回頭應答 → 回應",
+    "example": "The company received a quick response from customer service.",
+    "exampleZh": "這家公司很快就收到客服的回應。",
+    "hook": "跟 respond、responsible 是一家人，都跟應答有關。"
+  },
+  {
+    "word": "slogan",
+    "ipa": "ˈsloʊɡən",
+    "pos": "n.",
+    "zh": "標語；口號",
+    "roots": null,
+    "rootStory": null,
+    "example": "The advertising team came up with a catchy new slogan.",
+    "exampleZh": "廣告團隊想出了一句朗朗上口的新標語。",
+    "hook": "源自蘇格蘭蓋爾語的戰爭吶喊，後來變成廣告口號。"
+  },
+  {
+    "word": "banner",
+    "ipa": "ˈbænər",
+    "pos": "n.",
+    "zh": "橫幅；旗幟",
+    "roots": null,
+    "rootStory": null,
+    "example": "A large banner welcomed visitors at the entrance.",
+    "exampleZh": "入口處掛著一面大橫幅歡迎訪客。",
+    "hook": "網頁上的 banner ad（橫幅廣告）就是這個字。"
+  },
+  {
+    "word": "composition",
+    "ipa": "ˌkɑːmpəˈzɪʃn",
+    "pos": "n.",
+    "zh": "組成，成分；作品，作文",
+    "roots": [
+      {
+        "text": "com",
+        "meaning": "fully（完全）"
+      },
+      {
+        "text": "posit",
+        "meaning": "to place（放置）"
+      },
+      {
+        "text": "ion",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "com（完全）+ posit（放置）+ ion（名詞字尾）→ 完整安放組建起來 → 組成，成分；作品",
+    "examples": [
+      {
+        "label": "n. 組成，成分",
+        "en": "The chemical composition of the sample was analyzed carefully.",
+        "zh": "這個樣本的化學成分被仔細分析。"
+      },
+      {
+        "label": "n. 作品，作文",
+        "en": "Students submitted a short composition on their summer break.",
+        "zh": "學生們繳交了一篇關於暑假的短文。"
+      }
+    ],
+    "hook": "跟 compose（組成，作曲）同字根，放在一起就組成了。"
+  },
+  {
+    "word": "luxurious",
+    "ipa": "lʌɡˈʒʊriəs",
+    "pos": "adj.",
+    "zh": "奢華的；豪華的",
+    "roots": [
+      {
+        "text": "luxuri",
+        "meaning": "excess / luxury（奢華，拉丁 luxuria）"
+      },
+      {
+        "text": "ous",
+        "meaning": "形容詞字尾"
+      }
+    ],
+    "rootStory": "luxuri（奢華）+ ous（形容詞字尾）→ 奢華的",
+    "example": "They stayed at a luxurious hotel overlooking the harbor.",
+    "exampleZh": "他們住在一間可以俯瞰海港的豪華飯店。",
+    "hook": "跟 luxury（奢侈品）是一家，字尾換成 -ous 形容詞。"
+  },
+  {
+    "word": "baggage",
+    "ipa": "ˈbæɡɪdʒ",
+    "pos": "n.",
+    "zh": "行李",
+    "roots": null,
+    "rootStory": null,
+    "example": "Passengers must claim their baggage at carousel three.",
+    "exampleZh": "乘客須在三號行李轉盤領取行李。",
+    "hook": "美式英語常用 baggage，英式較常說 luggage。"
+  },
+  {
+    "word": "exotic",
+    "ipa": "ɪɡˈzɑːtɪk",
+    "pos": "adj.",
+    "zh": "異國的；奇特的",
+    "roots": [
+      {
+        "text": "exo",
+        "meaning": "outside（外部，希臘文）"
+      },
+      {
+        "text": "tic",
+        "meaning": "形容詞字尾"
+      }
+    ],
+    "rootStory": "exo（外部）+ tic（形容詞字尾）→ 來自外部的 → 異國的，奇特的",
+    "example": "The market was filled with exotic fruits from Southeast Asia.",
+    "exampleZh": "市場裡擺滿了來自東南亞的異國水果。",
+    "hook": "跟 exit、exterior 同字根 exo/ex，都跟外面有關。"
+  },
+  {
+    "word": "fasten",
+    "ipa": "ˈfæsn",
+    "pos": "vt.",
+    "zh": "繫緊；扣牢",
+    "roots": [
+      {
+        "text": "fast",
+        "meaning": "firm（穩固，古英文 fæst）"
+      },
+      {
+        "text": "en",
+        "meaning": "to make / put in（使）"
+      }
+    ],
+    "rootStory": "fast（穩固）+ en（使）→ 使變穩固 → 繫緊，扣牢",
+    "example": "Please fasten your seatbelt before the plane takes off.",
+    "exampleZh": "飛機起飛前請繫好安全帶。",
+    "hook": "跟 fast（牢固的）同源，fasten 就是使牢固。"
+  },
+  {
+    "word": "voyage",
+    "ipa": "ˈvɔɪɪdʒ",
+    "pos": "n.",
+    "zh": "航行；航程",
+    "roots": [
+      {
+        "text": "voy",
+        "meaning": "way / road（道路，拉丁 via）"
+      },
+      {
+        "text": "age",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "voy（道路）+ age（名詞字尾）→ 走一趟路程 → 航行，旅程",
+    "example": "The ship's maiden voyage attracted worldwide media attention.",
+    "exampleZh": "這艘船的首航吸引了全球媒體的關注。",
+    "hook": "跟 via、convey 同字根，都跟路有關。"
+  },
+  {
+    "word": "buckle",
+    "ipa": "ˈbʌkl",
+    "pos": "n./vi.",
+    "zh": "帶扣；（因壓力）彎曲，屈服",
+    "roots": null,
+    "rootStory": null,
+    "examples": [
+      {
+        "label": "n. 帶扣",
+        "en": "The belt buckle was engraved with his initials.",
+        "zh": "這條皮帶的扣環刻著他的姓名縮寫。"
+      },
+      {
+        "label": "vi. 彎曲，屈服",
+        "en": "The shelf buckled under the weight of the books.",
+        "zh": "書架因為書本的重量而彎曲變形。"
+      }
+    ],
+    "hook": "皮帶扣環受力會彎曲，兩個意思都跟變形有關。"
+  },
+  {
+    "word": "crash",
+    "ipa": "kræʃ",
+    "pos": "n./vi.",
+    "zh": "碰撞，墜毀；（股市）崩盤",
+    "roots": null,
+    "rootStory": null,
+    "examples": [
+      {
+        "label": "n./vi. 碰撞，墜毀",
+        "en": "The car crashed into a guardrail on the highway.",
+        "zh": "這輛車在高速公路上撞上了護欄。"
+      },
+      {
+        "label": "n. （股市）崩盤",
+        "en": "Investors panicked during the stock market crash.",
+        "zh": "股市崩盤時投資人陷入恐慌。"
+      }
+    ],
+    "hook": "狀聲詞，模擬碰撞的巨響，引申成任何垮掉。"
+  },
+  {
+    "word": "subway",
+    "ipa": "ˈsʌbweɪ",
+    "pos": "n.",
+    "zh": "地鐵；地下道",
+    "roots": [
+      {
+        "text": "sub",
+        "meaning": "under（在下）"
+      },
+      {
+        "text": "way",
+        "meaning": "way（道路）"
+      }
+    ],
+    "rootStory": "sub（在下）+ way（道路）→ 地底下的道路 → 地鐵",
+    "example": "It's faster to take the subway during rush hour.",
+    "exampleZh": "尖峰時段搭地鐵比較快。",
+    "hook": "美式說 subway，英式說 the underground。"
+  },
+  {
+    "word": "ability",
+    "ipa": "əˈbɪləti",
+    "pos": "n.",
+    "zh": "能力；才能",
+    "roots": [
+      {
+        "text": "abil",
+        "meaning": "able（能夠，源自拉丁 habilis）"
+      },
+      {
+        "text": "ity",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "abil（能夠）+ ity（名詞字尾）→ 能夠做到的性質 → 能力",
+    "example": "The job requires the ability to work under tight deadlines.",
+    "exampleZh": "這份工作需要在緊迫期限下工作的能力。",
+    "hook": "跟 capability 同一字根家族，都跟能夠有關。"
+  },
+  {
+    "word": "vehicle",
+    "ipa": "ˈviːɪkl",
+    "pos": "n.",
+    "zh": "交通工具；車輛；媒介，手段",
+    "roots": [
+      {
+        "text": "veh",
+        "meaning": "to carry（運載，拉丁 vehere）"
+      },
+      {
+        "text": "i",
+        "meaning": null
+      },
+      {
+        "text": "cle",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "veh（運載）+ i + cle（名詞字尾）→ 用來運載的東西 → 交通工具",
+    "example": "Electric vehicles are becoming more common on the roads.",
+    "exampleZh": "電動車在路上越來越常見了。",
+    "hook": "跟 convey（傳達，運送）同字根 veh，都跟運載有關。"
+  },
+  {
+    "word": "absolutely",
+    "ipa": "ˈæbsəluːtli",
+    "pos": "adv.",
+    "zh": "完全地；絕對地；（回答）當然",
+    "roots": [
+      {
+        "text": "ab",
+        "meaning": "away from（脫離）"
+      },
+      {
+        "text": "solut",
+        "meaning": "to loosen（解開，拉丁 solvere 的過去分詞）"
+      },
+      {
+        "text": "e",
+        "meaning": null
+      },
+      {
+        "text": "ly",
+        "meaning": "副詞字尾"
+      }
+    ],
+    "rootStory": "ab（脫離）+ solut（解開）→ 從一切束縛中解放 → 完全地，絕對地",
+    "example": "I absolutely agree with your proposal.",
+    "exampleZh": "我完全同意你的提案。",
+    "hook": "跟 solve、resolve 同字根 solut，都跟解開有關。"
+  },
+  {
+    "word": "aviation",
+    "ipa": "ˌeɪviˈeɪʃn",
+    "pos": "n.",
+    "zh": "航空；飛行",
+    "roots": [
+      {
+        "text": "avi",
+        "meaning": "bird（鳥，拉丁 avis）"
+      },
+      {
+        "text": "ation",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "avi（鳥）+ ation（名詞字尾）→ 像鳥一樣飛行的技術 → 航空",
+    "example": "The company specializes in aviation safety training.",
+    "exampleZh": "這家公司專門從事航空安全訓練。",
+    "hook": "跟 aviator（飛行員）同字根 avi，都跟鳥的飛行有關。"
+  },
+  {
+    "word": "cabin",
+    "ipa": "ˈkæbɪn",
+    "pos": "n.",
+    "zh": "小屋；(飛機或船的)客艙，船艙",
+    "roots": null,
+    "rootStory": null,
+    "examples": [
+      {
+        "label": "n. 小屋",
+        "en": "They spent the weekend at a log cabin in the mountains.",
+        "zh": "他們週末在山上的一間小木屋度過。"
+      },
+      {
+        "label": "n. 客艙",
+        "en": "Passengers must fasten their seatbelts before the cabin doors close.",
+        "zh": "乘客必須在艙門關閉前繫好安全帶。"
+      }
+    ],
+    "hook": "小屋或機艙，都是一個小小的封閉空間。"
+  },
+  {
+    "word": "accessible",
+    "ipa": "əkˈsesəbl",
+    "pos": "adj.",
+    "zh": "容易取得的；易接近的；(場所)無障礙的",
+    "roots": [
+      {
+        "text": "ac",
+        "meaning": "toward（朝向）"
+      },
+      {
+        "text": "cess",
+        "meaning": "to go（走）"
+      },
+      {
+        "text": "ible",
+        "meaning": "形容詞字尾（可…的）"
+      }
+    ],
+    "rootStory": "ac（朝向）+ cess（走）+ ible（可…的）→ 可以走向的 → 容易取得的，易接近的",
+    "example": "The new library is fully accessible to wheelchair users.",
+    "exampleZh": "這座新圖書館完全對輪椅使用者無障礙。",
+    "hook": "跟 access（取得）、process（過程）是同字根家族，cess＝走。"
+  },
+  {
+    "word": "intersection",
+    "ipa": "ˌɪntərˈsekʃn",
+    "pos": "n.",
+    "zh": "交叉點；十字路口；交集",
+    "roots": [
+      {
+        "text": "inter",
+        "meaning": "between（之間）"
+      },
+      {
+        "text": "sect",
+        "meaning": "to cut（切）"
+      },
+      {
+        "text": "ion",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "inter（之間）+ sect（切）+ ion（名詞字尾）→ 在中間切開之處 → 交叉點，十字路口",
+    "example": "Turn left at the next intersection to reach the office.",
+    "exampleZh": "在下一個十字路口左轉即可到達辦公室。",
+    "hook": "跟 section（部分）、sector（部門）同字根，sect＝切。"
+  },
+  {
+    "word": "jeopardy",
+    "ipa": "ˈdʒepərdi",
+    "pos": "n.",
+    "zh": "危險；(法律)可能被定罪或受罰之處境",
+    "roots": null,
+    "rootStory": null,
+    "example": "Missing the deadline could put the entire project in jeopardy.",
+    "exampleZh": "錯過截止日期可能會讓整個專案陷入危險。",
+    "hook": "常見片語 in jeopardy（陷於危險），益智節目 Jeopardy! 借此命名。"
+  },
+  {
+    "word": "additional",
+    "ipa": "əˈdɪʃənl",
+    "pos": "adj.",
+    "zh": "額外的；附加的；另外的",
+    "roots": [
+      {
+        "text": "ad",
+        "meaning": "toward（朝向）"
+      },
+      {
+        "text": "dit",
+        "meaning": "to give（給予，源自拉丁 dare）"
+      },
+      {
+        "text": "ion",
+        "meaning": "名詞字尾"
+      },
+      {
+        "text": "al",
+        "meaning": "形容詞字尾"
+      }
+    ],
+    "rootStory": "ad（朝向）+ dit（給予）+ ion（名詞字尾）+ al（形容詞字尾）→ 額外給予的 → 附加的，額外的",
+    "example": "The manager requested additional information before approving the budget.",
+    "exampleZh": "經理在核准預算前要求提供額外資訊。",
+    "hook": "跟 add（加上）、addition（加法）同字根家族。"
+  },
+  {
+    "word": "admire",
+    "ipa": "ədˈmaɪər",
+    "pos": "vt.",
+    "zh": "欽佩；讚賞；欣賞",
+    "roots": [
+      {
+        "text": "ad",
+        "meaning": "toward（朝向）"
+      },
+      {
+        "text": "mir",
+        "meaning": "to wonder at（驚嘆，源自拉丁 mirari）"
+      },
+      {
+        "text": "e",
+        "meaning": null
+      }
+    ],
+    "rootStory": "ad（朝向）+ mir（驚嘆）→ 朝著…發出讚嘆 → 欽佩，讚賞",
+    "example": "Colleagues admire her for staying calm under pressure.",
+    "exampleZh": "同事們都欽佩她在壓力下保持冷靜。",
+    "hook": "跟 miracle（奇蹟）同字根 mir＝令人驚嘆。"
+  },
+  {
+    "word": "advanced",
+    "ipa": "ədˈvænst",
+    "pos": "adj.",
+    "zh": "先進的；高級的；高等的",
+    "roots": null,
+    "rootStory": null,
+    "example": "The company invested heavily in advanced manufacturing technology.",
+    "exampleZh": "這家公司大量投資於先進的製造技術。",
+    "hook": "advance（前進）的過去分詞化形容詞＝已推進的。"
+  },
+  {
+    "word": "neon",
+    "ipa": "ˈniːɑːn",
+    "pos": "n.",
+    "zh": "氖（化學元素）；霓虹燈",
+    "roots": null,
+    "rootStory": null,
+    "example": "The shop window glowed with bright neon signs at night.",
+    "exampleZh": "商店櫥窗在夜裡發出明亮的霓虹燈光。",
+    "hook": "源自希臘文 neos（新的）——氖是當時新發現的氣體。"
+  },
+  {
+    "word": "advice",
+    "ipa": "ədˈvaɪs",
+    "pos": "n.",
+    "zh": "忠告；建議；通知",
+    "roots": [
+      {
+        "text": "ad",
+        "meaning": "toward（朝向）"
+      },
+      {
+        "text": "vic",
+        "meaning": "to see（看，vis 的異體拼法）"
+      },
+      {
+        "text": "e",
+        "meaning": null
+      }
+    ],
+    "rootStory": "ad（朝向）+ vic（看）→ 朝事情看過去後給出的看法 → 忠告，建議",
+    "example": "She gave me some useful advice about negotiating a raise.",
+    "exampleZh": "她給了我一些關於談加薪的實用建議。",
+    "hook": "advice 是不可數名詞，動詞是 advise（字尾唸 /z/）。"
+  },
+  {
+    "word": "advise",
+    "ipa": "ədˈvaɪz",
+    "pos": "vt./vi.",
+    "zh": "勸告；建議；通知；商討",
+    "roots": [
+      {
+        "text": "ad",
+        "meaning": "toward（朝向）"
+      },
+      {
+        "text": "vis",
+        "meaning": "to see（看）"
+      },
+      {
+        "text": "e",
+        "meaning": null
+      }
+    ],
+    "rootStory": "ad（朝向）+ vis（看）→ 朝事情看過去而提出看法 → 勸告，建議",
+    "example": "The lawyer advised her clients to review the contract carefully.",
+    "exampleZh": "律師建議客戶仔細審閱合約。",
+    "hook": "跟 advice 是同字根家族，動詞字尾 s 唸 /z/。"
+  },
+  {
+    "word": "agreeable",
+    "ipa": "əˈɡriːəbl",
+    "pos": "adj.",
+    "zh": "令人愉快的；欣然同意的；相宜的",
+    "roots": [
+      {
+        "text": "agree",
+        "meaning": "to agree（同意）"
+      },
+      {
+        "text": "able",
+        "meaning": "形容詞字尾（可…的）"
+      }
+    ],
+    "rootStory": "agree（同意）+ able（可…的）→ 讓人容易同意的 → 令人愉快的",
+    "example": "The weather was agreeable for a picnic in the park.",
+    "exampleZh": "這天氣很適合在公園野餐。",
+    "hook": "字面「可同意的」，引申為讓人愉快、欣然接受的。"
+  },
+  {
+    "word": "aim",
+    "ipa": "eɪm",
+    "pos": "vt./vi./n.",
+    "zh": "瞄準；以…為目標；目的，目標",
+    "roots": null,
+    "rootStory": null,
+    "example": "The company's aim is to reduce costs by 10 percent this year.",
+    "exampleZh": "公司的目標是今年將成本降低百分之十。",
+    "hook": "常用片語 aim to do sth.、aim at（瞄準）。"
+  },
+  {
+    "word": "alarm",
+    "ipa": "əˈlɑːrm",
+    "pos": "n./vt.",
+    "zh": "警報；警報器；鬧鐘 vt. 使驚恐",
+    "roots": null,
+    "rootStory": null,
+    "example": "The fire alarm went off during the meeting, so everyone evacuated.",
+    "exampleZh": "會議中火災警報響起，於是大家都疏散了。",
+    "hook": "源自義大利文 all'arme「拿起武器！」，詞義漸弱為警報。"
+  },
+  {
+    "word": "amount",
+    "ipa": "əˈmaʊnt",
+    "pos": "n./vi.",
+    "zh": "數量；總額，總數 vi. 總計；相當於",
+    "roots": [
+      {
+        "text": "a",
+        "meaning": "toward（朝向，ad- 的縮減形）"
+      },
+      {
+        "text": "mount",
+        "meaning": "mountain / to climb（山，攀升）"
+      }
+    ],
+    "rootStory": "a（朝向）+ mount（攀升）→ 累加向上堆高 → 總計，數量",
+    "example": "The total amount of the invoice exceeds our monthly budget.",
+    "exampleZh": "這張發票的總金額超過了我們的月度預算。",
+    "hook": "跟 mountain（山）、mount（登上）同字根，量堆成山。"
+  },
+  {
+    "word": "analysis",
+    "ipa": "əˈnæləsɪs",
+    "pos": "n.",
+    "zh": "分析；分析結果，分析報告",
+    "roots": [
+      {
+        "text": "ana",
+        "meaning": "throughout（徹底）"
+      },
+      {
+        "text": "lys",
+        "meaning": "to loosen（鬆開，源自希臘文 lyein）"
+      },
+      {
+        "text": "is",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "ana（徹底）+ lys（鬆開）+ is（名詞字尾）→ 徹底拆解開來 → 分析",
+    "example": "Her analysis of the survey data revealed several unexpected trends.",
+    "exampleZh": "她對調查數據的分析揭露了幾個出乎意料的趨勢。",
+    "hook": "跟 analyze（動詞，lyz 拼法）同字根家族，lyein＝鬆開。"
+  },
+  {
+    "word": "thrift",
+    "ipa": "θrɪft",
+    "pos": "n.",
+    "zh": "節儉；節約",
+    "roots": null,
+    "rootStory": null,
+    "example": "Thrift and careful budgeting helped the family save for a house.",
+    "exampleZh": "節儉與謹慎的預算讓這家人存到了買房的錢。",
+    "hook": "跟 thrive（茁壯成長）同源——先勤儉才能興旺。"
+  },
+  {
+    "word": "anxious",
+    "ipa": "ˈæŋkʃəs",
+    "pos": "adj.",
+    "zh": "焦慮的；擔憂的；渴望的",
+    "roots": [
+      {
+        "text": "anx",
+        "meaning": "to choke / distress（使苦惱，源自拉丁 angere）"
+      },
+      {
+        "text": "ious",
+        "meaning": "形容詞字尾"
+      }
+    ],
+    "rootStory": "anx（使苦惱，源自拉丁 angere 窒息）+ ious（形容詞字尾）→ 感到窒息般難受 → 焦慮的",
+    "example": "Parents grew anxious when the flight was delayed for hours.",
+    "exampleZh": "班機延誤了好幾個小時，讓父母們變得焦慮起來。",
+    "hook": "跟 anger（生氣）、anguish（痛苦）同字根 ang/anx。"
+  },
+  {
+    "word": "bland",
+    "ipa": "blænd",
+    "pos": "adj.",
+    "zh": "(食物)清淡無味的；乏味的；溫和的",
+    "roots": null,
+    "rootStory": null,
+    "example": "The soup tasted bland, so he added more salt and pepper.",
+    "exampleZh": "這湯嚐起來很清淡，於是他加了更多鹽和胡椒。",
+    "hook": "常搭配 food：bland food＝沒什麼味道的食物。"
+  },
+  {
+    "word": "crave",
+    "ipa": "kreɪv",
+    "pos": "vt./vi.",
+    "zh": "渴望；極想要；懇求",
+    "roots": null,
+    "rootStory": null,
+    "example": "Late at night, she often craves something sweet like chocolate.",
+    "exampleZh": "深夜時，她常常渴望吃點甜的東西，像是巧克力。",
+    "hook": "常接 for：crave for attention（渴望被關注）。"
+  },
+  {
+    "word": "application",
+    "ipa": "ˌæplɪˈkeɪʃn",
+    "pos": "n.",
+    "zh": "申請；申請書；應用；(手機)應用程式",
+    "roots": [
+      {
+        "text": "ap",
+        "meaning": "toward（朝向）"
+      },
+      {
+        "text": "plic",
+        "meaning": "to fold（摺疊）"
+      },
+      {
+        "text": "ation",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "ap（朝向）+ plic（摺疊）+ ation（名詞字尾）→ 把…摺向自己貼合上去 → 應用，申請",
+    "examples": [
+      {
+        "label": "n. 申請書",
+        "en": "He submitted his application for the marketing position online.",
+        "zh": "他線上遞交了行銷職缺的申請書。"
+      },
+      {
+        "label": "n. 應用程式",
+        "en": "This mobile application helps users track their daily expenses.",
+        "zh": "這款手機應用程式能幫助使用者追蹤每日開支。"
+      }
+    ],
+    "hook": "跟 apply（申請）、complicated（複雜）同字根 plic＝摺疊。"
+  },
+  {
+    "word": "fragrant",
+    "ipa": "ˈfreɪɡrənt",
+    "pos": "adj.",
+    "zh": "芳香的；(氣味)香的；令人愉快的",
+    "roots": [
+      {
+        "text": "fragr",
+        "meaning": "to smell sweet（散發香氣，源自拉丁 fragrare）"
+      },
+      {
+        "text": "ant",
+        "meaning": "形容詞字尾"
+      }
+    ],
+    "rootStory": "fragr（散發香氣）+ ant（形容詞字尾）→ 散發香氣的 → 芳香的",
+    "example": "Fresh flowers filled the room with a fragrant scent.",
+    "exampleZh": "新鮮花朵讓房間充滿芬芳的氣息。",
+    "hook": "跟 fragrance（香氣，名詞）是同字根家族。"
+  },
+  {
+    "word": "palatable",
+    "ipa": "ˈpælətəbl",
+    "pos": "adj.",
+    "zh": "可口的，美味的；(提議等)可接受的",
+    "roots": [
+      {
+        "text": "palat",
+        "meaning": "palate（上顎，味覺）"
+      },
+      {
+        "text": "able",
+        "meaning": "形容詞字尾（可…的）"
+      }
+    ],
+    "rootStory": "palat（上顎，味覺）+ able（可…的）→ 讓上顎覺得舒服的 → 可口的",
+    "example": "The chef made the vegetarian dish surprisingly palatable.",
+    "exampleZh": "主廚讓這道素食菜餚出乎意料地美味可口。",
+    "hook": "跟 palate（上顎、味覺）同字根，引申「合意的」。"
+  },
+  {
+    "word": "ravenous",
+    "ipa": "ˈrævənəs",
+    "pos": "adj.",
+    "zh": "極餓的；狼吞虎嚥的；貪婪的",
+    "roots": [
+      {
+        "text": "raven",
+        "meaning": "to seize / devour（掠奪，源自拉丁 rapere）"
+      },
+      {
+        "text": "ous",
+        "meaning": "形容詞字尾"
+      }
+    ],
+    "rootStory": "raven（掠奪，源自拉丁 rapere）+ ous（形容詞字尾）→ 像掠奪般吞食 → 極度飢餓的",
+    "example": "After the long hike, they were ravenous and ordered three pizzas.",
+    "exampleZh": "健行了一大段路後，他們餓壞了，點了三個披薩。",
+    "hook": "跟 rapid（快速）、rapacious（掠奪成性的）同字根 rap＝掠奪。"
+  },
+  {
+    "word": "starve",
+    "ipa": "stɑːrv",
+    "pos": "vt./vi.",
+    "zh": "(使)挨餓；餓死；渴望",
+    "roots": null,
+    "rootStory": null,
+    "example": "Refugees in the camp were starving due to the food shortage.",
+    "exampleZh": "難民營裡的人們因糧食短缺而挨餓。",
+    "hook": "口語常誇飾用 I'm starving!（我快餓死了！）。"
+  },
+  {
+    "word": "dessert",
+    "ipa": "dɪˈzɜːrt",
+    "pos": "n.",
+    "zh": "餐後甜點；甜點心",
+    "roots": [
+      {
+        "text": "des",
+        "meaning": "apart / reverse（除去，源自法語 des-）"
+      },
+      {
+        "text": "sert",
+        "meaning": "to serve（服務，源自法語 servir）"
+      }
+    ],
+    "rootStory": "des（除去）+ sert（上菜）→ 撤走餐盤後上的一道 → 餐後甜點",
+    "example": "For dessert, the restaurant offered a rich chocolate cake.",
+    "exampleZh": "這家餐廳的餐後甜點提供濃郁的巧克力蛋糕。",
+    "hook": "拼字陷阱：dessert（甜點，雙 s）別跟 desert（沙漠，單 s）搞混。"
+  },
+  {
+    "word": "menu",
+    "ipa": "ˈmenjuː",
+    "pos": "n.",
+    "zh": "菜單；(電腦)選單",
+    "roots": null,
+    "rootStory": null,
+    "example": "Could I see the menu before we order, please?",
+    "exampleZh": "點餐前可以先給我看一下菜單嗎？",
+    "hook": "法文原意是「詳細的」，菜單列出每道菜的細節。"
+  },
+  {
+    "word": "attachment",
+    "ipa": "əˈtætʃmənt",
+    "pos": "n.",
+    "zh": "附件；附著物；依戀，愛慕之情",
+    "roots": [
+      {
+        "text": "at",
+        "meaning": "toward（朝向）"
+      },
+      {
+        "text": "tach",
+        "meaning": "stake（釘樁）"
+      },
+      {
+        "text": "ment",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "at（朝向）+ tach（釘樁）+ ment（名詞字尾）→ 釘牢繫住 → 附件；依戀之情",
+    "examples": [
+      {
+        "label": "n. (電郵)附件",
+        "en": "Please find the invoice in the attachment to this email.",
+        "zh": "請參閱這封郵件附件中的發票。"
+      },
+      {
+        "label": "n. 依戀，感情",
+        "en": "The child developed a strong attachment to her grandmother.",
+        "zh": "這個孩子對祖母產生了深厚的依戀之情。"
+      }
+    ],
+    "hook": "跟 attach（附上）是同字根家族，tach＝釘樁、固定。"
+  },
+  {
+    "word": "recipe",
+    "ipa": "ˈresəpi",
+    "pos": "n.",
+    "zh": "食譜；烹飪法；秘訣，訣竅",
+    "roots": [
+      {
+        "text": "re",
+        "meaning": "again（再）"
+      },
+      {
+        "text": "cip",
+        "meaning": "to take（拿取）"
+      },
+      {
+        "text": "e",
+        "meaning": null
+      }
+    ],
+    "rootStory": "re（再）+ cip（拿取）→ 拿取食材做法的指示 → 食譜，秘訣",
+    "example": "This recipe calls for two cups of flour and a pinch of salt.",
+    "exampleZh": "這份食譜需要兩杯麵粉和少許鹽。",
+    "hook": "拉丁文原意「拿去！」，早期醫生開藥方也用此詞起頭。"
+  },
+  {
+    "word": "seasoning",
+    "ipa": "ˈsiːzənɪŋ",
+    "pos": "n.",
+    "zh": "調味品，佐料",
+    "roots": [
+      {
+        "text": "season",
+        "meaning": "to season（調味，使成熟）"
+      },
+      {
+        "text": "ing",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "season（調味）+ ing（名詞字尾）→ 用來調味食物之物 → 調味品",
+    "example": "A pinch of seasoning can bring out the flavor of grilled vegetables.",
+    "exampleZh": "一小撮調味料就能提升烤蔬菜的風味。",
+    "hook": "動詞 season 本義是「使成熟」，引申為調味。"
+  },
+  {
+    "word": "snack",
+    "ipa": "snæk",
+    "pos": "n./vi.",
+    "zh": "小吃；點心；快餐 vi. 吃點心，吃零食",
+    "roots": null,
+    "rootStory": null,
+    "example": "She grabbed a quick snack between meetings.",
+    "exampleZh": "她在會議之間抓緊時間吃了個點心。",
+    "hook": "常見片語 snack bar（小吃部）、snack on sth.。"
+  },
+  {
+    "word": "spice",
+    "ipa": "spaɪs",
+    "pos": "n./vt.",
+    "zh": "香料，調味品；情趣，趣味 vt. 加香料於",
+    "roots": [
+      {
+        "text": "spic",
+        "meaning": "to look（看，源自拉丁 specere）"
+      },
+      {
+        "text": "e",
+        "meaning": null
+      }
+    ],
+    "rootStory": "spic（看，源自拉丁 specere）→ 依外觀分類出的一種商品 → 香料",
+    "example": "The curry gets its distinctive taste from a blend of exotic spices.",
+    "exampleZh": "這道咖哩獨特的風味來自多種異國香料的調配。",
+    "hook": "跟 species（物種）、special（特別的）同字根 spic＝看。"
+  },
+  {
+    "word": "vegetarian",
+    "ipa": "ˌvedʒəˈteriən",
+    "pos": "n./adj.",
+    "zh": "素食者，素食主義者 adj. 素食的",
+    "roots": [
+      {
+        "text": "veget",
+        "meaning": "to grow / thrive（生長，源自拉丁 vegetare）"
+      },
+      {
+        "text": "arian",
+        "meaning": "名詞／形容詞字尾（信奉…的人）"
+      }
+    ],
+    "rootStory": "veget（生長茁壯）+ arian（信奉…的人）→ 只吃使身體茁壯的植物性食物者 → 素食者",
+    "example": "The restaurant added more vegetarian options to its menu this year.",
+    "exampleZh": "這家餐廳今年在菜單上增加了更多素食選項。",
+    "hook": "跟 vegetable（蔬菜）、vegetate（無所事事）同字根 veget＝生長。"
+  },
+  {
+    "word": "avoid",
+    "ipa": "əˈvɔɪd",
+    "pos": "vt.",
+    "zh": "避免；避開，躲避；消除",
+    "roots": null,
+    "rootStory": null,
+    "example": "Try to avoid making noise while the baby is sleeping.",
+    "exampleZh": "寶寶睡覺時盡量避免發出噪音。",
+    "hook": "常接動名詞：avoid doing sth.，不接 to V。"
+  },
+  {
+    "word": "commitment",
+    "ipa": "kəˈmɪtmənt",
+    "pos": "n.",
+    "zh": "承諾；保證；投入，致力；委任",
+    "roots": [
+      {
+        "text": "com",
+        "meaning": "fully（完全）"
+      },
+      {
+        "text": "mit",
+        "meaning": "to send（送）"
+      },
+      {
+        "text": "ment",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "com（完全）+ mit（送出）+ ment（名詞字尾）→ 完全交付出去的承諾 → 承諾，投入",
+    "example": "The manager showed strong commitment to improving team morale.",
+    "exampleZh": "經理展現出對提升團隊士氣的強烈投入。",
+    "hook": "跟 commit（承諾）、submit（提交）同字根 mit＝送出。"
+  },
+  {
+    "word": "awareness",
+    "ipa": "əˈwernəs",
+    "pos": "n.",
+    "zh": "察覺；意識；覺知，認知",
+    "roots": [
+      {
+        "text": "aware",
+        "meaning": "to be aware（察覺到的）"
+      },
+      {
+        "text": "ness",
+        "meaning": "名詞字尾（性質，狀態）"
+      }
+    ],
+    "rootStory": "aware（察覺到的）+ ness（名詞字尾，表狀態）→ 察覺的狀態 → 意識，覺知",
+    "example": "The campaign aims to raise public awareness of climate change.",
+    "exampleZh": "這項活動旨在提升大眾對氣候變遷的意識。",
+    "hook": "常見片語 raise awareness of...（提升對…的意識）。"
+  },
+  {
+    "word": "awkward",
+    "ipa": "ˈɔːkwərd",
+    "pos": "adj.",
+    "zh": "笨拙的；(場面)尷尬的；(問題)棘手的",
+    "roots": [
+      {
+        "text": "awk",
+        "meaning": "backward / wrong-way（反方向的，源自古諾斯語 öfugr）"
+      },
+      {
+        "text": "ward",
+        "meaning": "方向字尾（朝…方向）"
+      }
+    ],
+    "rootStory": "awk（反方向的）+ ward（朝…方向）→ 朝著錯誤方向動作 → 笨拙的，尷尬的",
+    "example": "There was an awkward silence after he forgot her name.",
+    "exampleZh": "他忘記她的名字後，出現了一陣尷尬的沉默。",
+    "hook": "跟 forward（向前）、backward（向後）同字尾 ward。"
+  },
+  {
+    "word": "etiquette",
+    "ipa": "ˈetɪkət",
+    "pos": "n.",
+    "zh": "禮節，禮儀；規矩",
+    "roots": null,
+    "rootStory": null,
+    "example": "Business etiquette varies significantly across different cultures.",
+    "exampleZh": "商務禮儀在不同文化中有很大的差異。",
+    "hook": "原指宮廷張貼的行為規範小標籤，後轉為禮儀規矩。"
+  },
+  {
+    "word": "offensive",
+    "ipa": "əˈfensɪv",
+    "pos": "adj./n.",
+    "zh": "冒犯的；令人不快的；攻擊性的 n. 攻勢",
+    "roots": [
+      {
+        "text": "of",
+        "meaning": "toward（朝向，ob- 的變形）"
+      },
+      {
+        "text": "fens",
+        "meaning": "to strike（打擊，源自拉丁 fendere）"
+      },
+      {
+        "text": "ive",
+        "meaning": "形容詞字尾"
+      }
+    ],
+    "rootStory": "of（朝向）+ fens（打擊）+ ive（形容詞字尾）→ 朝人打擊過去的 → 冒犯的，攻擊性的",
+    "example": "His offensive remarks about her work upset the whole team.",
+    "exampleZh": "他對她工作的冒犯言論讓整個團隊都感到不快。",
+    "hook": "跟 defensive（防禦的，de+fens）是反義字根家族。"
+  },
+  {
+    "word": "behave",
+    "ipa": "bɪˈheɪv",
+    "pos": "vi./vt.",
+    "zh": "表現，舉止 vt./vi. (使)守規矩",
+    "roots": [
+      {
+        "text": "be",
+        "meaning": "字首（加強語氣）"
+      },
+      {
+        "text": "have",
+        "meaning": "to have（持有，保持）"
+      }
+    ],
+    "rootStory": "be（加強語氣）+ have（持有）→ 保持自己的舉止 → 表現，舉止",
+    "example": "The children behaved well throughout the long flight.",
+    "exampleZh": "孩子們在漫長的飛行過程中表現得很乖巧。",
+    "hook": "字面「how you have yourself」→ 你如何持有自己。"
+  },
+  {
+    "word": "apologize",
+    "ipa": "əˈpɑːlədʒaɪz",
+    "pos": "vi.",
+    "zh": "道歉",
+    "roots": [
+      {
+        "text": "apo",
+        "meaning": "away / off（離開，希臘字首）"
+      },
+      {
+        "text": "log",
+        "meaning": "word / speech（言語，源自希臘文 logos）"
+      },
+      {
+        "text": "ize",
+        "meaning": "動詞字尾（使…化）"
+      }
+    ],
+    "rootStory": "apo（離開）+ log（言語）+ ize（動詞字尾）→ 說出為自己辯解的話 → (後轉為)道歉",
+    "example": "He apologized sincerely for arriving late to the meeting.",
+    "exampleZh": "他為開會遲到誠懇地道歉。",
+    "hook": "跟 logic（邏輯）、dialogue（對話）同字根 log＝言語。"
+  },
+  {
+    "word": "attractive",
+    "ipa": "əˈtræktɪv",
+    "pos": "adj.",
+    "zh": "吸引人的；有魅力的；(價格等)誘人的",
+    "roots": [
+      {
+        "text": "at",
+        "meaning": "toward（朝向）"
+      },
+      {
+        "text": "tract",
+        "meaning": "to pull / draw（拉）"
+      },
+      {
+        "text": "ive",
+        "meaning": "形容詞字尾"
+      }
+    ],
+    "rootStory": "at（朝向）+ tract（拉）+ ive（形容詞字尾）→ 把人拉向自己的 → 吸引人的",
+    "example": "The company offered an attractive salary to recruit top talent.",
+    "exampleZh": "這家公司提供有吸引力的薪資以招募頂尖人才。",
+    "hook": "跟 attract（吸引）、contract（合約）同字根 tract＝拉。"
+  },
+  {
+    "word": "blanket",
+    "ipa": "ˈblæŋkɪt",
+    "pos": "n./adj./v.",
+    "zh": "毛毯，毯子 adj. 全面性的 v. (以厚層)覆蓋",
+    "roots": [
+      {
+        "text": "blank",
+        "meaning": "white（白色，源自法文 blanc）"
+      },
+      {
+        "text": "et",
+        "meaning": "名詞字尾（表小型物件）"
+      }
+    ],
+    "rootStory": "blank（白色）+ et（小型物件字尾）→ 原指白色羊毛小毯 → 毛毯",
+    "example": "She pulled a warm blanket over herself to fight off the cold.",
+    "exampleZh": "她拉了一條溫暖的毯子蓋在身上禦寒。",
+    "hook": "跟 blank（空白的）同源自法文 blanc（白色）。"
+  },
+  {
+    "word": "block",
+    "ipa": "blɑːk",
+    "pos": "n./vt.",
+    "zh": "塊；街區；大廈；障礙物 vt. 阻塞；阻止；限制",
+    "roots": null,
+    "rootStory": null,
+    "examples": [
+      {
+        "label": "n. 街區",
+        "en": "The new office building is just two blocks from the subway station.",
+        "zh": "這棟新辦公大樓距離捷運站只有兩個街區。"
+      },
+      {
+        "label": "vt. 阻塞，阻止",
+        "en": "Heavy traffic blocked the road leading to the airport.",
+        "zh": "繁忙的車流阻塞了通往機場的道路。"
+      }
+    ],
+    "hook": "辦公室情境常用 block sb.'s calendar（占用行事曆時段）。"
+  },
+  {
+    "word": "eloquent",
+    "ipa": "ˈeləkwənt",
+    "pos": "adj.",
+    "zh": "雄辯的，有口才的；(言語)動人的；意味深長的",
+    "roots": [
+      {
+        "text": "e",
+        "meaning": "out（向外）"
+      },
+      {
+        "text": "loqu",
+        "meaning": "to speak（說話，源自拉丁 loqui）"
+      },
+      {
+        "text": "ent",
+        "meaning": "形容詞字尾"
+      }
+    ],
+    "rootStory": "e（向外）+ loqu（說話）+ ent（形容詞字尾）→ 話語流暢地說出來 → 雄辯的",
+    "example": "The professor gave an eloquent speech at the graduation ceremony.",
+    "exampleZh": "這位教授在畢業典禮上發表了一場雄辯動人的演說。",
+    "hook": "跟 colloquial（口語的，col+loqu）同字根 loqu。"
+  },
+  {
+    "word": "boast",
+    "ipa": "boʊst",
+    "pos": "n./vt./vi.",
+    "zh": "自誇，自吹自擂 vt. 以擁有…為傲 n. 自誇的話",
+    "roots": null,
+    "rootStory": null,
+    "example": "He often boasts about his connections with senior executives.",
+    "exampleZh": "他常常吹噓自己與高階主管的人脈關係。",
+    "hook": "常接 about/of：boast about sth.（吹噓某事）。"
+  },
+  {
+    "word": "gossip",
+    "ipa": "ˈɡɑːsɪp",
+    "pos": "n./vi.",
+    "zh": "閒話，八卦；愛說長道短的人 vi. 閒聊，說長道短",
+    "roots": null,
+    "rootStory": null,
+    "example": "The office gossip about the merger turned out to be true.",
+    "exampleZh": "辦公室裡關於合併案的八卦後來證實是真的。",
+    "hook": "字源是古英文 godsibb（教父母、密友），詞義後轉變。"
+  },
+  {
+    "word": "hilarious",
+    "ipa": "hɪˈleriəs",
+    "pos": "adj.",
+    "zh": "十分有趣的；非常滑稽的；歡鬧的",
+    "roots": [
+      {
+        "text": "hilar",
+        "meaning": "cheerful（歡樂的，源自希臘文 hilaros）"
+      },
+      {
+        "text": "ious",
+        "meaning": "形容詞字尾"
+      }
+    ],
+    "rootStory": "hilar（歡樂的）+ ious（形容詞字尾）→ 充滿歡樂的 → 十分有趣的，爆笑的",
+    "example": "The comedian's new show is absolutely hilarious from start to finish.",
+    "exampleZh": "這位喜劇演員的新秀從頭到尾都非常爆笑。",
+    "hook": "跟 hilarity（歡鬧，名詞）是同字根家族。"
+  },
+  {
+    "word": "scandal",
+    "ipa": "ˈskændl",
+    "pos": "n.",
+    "zh": "醜聞；流言蜚語；令人反感的行為",
+    "roots": null,
+    "rootStory": null,
+    "example": "The corruption scandal forced the CEO to resign immediately.",
+    "exampleZh": "這起貪腐醜聞迫使執行長立即辭職。",
+    "hook": "希臘文原意「絆腳石、陷阱」，後引申為醜聞。"
+  },
+  {
+    "word": "amuse",
+    "ipa": "əˈmjuːz",
+    "pos": "vt.",
+    "zh": "使發笑；娛樂；使愉快",
+    "roots": [
+      {
+        "text": "a",
+        "meaning": "toward（朝向，ad- 的縮減形）"
+      },
+      {
+        "text": "muse",
+        "meaning": "to stare / ponder（凝視發呆，源自古法語 muser）"
+      }
+    ],
+    "rootStory": "a（朝向）+ muse（凝視發呆）→ 讓人盯著看入迷 → 使愉快，逗樂",
+    "example": "The clown's silly jokes amused the children at the party.",
+    "exampleZh": "小丑滑稽的笑話逗樂了派對上的孩子們。",
+    "hook": "此 muse 源自古法語「凝視發呆」，非繆思女神。"
+  },
+  {
+    "word": "broaden",
+    "ipa": "ˈbrɔːdn",
+    "pos": "vi./vt.",
+    "zh": "變寬，擴大 vt. 使變寬，拓展",
+    "roots": [
+      {
+        "text": "broad",
+        "meaning": "wide（寬闊的）"
+      },
+      {
+        "text": "en",
+        "meaning": "to make / put in（使、放入）"
+      }
+    ],
+    "rootStory": "broad（寬闊的）+ en（使…）→ 使變寬 → 擴大，拓寬",
+    "example": "Studying abroad can broaden your perspective on different cultures.",
+    "exampleZh": "出國留學能拓展你對不同文化的視野。",
+    "hook": "跟 widen（使變寬）同構詞邏輯：形容詞+en＝使變成該狀態。"
+  },
+  {
+    "word": "celebrity",
+    "ipa": "səˈlebrəti",
+    "pos": "n.",
+    "zh": "名人；名流；名聲",
+    "roots": [
+      {
+        "text": "celebr",
+        "meaning": "famous（著名）"
+      },
+      {
+        "text": "ity",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "celebr（著名）+ ity（名詞字尾）→ 著名的狀態 → 名人；名聲",
+    "example": "The magazine features interviews with celebrities every month.",
+    "exampleZh": "這本雜誌每月都會刊登名人訪談。",
+    "hook": "celebrate（慶祝）也用 celebr 這個字根，兩字是親戚。"
+  },
+  {
+    "word": "brush",
+    "ipa": "brʌʃ",
+    "pos": "n. vt.",
+    "zh": "刷子；畫筆；vt. 刷；擦過",
+    "roots": null,
+    "rootStory": null,
+    "example": "She brushed the dust off her jacket before the meeting.",
+    "exampleZh": "開會前她把外套上的灰塵刷掉。",
+    "hook": "常見搭配：brush up on（複習）、brush aside（不理會）。"
+  },
+  {
+    "word": "conductor",
+    "ipa": "kənˈdʌktər",
+    "pos": "n.",
+    "zh": "(樂隊)指揮；(公車/列車)長；導體",
+    "roots": [
+      {
+        "text": "con",
+        "meaning": "together（一起）"
+      },
+      {
+        "text": "duct",
+        "meaning": "to lead（引導）"
+      },
+      {
+        "text": "or",
+        "meaning": "名詞字尾（做…的人／物）"
+      }
+    ],
+    "rootStory": "con（一起）+ duct（引導）+ or（…的人／物）→ 帶領眾人 → 指揮；導體",
+    "examples": [
+      {
+        "label": "n. (樂隊)指揮",
+        "en": "The conductor raised his baton and the orchestra began.",
+        "zh": "指揮舉起指揮棒，管弦樂團便開始演奏。"
+      },
+      {
+        "label": "n. 導體",
+        "en": "Copper is an excellent conductor of electricity.",
+        "zh": "銅是很好的電導體。"
+      }
+    ],
+    "hook": "conduct（引導、指揮）+ or → 帶頭的人或物。"
+  },
+  {
+    "word": "cue",
+    "ipa": "kjuː",
+    "pos": "n. vt.",
+    "zh": "提示，暗示；線索",
+    "roots": null,
+    "rootStory": null,
+    "example": "Wait for your cue before you walk on stage.",
+    "exampleZh": "上台前要等提示訊號。",
+    "hook": "舞台劇「cue 到」的原意：提示演員上場的信號。"
+  },
+  {
+    "word": "cafeteria",
+    "ipa": "ˌkæfəˈtɪriə",
+    "pos": "n.",
+    "zh": "自助餐廳；餐廳",
+    "roots": [
+      {
+        "text": "cafe",
+        "meaning": "coffee（咖啡）"
+      },
+      {
+        "text": "teria",
+        "meaning": "place（場所字尾，源自西班牙文）"
+      }
+    ],
+    "rootStory": "cafe（咖啡）+ teria（場所字尾）→ 賣咖啡的地方 → 自助餐廳",
+    "example": "Students usually eat lunch in the school cafeteria.",
+    "exampleZh": "學生通常在學校自助餐廳吃午餐。",
+    "hook": "-teria 這個場所字尾源自西班牙文 cafetería。"
+  },
+  {
+    "word": "symphony",
+    "ipa": "ˈsɪmfəni",
+    "pos": "n.",
+    "zh": "交響樂；交響曲",
+    "roots": [
+      {
+        "text": "sym",
+        "meaning": "together（一起，希臘字首 syn 的變體）"
+      },
+      {
+        "text": "phon",
+        "meaning": "sound（聲音）"
+      },
+      {
+        "text": "y",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "sym（一起）+ phon（聲音）→ 聲音一起發出 → 交響樂",
+    "example": "The orchestra performed a symphony by Beethoven.",
+    "exampleZh": "管弦樂團演奏了一首貝多芬的交響曲。",
+    "hook": "phon 這個字根也出現在 telephone、microphone。"
+  },
+  {
+    "word": "cause",
+    "ipa": "kɔːz",
+    "pos": "n. vt.",
+    "zh": "原因；理由；目標，事業；vt. 導致，造成",
+    "roots": null,
+    "rootStory": null,
+    "examples": [
+      {
+        "label": "n. 原因；事業",
+        "en": "Poor maintenance was the cause of the accident.",
+        "zh": "保養不當是這起意外的原因。"
+      },
+      {
+        "label": "vt. 導致",
+        "en": "Heavy rain caused flooding in the streets.",
+        "zh": "豪雨導致街道淹水。"
+      }
+    ],
+    "hook": "for a good cause（為了一個好的目標）是常見片語。"
+  },
+  {
+    "word": "concert",
+    "ipa": "ˈkɑːnsərt",
+    "pos": "n.",
+    "zh": "音樂會；一致，協調",
+    "roots": [
+      {
+        "text": "con",
+        "meaning": "together（一起）"
+      },
+      {
+        "text": "cert",
+        "meaning": "to strive（努力，源自拉丁 certare）"
+      }
+    ],
+    "rootStory": "con（一起）+ cert（努力，源自拉丁 certare）→ 一起努力達成一致 → 音樂會；一致",
+    "examples": [
+      {
+        "label": "n. 音樂會",
+        "en": "We bought tickets to the concert last weekend.",
+        "zh": "我們上週末買了那場音樂會的門票。"
+      },
+      {
+        "label": "n. 一致",
+        "en": "The two departments acted in concert to finish the project.",
+        "zh": "這兩個部門通力合作完成了專案。"
+      }
+    ],
+    "hook": "in concert with（與…一致合作）呼應 con 這個「一起」字根。"
+  },
+  {
+    "word": "critic",
+    "ipa": "ˈkrɪtɪk",
+    "pos": "n.",
+    "zh": "評論家，批評家；愛挑剔的人",
+    "roots": [
+      {
+        "text": "crit",
+        "meaning": "to judge（判斷）"
+      },
+      {
+        "text": "ic",
+        "meaning": "名詞字尾（做…的人）"
+      }
+    ],
+    "rootStory": "crit（判斷）+ ic（…的人）→ 做判斷的人 → 評論家；批評家",
+    "example": "The film received praise from most critics.",
+    "exampleZh": "這部電影獲得大多數影評人的讚賞。",
+    "hook": "critical（批判性的）、criticize（批評）都源自同一個 crit 字根。"
+  },
+  {
+    "word": "celebrate",
+    "ipa": "ˈselɪbreɪt",
+    "pos": "vt. vi.",
+    "zh": "慶祝；讚揚，歌頌",
+    "roots": [
+      {
+        "text": "celebr",
+        "meaning": "famous（著名，引申為頌揚）"
+      },
+      {
+        "text": "ate",
+        "meaning": "動詞字尾"
+      }
+    ],
+    "rootStory": "celebr（著名、頌揚）+ ate（動詞字尾）→ 使受到頌揚 → 慶祝",
+    "example": "They celebrated their anniversary with a quiet dinner.",
+    "exampleZh": "他們用一頓安靜的晚餐慶祝結婚紀念日。",
+    "hook": "celebrity（名人）也帶著同一個 celebr 字根。"
+  },
+  {
+    "word": "media",
+    "ipa": "ˈmiːdiə",
+    "pos": "n.",
+    "zh": "媒體；媒介（medium 的複數）",
+    "roots": [
+      {
+        "text": "medi",
+        "meaning": "middle（中間）"
+      },
+      {
+        "text": "a",
+        "meaning": "拉丁中性複數字尾"
+      }
+    ],
+    "rootStory": "medi（中間）+ a（複數字尾）→ 居中傳遞訊息的東西 → 媒體",
+    "example": "Social media has changed the way people get news.",
+    "exampleZh": "社群媒體改變了人們獲取新聞的方式。",
+    "hook": "media 原本是 medium 的複數，常當集合名詞用。"
+  },
+  {
+    "word": "playwright",
+    "ipa": "ˈpleɪraɪt",
+    "pos": "n.",
+    "zh": "劇作家",
+    "roots": [
+      {
+        "text": "play",
+        "meaning": "drama（戲劇）"
+      },
+      {
+        "text": "wright",
+        "meaning": "maker（製作者）"
+      }
+    ],
+    "rootStory": "play（戲劇）+ wright（製作者）→ 製作戲劇的人 → 劇作家",
+    "example": "Shakespeare is the most famous English playwright.",
+    "exampleZh": "莎士比亞是最著名的英國劇作家。",
+    "hook": "wright（製作者）也出現在 shipwright（造船工匠）中。"
+  },
+  {
+    "word": "stunt",
+    "ipa": "stʌnt",
+    "pos": "n. vt.",
+    "zh": "特技，噱頭；vt. 阻礙(生長)",
+    "roots": null,
+    "rootStory": null,
+    "examples": [
+      {
+        "label": "n. 特技",
+        "en": "The actor performed the stunt himself without a double.",
+        "zh": "這位演員親自完成了這個特技動作，沒用替身。"
+      },
+      {
+        "label": "vt. 阻礙生長",
+        "en": "Lack of sunlight can stunt a plant's growth.",
+        "zh": "缺乏日照會阻礙植物生長。"
+      }
+    ],
+    "hook": "特技表演 vs 阻礙生長，兩個意思差很大，靠上下文判斷。"
+  },
+  {
+    "word": "characteristic",
+    "ipa": "ˌkærəktəˈrɪstɪk",
+    "pos": "adj. n.",
+    "zh": "典型的，特有的；n. 特徵，特色",
+    "roots": [
+      {
+        "text": "character",
+        "meaning": "character（性格，特徵）"
+      },
+      {
+        "text": "istic",
+        "meaning": "形容詞字尾"
+      }
+    ],
+    "rootStory": "character（性格、特徵）+ istic（形容詞字尾）→ 具有…特徵的 → 典型的；特徵",
+    "examples": [
+      {
+        "label": "adj. 典型的",
+        "en": "Her cheerful attitude is characteristic of her personality.",
+        "zh": "她開朗的態度正是她個性的典型特徵。"
+      },
+      {
+        "label": "n. 特徵",
+        "en": "Patience is one of a good teacher's key characteristics.",
+        "zh": "耐心是好老師的關鍵特質之一。"
+      }
+    ],
+    "hook": "跟 characterize（描繪…的特性）是同一個 character 家族。"
+  },
+  {
+    "word": "characterize",
+    "ipa": "ˈkærəktəraɪz",
+    "pos": "vt.",
+    "zh": "以…為特徵；描繪…的特性",
+    "roots": [
+      {
+        "text": "character",
+        "meaning": "character（性格，特徵）"
+      },
+      {
+        "text": "ize",
+        "meaning": "動詞字尾（使…化）"
+      }
+    ],
+    "rootStory": "character（性格、特徵）+ ize（使…化）→ 使具有…的特徵 → 以…為特徵",
+    "example": "Rapid growth has characterized the company's first decade.",
+    "exampleZh": "快速成長是這家公司頭十年的特徵。",
+    "hook": "跟 characteristic 系出同門，都源自 character。"
+  },
+  {
+    "word": "charity",
+    "ipa": "ˈtʃærəti",
+    "pos": "n.",
+    "zh": "慈善；慈善機構；施捨",
+    "roots": [
+      {
+        "text": "char",
+        "meaning": "dear（親愛的，源自拉丁 carus）"
+      },
+      {
+        "text": "ity",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "char（親愛的）+ ity（名詞字尾）→ 對人的關愛 → 慈善",
+    "example": "The company donates part of its profits to charity.",
+    "exampleZh": "這家公司把部分利潤捐給慈善機構。",
+    "hook": "charity 原意是「對人的愛」，跟 cherish（珍愛）同源。"
+  },
+  {
+    "word": "fitness",
+    "ipa": "ˈfɪtnəs",
+    "pos": "n.",
+    "zh": "健康；體適能；適合度",
+    "roots": [
+      {
+        "text": "fit",
+        "meaning": "suitable（適合）"
+      },
+      {
+        "text": "ness",
+        "meaning": "名詞字尾（性質、狀態）"
+      }
+    ],
+    "rootStory": "fit（適合）+ ness（名詞字尾）→ 適合、健康的狀態 → 健康；適合度",
+    "example": "Regular exercise is important for overall fitness.",
+    "exampleZh": "規律運動對整體健康很重要。",
+    "hook": "fitness center（健身中心）是常見搭配詞組。"
+  },
+  {
+    "word": "league",
+    "ipa": "liːɡ",
+    "pos": "n.",
+    "zh": "聯盟；社團；範疇",
+    "roots": null,
+    "rootStory": null,
+    "example": "The team won the championship in the national league.",
+    "exampleZh": "這支隊伍贏得了全國聯盟的冠軍。",
+    "hook": "not in the same league（不是同等級）是常見比喻用法。"
+  },
+  {
+    "word": "recreation",
+    "ipa": "ˌrekriˈeɪʃn",
+    "pos": "n.",
+    "zh": "娛樂，消遣",
+    "roots": [
+      {
+        "text": "re",
+        "meaning": "again（再）"
+      },
+      {
+        "text": "creat",
+        "meaning": "to create（創造）"
+      },
+      {
+        "text": "ion",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "re（再次）+ creat（創造）+ ion（名詞字尾）→ 重新產生活力 → 娛樂；消遣",
+    "example": "The park offers many recreation facilities for families.",
+    "exampleZh": "這座公園為家庭提供許多休閒娛樂設施。",
+    "hook": "re-creation（重新創造）正是 recreation 的原意。"
+  },
+  {
+    "word": "rigor",
+    "ipa": "ˈrɪɡər",
+    "pos": "n.",
+    "zh": "嚴格，嚴謹；艱苦",
+    "roots": null,
+    "rootStory": null,
+    "example": "The professor is known for the rigor of his research methods.",
+    "exampleZh": "這位教授以研究方法的嚴謹聞名。",
+    "hook": "學術情境常見 academic rigor（學術嚴謹度）一詞。"
+  },
+  {
+    "word": "climate",
+    "ipa": "ˈklaɪmət",
+    "pos": "n.",
+    "zh": "氣候；(政治/社會)氛圍，局勢",
+    "roots": null,
+    "rootStory": null,
+    "examples": [
+      {
+        "label": "n. 氣候",
+        "en": "The region has a mild climate all year round.",
+        "zh": "這個地區全年氣候溫和。"
+      },
+      {
+        "label": "n. 局勢，氛圍",
+        "en": "The current economic climate makes hiring difficult.",
+        "zh": "目前的經濟局勢讓招聘變得困難。"
+      }
+    ],
+    "hook": "除了天氣，climate 也常比喻政治或經濟的大環境。"
+  },
+  {
+    "word": "soccer",
+    "ipa": "ˈsɑːkər",
+    "pos": "n.",
+    "zh": "足球（英式足球）",
+    "roots": null,
+    "rootStory": null,
+    "example": "Kids in the neighborhood play soccer every afternoon.",
+    "exampleZh": "附近的孩子每天下午都會踢足球。",
+    "hook": "美式英語用 soccer，英式英語則稱 football。"
+  },
+  {
+    "word": "stadium",
+    "ipa": "ˈsteɪdiəm",
+    "pos": "n.",
+    "zh": "體育場，運動場",
+    "roots": null,
+    "rootStory": null,
+    "example": "Fifty thousand fans filled the stadium for the final game.",
+    "exampleZh": "五萬名球迷擠滿體育場觀看總決賽。",
+    "hook": "源自古希臘的長度單位 stadion，後指跑道場地。"
+  },
+  {
+    "word": "stroll",
+    "ipa": "stroʊl",
+    "pos": "n. vi.",
+    "zh": "閒逛，漫步",
+    "roots": null,
+    "rootStory": null,
+    "example": "They strolled along the beach at sunset.",
+    "exampleZh": "他們在日落時沿著海灘漫步。",
+    "hook": "比 walk 更悠閒隨性，強調沒有目的地散步。"
+  },
+  {
+    "word": "code",
+    "ipa": "koʊd",
+    "pos": "n. vt.",
+    "zh": "法規，法典；密碼，代碼；vt. 編碼",
+    "roots": null,
+    "rootStory": null,
+    "examples": [
+      {
+        "label": "n. 法規",
+        "en": "Employees must follow the company's dress code.",
+        "zh": "員工必須遵守公司的服裝規定。"
+      },
+      {
+        "label": "n./vt. 密碼；編碼",
+        "en": "The programmer spent all night coding the new feature.",
+        "zh": "這位工程師花了一整晚為新功能寫程式碼。"
+      }
+    ],
+    "hook": "dress code、moral code、source code 都是常見搭配。"
+  },
+  {
+    "word": "surrender",
+    "ipa": "səˈrendər",
+    "pos": "vt. vi. n.",
+    "zh": "投降；放棄，交出",
+    "roots": [
+      {
+        "text": "sur",
+        "meaning": "above / over（在上，加強語氣）"
+      },
+      {
+        "text": "render",
+        "meaning": "to give back（交還，源自古法文 rendre）"
+      }
+    ],
+    "rootStory": "sur（強調）+ render（交還）→ 完全交出去 → 投降；放棄",
+    "example": "The troops were forced to surrender after days of fighting.",
+    "exampleZh": "經過數日交戰後，部隊被迫投降。",
+    "hook": "render 本身就是「交還、呈現」，sur 加強語氣。"
+  },
+  {
+    "word": "collect",
+    "ipa": "kəˈlekt",
+    "pos": "vt. vi.",
+    "zh": "收集，收藏；聚集；募集",
+    "roots": [
+      {
+        "text": "col",
+        "meaning": "together（一起，com- 的變體）"
+      },
+      {
+        "text": "lect",
+        "meaning": "to gather / choose（聚集、挑選）"
+      }
+    ],
+    "rootStory": "col（一起）+ lect（聚集、挑選）→ 聚在一起挑選收攏 → 收集",
+    "example": "She collects stamps from countries around the world.",
+    "exampleZh": "她收集來自世界各國的郵票。",
+    "hook": "select（挑選）、elect（選出）都跟 lect 這個字根有關。"
+  },
+  {
+    "word": "defense",
+    "ipa": "dɪˈfens",
+    "pos": "n.",
+    "zh": "防衛，防護；防禦措施；防守",
+    "roots": [
+      {
+        "text": "de",
+        "meaning": "away（離開，此處為加強語氣）"
+      },
+      {
+        "text": "fens",
+        "meaning": "to strike（打擊、抵禦，源自拉丁 fendere）"
+      },
+      {
+        "text": "e",
+        "meaning": null
+      }
+    ],
+    "rootStory": "de（強調）+ fens（打擊、抵禦）→ 擋開攻擊 → 防衛；防禦",
+    "example": "The team's defense was too strong for the opponents to score.",
+    "exampleZh": "這支隊伍的防守太強，讓對手無法得分。",
+    "hook": "動詞是 defend，名詞拿掉 d 改成 se 變 defense。"
+  },
+  {
+    "word": "company",
+    "ipa": "ˈkʌmpəni",
+    "pos": "n.",
+    "zh": "公司；陪伴，同伴；一群人",
+    "roots": [
+      {
+        "text": "com",
+        "meaning": "together（一起）"
+      },
+      {
+        "text": "pan",
+        "meaning": "bread（麵包，源自拉丁 panis）"
+      },
+      {
+        "text": "y",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "com（一起）+ pan（麵包）+ y → 一起分享麵包的人 → 同伴；公司",
+    "examples": [
+      {
+        "label": "n. 公司",
+        "en": "The company plans to open a new office in Taipei.",
+        "zh": "這家公司計劃在台北開設新辦公室。"
+      },
+      {
+        "label": "n. 陪伴",
+        "en": "She enjoys the company of old friends on weekends.",
+        "zh": "她週末喜歡與老朋友相伴。"
+      }
+    ],
+    "hook": "字面意思是「一起分麵包的人」，後來才引申為公司。"
+  },
+  {
+    "word": "compare",
+    "ipa": "kəmˈper",
+    "pos": "vt. vi. n.",
+    "zh": "比較；對照；比喻為",
+    "roots": [
+      {
+        "text": "com",
+        "meaning": "fully（完全）"
+      },
+      {
+        "text": "par",
+        "meaning": "equal（相等）"
+      },
+      {
+        "text": "e",
+        "meaning": null
+      }
+    ],
+    "rootStory": "com（完全）+ par（相等）→ 放在一起看是否相等 → 比較",
+    "example": "It's hard to compare the two job offers directly.",
+    "exampleZh": "很難直接比較這兩份工作邀約。",
+    "hook": "par 這個字根也出現在 parity（同等）中。"
+  },
+  {
+    "word": "muscle",
+    "ipa": "ˈmʌsl",
+    "pos": "n.",
+    "zh": "肌肉；力量，影響力",
+    "roots": [
+      {
+        "text": "mus",
+        "meaning": "mouse（老鼠）"
+      },
+      {
+        "text": "cle",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "mus（老鼠）+ cle（小型字尾）→ 皮下滑動如小老鼠 → 肌肉",
+    "example": "Lifting weights helps build muscle over time.",
+    "exampleZh": "舉重能隨著時間增強肌肉。",
+    "hook": "羅馬人覺得手臂肌肉滑動像小老鼠，因此得名。"
+  },
+  {
+    "word": "stretch",
+    "ipa": "stretʃ",
+    "pos": "vt. vi. n.",
+    "zh": "伸展，延伸；一段(路程/時間)",
+    "roots": null,
+    "rootStory": null,
+    "examples": [
+      {
+        "label": "v. 伸展",
+        "en": "Remember to stretch your legs before running.",
+        "zh": "跑步前記得先伸展腿部。"
+      },
+      {
+        "label": "n. 一段(路程/時間)",
+        "en": "It's a long stretch of highway with no exits.",
+        "zh": "這是一段很長、沒有出口的高速公路。"
+      }
+    ],
+    "hook": "stretch of road/time 這個名詞用法容易被忽略。"
+  },
+  {
+    "word": "tactic",
+    "ipa": "ˈtæktɪk",
+    "pos": "n.",
+    "zh": "策略，戰術",
+    "roots": [
+      {
+        "text": "tact",
+        "meaning": "to arrange（安排佈署，源自希臘 tassein）"
+      },
+      {
+        "text": "ic",
+        "meaning": "形容詞／名詞字尾"
+      }
+    ],
+    "rootStory": "tact（安排佈署）+ ic → 佈署行動的方法 → 策略；戰術",
+    "example": "The coach changed his tactics in the second half.",
+    "exampleZh": "教練在下半場改變了戰術。",
+    "hook": "常用複數 tactics 表示整體戰術。"
+  },
+  {
+    "word": "tournament",
+    "ipa": "ˈtʊrnəmənt",
+    "pos": "n.",
+    "zh": "錦標賽，聯賽",
+    "roots": [
+      {
+        "text": "tourn",
+        "meaning": "to turn（轉，源自拉丁 tornare）"
+      },
+      {
+        "text": "a",
+        "meaning": null
+      },
+      {
+        "text": "ment",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "tourn（轉，原指騎士繞圈比武）+ ment → 騎士比武大會 → 錦標賽",
+    "example": "Our school is hosting a basketball tournament next week.",
+    "exampleZh": "我們學校下週將舉辦一場籃球錦標賽。",
+    "hook": "字源是中世紀騎士繞圈比武（tourney），後泛指淘汰賽。"
+  },
+  {
+    "word": "complete",
+    "ipa": "kəmˈpliːt",
+    "pos": "adj. vt.",
+    "zh": "完整的；完成的；vt. 完成",
+    "roots": [
+      {
+        "text": "com",
+        "meaning": "fully（完全）"
+      },
+      {
+        "text": "ple",
+        "meaning": "to fill（填滿）"
+      },
+      {
+        "text": "te",
+        "meaning": null
+      }
+    ],
+    "rootStory": "com（完全）+ ple（填滿）→ 完全填滿 → 完整的；完成",
+    "examples": [
+      {
+        "label": "adj. 完整的",
+        "en": "Please make sure the form is complete before submitting.",
+        "zh": "提交前請確認表格填寫完整。"
+      },
+      {
+        "label": "vt. 完成",
+        "en": "She completed the marathon in under four hours.",
+        "zh": "她在四小時內完成了這場馬拉松。"
+      }
+    ],
+    "hook": "跟 complement（補足）系出同源，都跟「填滿」有關。"
+  },
+  {
+    "word": "complex",
+    "ipa": "kəmˈpleks",
+    "pos": "adj. n.",
+    "zh": "複雜的；合成的；n. 綜合設施，情結",
+    "roots": [
+      {
+        "text": "com",
+        "meaning": "together（一起）"
+      },
+      {
+        "text": "plex",
+        "meaning": "to weave / fold（交織，源自拉丁 plectere）"
+      }
+    ],
+    "rootStory": "com（一起）+ plex（交織）→ 交織在一起 → 複雜的；綜合體",
+    "examples": [
+      {
+        "label": "adj. 複雜的",
+        "en": "The tax system here is extremely complex.",
+        "zh": "這裡的稅務制度極其複雜。"
+      },
+      {
+        "label": "n. 綜合設施",
+        "en": "They live in a large apartment complex downtown.",
+        "zh": "他們住在市中心一座大型公寓社區。"
+      }
+    ],
+    "hook": "跟 duplex（雙拼）一樣，都帶著 plex 這個字根。"
+  },
+  {
+    "word": "compensation",
+    "ipa": "ˌkɑːmpenˈseɪʃn",
+    "pos": "n.",
+    "zh": "補償，賠償；薪酬",
+    "roots": [
+      {
+        "text": "com",
+        "meaning": "fully（完全）"
+      },
+      {
+        "text": "pens",
+        "meaning": "to weigh（稱量）"
+      },
+      {
+        "text": "ation",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "com（完全）+ pens（稱量）+ ation → 秤重使兩邊相等 → 補償；薪酬",
+    "example": "The company offers a competitive compensation package.",
+    "exampleZh": "這家公司提供有競爭力的薪酬方案。",
+    "hook": "pens 這個「稱量」字根也出現在 pension（退休金）中。"
+  },
+  {
+    "word": "contagious",
+    "ipa": "kənˈteɪdʒəs",
+    "pos": "adj.",
+    "zh": "(疾病)有傳染性的；有感染力的",
+    "roots": [
+      {
+        "text": "con",
+        "meaning": "together（一起）"
+      },
+      {
+        "text": "tag",
+        "meaning": "to touch（碰觸，源自拉丁 tangere）"
+      },
+      {
+        "text": "ious",
+        "meaning": "形容詞字尾"
+      }
+    ],
+    "rootStory": "con（一起）+ tag（碰觸）+ ious → 接觸就會傳開 → 有傳染性的",
+    "example": "The flu is highly contagious during winter months.",
+    "exampleZh": "流感在冬季月份傳染性很強。",
+    "hook": "tag（碰觸）也出現在 contact、tangible 這些字裡。"
+  },
+  {
+    "word": "general",
+    "ipa": "ˈdʒenrəl",
+    "pos": "adj. n.",
+    "zh": "一般的，普遍的；n. 將軍",
+    "roots": [
+      {
+        "text": "gener",
+        "meaning": "kind / birth（種類、出身，源自拉丁 genus）"
+      },
+      {
+        "text": "al",
+        "meaning": "形容詞字尾"
+      }
+    ],
+    "rootStory": "gener（種類、出身）+ al → 涵蓋所有種類的 → 一般的；普遍的",
+    "examples": [
+      {
+        "label": "adj. 一般的",
+        "en": "In general, the new policy has been well received.",
+        "zh": "整體而言，新政策獲得不錯的迴響。"
+      },
+      {
+        "label": "n. 將軍",
+        "en": "The general led his troops into battle.",
+        "zh": "這位將軍率領部隊投入戰鬥。"
+      }
+    ],
+    "hook": "in general（大體上）是高頻片語，別跟將軍的意思搞混。"
+  },
+  {
+    "word": "immune",
+    "ipa": "ɪˈmjuːn",
+    "pos": "adj.",
+    "zh": "免疫的，有免疫力的；不受影響的",
+    "roots": [
+      {
+        "text": "im",
+        "meaning": "not（否定，in- 的變體）"
+      },
+      {
+        "text": "mun",
+        "meaning": "service / duty（義務，源自拉丁 munus）"
+      },
+      {
+        "text": "e",
+        "meaning": null
+      }
+    ],
+    "rootStory": "im（否定）+ mun（義務）→ 不需承擔義務、不受侵害 → 免疫的",
+    "example": "A healthy immune system helps fight off infections.",
+    "exampleZh": "健康的免疫系統有助於對抗感染。",
+    "hook": "community（社群）也帶著 mun 這個「共同義務」字根。"
+  },
+  {
+    "word": "infection",
+    "ipa": "ɪnˈfekʃn",
+    "pos": "n.",
+    "zh": "感染；傳染病",
+    "roots": [
+      {
+        "text": "in",
+        "meaning": "into（往內）"
+      },
+      {
+        "text": "fect",
+        "meaning": "to make / do（做、製作）"
+      },
+      {
+        "text": "ion",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "in（進入）+ fect（造成）+ ion → 侵入體內造成病害 → 感染",
+    "example": "The wound showed signs of infection the next day.",
+    "exampleZh": "隔天傷口出現了感染的跡象。",
+    "hook": "跟 infect（感染）、effect 都帶 fect 這個字根。"
+  },
+  {
+    "word": "option",
+    "ipa": "ˈɑːpʃn",
+    "pos": "n.",
+    "zh": "選擇，選項；(經)買賣特權",
+    "roots": [
+      {
+        "text": "opt",
+        "meaning": "to choose（挑選，源自拉丁 optare）"
+      },
+      {
+        "text": "ion",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "opt（挑選）+ ion → 可挑選的東西 → 選項",
+    "example": "Employees have the option to work from home twice a week.",
+    "exampleZh": "員工每週有兩天可以選擇在家上班。",
+    "hook": "adopt（採納）也用同一個 opt 字根，跟選擇有關。"
+  },
+  {
+    "word": "condition",
+    "ipa": "kənˈdɪʃn",
+    "pos": "n. vt.",
+    "zh": "狀況，狀態；條件；vt. 使習慣，制約",
+    "roots": [
+      {
+        "text": "con",
+        "meaning": "together（一起）"
+      },
+      {
+        "text": "dit",
+        "meaning": "to say（說，dic/dict 的變體）"
+      },
+      {
+        "text": "ion",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "con（一起）+ dit（說）+ ion → 共同說定的事 → 條件；狀況",
+    "examples": [
+      {
+        "label": "n. 狀況",
+        "en": "The used car is in excellent condition.",
+        "zh": "這輛二手車狀況非常好。"
+      },
+      {
+        "label": "n. 條件",
+        "en": "Signing the contract is a condition of employment.",
+        "zh": "簽署合約是聘用的一項條件。"
+      }
+    ],
+    "hook": "跟 dictate（口述、規定）系出同源，都跟「說」有關。"
+  },
+  {
+    "word": "antibiotic",
+    "ipa": "ˌæntibaɪˈɑːtɪk",
+    "pos": "n. adj.",
+    "zh": "抗生素；抗生的",
+    "roots": [
+      {
+        "text": "anti",
+        "meaning": "against（反對，希臘字首）"
+      },
+      {
+        "text": "bio",
+        "meaning": "life（生命）"
+      },
+      {
+        "text": "tic",
+        "meaning": "形容詞字尾"
+      }
+    ],
+    "rootStory": "anti（反對）+ bio（生命）+ tic → 對抗微生物的 → 抗生素",
+    "example": "The doctor prescribed antibiotics for the infection.",
+    "exampleZh": "醫生開了抗生素來治療這次感染。",
+    "hook": "bio（生命）也出現在 biology、biography 裡。"
+  },
+  {
+    "word": "consider",
+    "ipa": "kənˈsɪdər",
+    "pos": "vt. vi.",
+    "zh": "考慮；認為",
+    "roots": null,
+    "rootStory": null,
+    "examples": [
+      {
+        "label": "vt. 考慮",
+        "en": "Please consider all the options before deciding.",
+        "zh": "做決定前請考慮所有的選項。"
+      },
+      {
+        "label": "vt. 認為",
+        "en": "Many people consider him the best coach in the league.",
+        "zh": "許多人認為他是聯盟中最好的教練。"
+      }
+    ],
+    "hook": "considerate（體貼的）源自同一個字，別跟 considerable 搞混。"
+  },
+  {
+    "word": "diagnose",
+    "ipa": "ˈdaɪəɡnoʊs",
+    "pos": "vt. vi.",
+    "zh": "診斷；斷定",
+    "roots": [
+      {
+        "text": "dia",
+        "meaning": "through（徹底，希臘字首）"
+      },
+      {
+        "text": "gnos",
+        "meaning": "to know（知道，源自希臘 gnosis）"
+      },
+      {
+        "text": "e",
+        "meaning": null
+      }
+    ],
+    "rootStory": "dia（徹底）+ gnos（知道）→ 徹底看清病因 → 診斷",
+    "example": "The doctor diagnosed him with a mild case of the flu.",
+    "exampleZh": "醫生診斷他得了輕微的流感。",
+    "hook": "名詞是 diagnosis，跟 diagnostic（診斷用的）同一家族。"
+  },
+  {
+    "word": "consistently",
+    "ipa": "kənˈsɪstəntli",
+    "pos": "adv.",
+    "zh": "一貫地，始終如一地",
+    "roots": [
+      {
+        "text": "con",
+        "meaning": "together（一起）"
+      },
+      {
+        "text": "sist",
+        "meaning": "to stand（站立）"
+      },
+      {
+        "text": "ent",
+        "meaning": "形容詞字尾"
+      },
+      {
+        "text": "ly",
+        "meaning": "副詞字尾"
+      }
+    ],
+    "rootStory": "con（一起）+ sist（站立）+ ent + ly → 一直站在同一個立場 → 一貫地",
+    "example": "She consistently scores well on her math tests.",
+    "exampleZh": "她的數學測驗成績一貫都很好。",
+    "hook": "跟 consistent（一致的）、persist（堅持）都帶 sist 字根。"
+  },
+  {
+    "word": "handicap",
+    "ipa": "ˈhændikæp",
+    "pos": "n. vt.",
+    "zh": "障礙，不利條件；vt. 妨礙",
+    "roots": [
+      {
+        "text": "hand",
+        "meaning": "hand（手）"
+      },
+      {
+        "text": "i",
+        "meaning": null
+      },
+      {
+        "text": "cap",
+        "meaning": "cap（帽子，源自舊時抽籤遊戲 hand-in-cap）"
+      }
+    ],
+    "rootStory": "hand（手）+ i + cap（帽子，源自抽籤遊戲）→ 手伸進帽子抽籤 → 障礙；不利條件",
+    "example": "His lack of experience was a handicap in the interview.",
+    "exampleZh": "缺乏經驗成了他面試時的一項不利條件。",
+    "hook": "字源是舊時交換籌碼的抽籤遊戲「手在帽中」。"
+  },
+  {
+    "word": "indemnity",
+    "ipa": "ɪnˈdemnəti",
+    "pos": "n.",
+    "zh": "賠償，補償；保障",
+    "roots": [
+      {
+        "text": "in",
+        "meaning": "not（否定）"
+      },
+      {
+        "text": "demn",
+        "meaning": "harm / damage（損害，源自拉丁 damnum）"
+      },
+      {
+        "text": "ity",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "in（否定）+ demn（損害）+ ity → 不使人受損害 → 賠償；保障",
+    "example": "The insurance policy provides indemnity against fire damage.",
+    "exampleZh": "這份保單提供火災損害的賠償保障。",
+    "hook": "跟 condemn（譴責）都源自同一個拉丁字 damnum。"
+  },
+  {
+    "word": "constantly",
+    "ipa": "ˈkɑːnstəntli",
+    "pos": "adv.",
+    "zh": "不斷地，經常地",
+    "roots": [
+      {
+        "text": "con",
+        "meaning": "together（一起，加強語氣）"
+      },
+      {
+        "text": "stant",
+        "meaning": "to stand（站立）"
+      },
+      {
+        "text": "ly",
+        "meaning": "副詞字尾"
+      }
+    ],
+    "rootStory": "con（強調）+ stant（站立）+ ly → 始終站在同一處 → 不斷地",
+    "example": "Prices have been constantly rising over the past year.",
+    "exampleZh": "過去一年物價一直不斷上漲。",
+    "hook": "跟 constant（不變的）、stand 都帶 stant/stand 這個字根。"
+  },
+  {
+    "word": "nutrition",
+    "ipa": "nuːˈtrɪʃn",
+    "pos": "n.",
+    "zh": "營養；營養學",
+    "roots": [
+      {
+        "text": "nutri",
+        "meaning": "to nourish（滋養）"
+      },
+      {
+        "text": "tion",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "nutri（滋養）+ tion（名詞字尾）→ 滋養身體之事 → 營養",
+    "example": "Doctors emphasize the importance of good nutrition for children's growth.",
+    "exampleZh": "醫生強調良好營養對孩童成長的重要性。",
+    "hook": "nutri 家族都跟「滋養」有關：nourish 滋養、nutritious 有營養的。"
+  },
+  {
+    "word": "container",
+    "ipa": "kənˈteɪnər",
+    "pos": "n.",
+    "zh": "容器；貨櫃",
+    "roots": [
+      {
+        "text": "con",
+        "meaning": "together（一起）"
+      },
+      {
+        "text": "tain",
+        "meaning": "to hold（握住）"
+      },
+      {
+        "text": "er",
+        "meaning": "名詞字尾（做…的人／物）"
+      }
+    ],
+    "rootStory": "con（一起，加強語氣）+ tain（握住）+ er（…的物）→ 把東西都裝住的物件 → 容器",
+    "example": "The goods were shipped in a large steel container.",
+    "exampleZh": "貨物用大型鋼製貨櫃運送。",
+    "hook": "跟 contain 是一家：con 加強、tain 握住——裝得住東西的就是容器。"
+  },
+  {
+    "word": "continuation",
+    "ipa": "kənˌtɪnjuˈeɪʃn",
+    "pos": "n.",
+    "zh": "繼續；延續；續集",
+    "roots": [
+      {
+        "text": "continu",
+        "meaning": "to go on（持續不斷，源自拉丁 continuare）"
+      },
+      {
+        "text": "ation",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "continu（持續不斷）+ ation（名詞字尾）→ 持續下去之事 → 繼續；延續",
+    "example": "The sequel is a direct continuation of the first novel's story.",
+    "exampleZh": "續集直接延續了第一部小說的劇情。",
+    "hook": "continue 的名詞化：把「持續（continu）」這件事講清楚。"
+  },
+  {
+    "word": "burglar",
+    "ipa": "ˈbɜːrɡlər",
+    "pos": "n.",
+    "zh": "竊賊；夜賊",
+    "roots": null,
+    "rootStory": null,
+    "example": "A burglar broke into the house while the family was on vacation.",
+    "exampleZh": "這戶人家度假時，一名竊賊闖入了屋內。",
+    "hook": "burglar 專指闖空門的竊賊，跟持械行搶的 robber 不同。"
+  },
+  {
+    "word": "community",
+    "ipa": "kəˈmjuːnəti",
+    "pos": "n.",
+    "zh": "社區；社會；群體",
+    "roots": [
+      {
+        "text": "com",
+        "meaning": "together / fully（完全）"
+      },
+      {
+        "text": "mun",
+        "meaning": "service / duty（服務、職責）"
+      },
+      {
+        "text": "ity",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "com（一起）+ mun（職責、服務）+ ity → 共同承擔職責的人群 → 社區",
+    "example": "The new library serves the whole local community.",
+    "exampleZh": "這座新圖書館服務整個當地社區。",
+    "hook": "mun 是「共同的職責」：community 共同體、communicate 分享訊息。"
+  },
+  {
+    "word": "furniture",
+    "ipa": "ˈfɜːrnɪtʃər",
+    "pos": "n.",
+    "zh": "家具",
+    "roots": null,
+    "rootStory": null,
+    "example": "They bought new furniture for their apartment.",
+    "exampleZh": "他們為公寓添購了新家具。",
+    "hook": "不可數名詞，一件家具要說 a piece of furniture。"
+  },
+  {
+    "word": "garbage",
+    "ipa": "ˈɡɑːrbɪdʒ",
+    "pos": "n.",
+    "zh": "垃圾；廢物",
+    "roots": null,
+    "rootStory": null,
+    "example": "Please take out the garbage before you leave.",
+    "exampleZh": "離開前請把垃圾拿出去丟。",
+    "hook": "美式英語愛用 garbage，英式較常說 rubbish。"
+  },
+  {
+    "word": "laundry",
+    "ipa": "ˈlɔːndri",
+    "pos": "n.",
+    "zh": "待洗／洗好的衣物；洗衣店",
+    "roots": null,
+    "rootStory": null,
+    "example": "She spends every Sunday doing the laundry.",
+    "exampleZh": "她每個星期天都在洗衣服。",
+    "hook": "do the laundry＝洗衣服，生活英語必考搭配。"
+  },
+  {
+    "word": "ornament",
+    "ipa": "ˈɔːrnəmənt",
+    "pos": "n./vt.",
+    "zh": "裝飾品；裝飾",
+    "roots": [
+      {
+        "text": "orn",
+        "meaning": "to adorn（裝飾）"
+      },
+      {
+        "text": "a",
+        "meaning": null
+      },
+      {
+        "text": "ment",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "orn（裝飾）+ a + ment（名詞字尾）→ 用來裝飾的東西 → 裝飾品",
+    "example": "They hung colorful ornaments on the Christmas tree.",
+    "exampleZh": "他們在聖誕樹上掛滿了色彩繽紛的裝飾品。",
+    "hook": "跟 ornate（華麗的）同字根 orn——裝飾的核心語義。"
+  },
+  {
+    "word": "balcony",
+    "ipa": "ˈbælkəni",
+    "pos": "n.",
+    "zh": "陽台；(戲院)包廂、樓座",
+    "roots": null,
+    "rootStory": null,
+    "example": "We had breakfast on the hotel room's balcony.",
+    "exampleZh": "我們在飯店房間的陽台上吃早餐。",
+    "hook": "訂戲票常見 balcony seats（樓座），比一樓池座便宜。"
+  },
+  {
+    "word": "chore",
+    "ipa": "tʃɔːr",
+    "pos": "n.",
+    "zh": "家務事；瑣事",
+    "roots": null,
+    "rootStory": null,
+    "example": "Taking out the trash is one of his weekly chores.",
+    "exampleZh": "倒垃圾是他每週的家務事之一。",
+    "hook": "household chores＝家務瑣事，常與 daily/weekly 搭配。"
+  },
+  {
+    "word": "lawn",
+    "ipa": "lɔːn",
+    "pos": "n.",
+    "zh": "草坪；草地",
+    "roots": null,
+    "rootStory": null,
+    "example": "He mows the lawn every Saturday morning.",
+    "exampleZh": "他每個星期六早上都會修剪草坪。",
+    "hook": "mow the lawn（除草）是英美住家最常見的週末雜務。"
+  },
+  {
+    "word": "messy",
+    "ipa": "ˈmesi",
+    "pos": "adj.",
+    "zh": "凌亂的；骯髒的；棘手的",
+    "roots": null,
+    "rootStory": null,
+    "example": "His desk is always messy with papers everywhere.",
+    "exampleZh": "他的書桌總是亂七八糟，到處都是文件。",
+    "hook": "mess（混亂）+ y，形容人事物「亂糟糟」的萬用形容詞。"
+  },
+  {
+    "word": "deal",
+    "ipa": "diːl",
+    "pos": "n./v.",
+    "zh": "交易；協議；處理；發牌",
+    "roots": null,
+    "rootStory": null,
+    "examples": [
+      {
+        "label": "n. 交易；協議",
+        "en": "The two companies finally reached a deal after months of talks.",
+        "zh": "這兩家公司經過數月洽談終於達成協議。"
+      },
+      {
+        "label": "vi. 處理；應付（deal with）",
+        "en": "Customer service deals with complaints every day.",
+        "zh": "客服部門每天都在處理客訴。"
+      }
+    ],
+    "hook": "deal with＝處理；a great deal of＝大量的，兩個超高頻搭配。"
+  },
+  {
+    "word": "affection",
+    "ipa": "əˈfekʃn",
+    "pos": "n.",
+    "zh": "情感；喜愛；關愛",
+    "roots": [
+      {
+        "text": "af",
+        "meaning": "toward（朝向）"
+      },
+      {
+        "text": "fect",
+        "meaning": "to make / do（做、製作）"
+      },
+      {
+        "text": "ion",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "af（朝向）+ fect（做、製作，引申為影響）+ ion → 對某人產生的情感影響 → 喜愛",
+    "example": "She has always shown great affection for her younger siblings.",
+    "exampleZh": "她一直對弟妹展現出深厚的關愛。",
+    "hook": "fect 家族「造成、影響」：affection 是對人起作用的情感。"
+  },
+  {
+    "word": "brag",
+    "ipa": "bræɡ",
+    "pos": "vt./vi.",
+    "zh": "吹噓；自誇",
+    "roots": null,
+    "rootStory": null,
+    "example": "He loves to brag about his new sports car.",
+    "exampleZh": "他很愛吹噓自己的新跑車。",
+    "hook": "brag about sth.＝吹噓某事，語氣比 boast 更口語隨性。"
+  },
+  {
+    "word": "decorate",
+    "ipa": "ˈdekəreɪt",
+    "pos": "vt./vi.",
+    "zh": "裝飾；布置",
+    "roots": [
+      {
+        "text": "decor",
+        "meaning": "to adorn（裝飾，源自拉丁 decorare）"
+      },
+      {
+        "text": "ate",
+        "meaning": "動詞字尾"
+      }
+    ],
+    "rootStory": "decor（裝飾，源自拉丁 decorare）+ ate（動詞字尾）→ 使變得美觀 → 裝飾",
+    "example": "They decorated the office with balloons for the party.",
+    "exampleZh": "他們用氣球布置辦公室準備開派對。",
+    "hook": "跟 decoration（裝飾品）、decor（室內裝潢）同字根 decor。"
+  },
+  {
+    "word": "detest",
+    "ipa": "dɪˈtest",
+    "pos": "vt.",
+    "zh": "憎恨；厭惡",
+    "roots": [
+      {
+        "text": "de",
+        "meaning": "away（離開）"
+      },
+      {
+        "text": "test",
+        "meaning": "to witness（作證）"
+      }
+    ],
+    "rootStory": "de（離開，此處表強烈排斥）+ test（作證，源自拉丁 testari）→ 極力作證反對 → 憎恨",
+    "example": "She detests being interrupted while she's speaking.",
+    "exampleZh": "她很討厭說話被打斷。",
+    "hook": "比 dislike 強烈許多，接近「深惡痛絕」的程度。"
+  },
+  {
+    "word": "disgust",
+    "ipa": "dɪsˈɡʌst",
+    "pos": "n./vt.",
+    "zh": "反感；厭惡",
+    "roots": [
+      {
+        "text": "dis",
+        "meaning": "apart（分開）"
+      },
+      {
+        "text": "gust",
+        "meaning": "taste（味道，源自拉丁 gustus）"
+      }
+    ],
+    "rootStory": "dis（分開，此處表否定）+ gust（味道，源自拉丁 gustus）→ 讓人食不下嚥 → 反感、厭惡",
+    "example": "He looked at the moldy bread with disgust.",
+    "exampleZh": "他厭惡地看著那發霉的麵包。",
+    "hook": "gust 是「味道」：好吃是 gusto，沒滋味、反胃就是 disgust。"
+  },
+  {
+    "word": "distress",
+    "ipa": "dɪˈstres",
+    "pos": "n./vt.",
+    "zh": "悲痛；苦惱；危難",
+    "roots": [
+      {
+        "text": "di",
+        "meaning": "apart（分開）"
+      },
+      {
+        "text": "stress",
+        "meaning": "to draw tight（拉緊，源自拉丁 stringere）"
+      }
+    ],
+    "rootStory": "di（分開，此處為加強語氣）+ stress（拉緊，源自拉丁 stringere）→ 被拉扯到痛苦的地步 → 悲痛；危難",
+    "example": "The sinking ship sent out a distress signal.",
+    "exampleZh": "這艘正在下沉的船發出了求救信號。",
+    "hook": "跟 stress 是親戚：多一層字首，壓力變成深切的苦難。"
+  },
+  {
+    "word": "esteem",
+    "ipa": "ɪˈstiːm",
+    "pos": "n./vt.",
+    "zh": "尊重；尊敬",
+    "roots": [
+      {
+        "text": "e",
+        "meaning": null
+      },
+      {
+        "text": "steem",
+        "meaning": "to value（評價，源自拉丁 aestimare）"
+      }
+    ],
+    "rootStory": "e + steem（評價，源自拉丁 aestimare）→ 給予高度評價 → 尊重",
+    "example": "Her colleagues hold her in high esteem.",
+    "exampleZh": "她的同事對她十分敬重。",
+    "hook": "跟 estimate（評估）同字源——高度評估一個人就是尊重。"
+  },
+  {
+    "word": "gloomy",
+    "ipa": "ˈɡluːmi",
+    "pos": "adj.",
+    "zh": "陰暗的；沮喪的；悲觀的",
+    "roots": null,
+    "rootStory": null,
+    "example": "The weather has been gloomy all week.",
+    "exampleZh": "這星期的天氣一直很陰沉。",
+    "hook": "既能形容天氣陰暗，也能形容心情或前景悲觀。"
+  },
+  {
+    "word": "delight",
+    "ipa": "dɪˈlaɪt",
+    "pos": "n./vt./vi.",
+    "zh": "高興；樂趣；使高興",
+    "roots": null,
+    "rootStory": null,
+    "example": "The children squealed with delight at the magic show.",
+    "exampleZh": "孩子們看魔術表演樂得尖叫。",
+    "hook": "小心別跟「light」聯想——其實源自拉丁 delectare（取悅）。"
+  },
+  {
+    "word": "panic",
+    "ipa": "ˈpænɪk",
+    "pos": "n./vi.",
+    "zh": "恐慌；驚慌",
+    "roots": null,
+    "rootStory": null,
+    "example": "Passengers began to panic when the alarm went off.",
+    "exampleZh": "警報響起時乘客開始驚慌起來。",
+    "hook": "源自希臘牧神 Pan——祂的吼聲讓人瞬間恐慌，故得此名。"
+  },
+  {
+    "word": "repulsive",
+    "ipa": "rɪˈpʌlsɪv",
+    "pos": "adj.",
+    "zh": "令人厭惡的；可憎的",
+    "roots": [
+      {
+        "text": "re",
+        "meaning": "back（往回）"
+      },
+      {
+        "text": "puls",
+        "meaning": "to push / drive（推）"
+      },
+      {
+        "text": "ive",
+        "meaning": "形容詞字尾"
+      }
+    ],
+    "rootStory": "re（往回）+ puls（推）+ ive → 讓人想推開、退避三舍的 → 令人厭惡的",
+    "example": "The smell from the dumpster was absolutely repulsive.",
+    "exampleZh": "垃圾桶飄出的味道實在令人作嘔。",
+    "hook": "puls 是「推」：repulsive 把人推開，impulsive 被衝動推著走。"
+  },
+  {
+    "word": "devoted",
+    "ipa": "dɪˈvoʊtɪd",
+    "pos": "adj.",
+    "zh": "專心的；深愛的；奉獻的",
+    "roots": [
+      {
+        "text": "de",
+        "meaning": "away（離開）"
+      },
+      {
+        "text": "vot",
+        "meaning": "to vow（發誓，源自拉丁 votum）"
+      },
+      {
+        "text": "ed",
+        "meaning": "形容詞字尾"
+      }
+    ],
+    "rootStory": "de（離開，此處表全心投入）+ vot（發誓，源自拉丁 votum）+ ed → 發誓將自己交託出去 → 專心的、深愛的",
+    "example": "He is completely devoted to his family and career.",
+    "exampleZh": "他全心奉獻給家庭與事業。",
+    "hook": "vot 是「發誓」：devoted 發願奉獻、vote 投票許下選擇。"
+  },
+  {
+    "word": "disposition",
+    "ipa": "ˌdɪspəˈzɪʃn",
+    "pos": "n.",
+    "zh": "性情；天性；安排",
+    "roots": [
+      {
+        "text": "dis",
+        "meaning": "apart（分開）"
+      },
+      {
+        "text": "posit",
+        "meaning": "to place（放置）"
+      },
+      {
+        "text": "ion",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "dis（分開）+ posit（放置）+ ion → 把各種特質安放定位 → 性情；安排",
+    "example": "She has a cheerful disposition and gets along with everyone.",
+    "exampleZh": "她個性開朗，跟每個人都相處融洽。",
+    "hook": "posit 是「放置」：把人的特質擺放出來，就是天性。"
+  },
+  {
+    "word": "elegant",
+    "ipa": "ˈelɪɡənt",
+    "pos": "adj.",
+    "zh": "優雅的；講究的；簡潔的",
+    "roots": [
+      {
+        "text": "e",
+        "meaning": "out（向外）"
+      },
+      {
+        "text": "leg",
+        "meaning": "to choose（挑選，同 eligible 字源）"
+      },
+      {
+        "text": "ant",
+        "meaning": "形容詞字尾"
+      }
+    ],
+    "rootStory": "e（向外）+ leg（挑選，同 eligible 字源）+ ant → 精心挑選出來的 → 優雅的",
+    "example": "She wore an elegant black dress to the gala.",
+    "exampleZh": "她穿著一襲優雅的黑色禮服出席晚宴。",
+    "hook": "跟 eligible（夠格被選上的）同字源 leg——優雅是精挑細選的結果。"
+  },
+  {
+    "word": "entice",
+    "ipa": "ɪnˈtaɪs",
+    "pos": "vt.",
+    "zh": "誘使；引誘",
+    "roots": null,
+    "rootStory": null,
+    "example": "The bakery's smell enticed customers to come inside.",
+    "exampleZh": "麵包店飄出的香氣引誘顧客走進店裡。",
+    "hook": "常搭配 entice sb. into/to Ving，語氣中性偏正面誘導。"
+  },
+  {
+    "word": "fancy",
+    "ipa": "ˈfænsi",
+    "pos": "n./adj./vt.",
+    "zh": "愛好；花俏昂貴的；想像；喜歡",
+    "roots": null,
+    "rootStory": null,
+    "examples": [
+      {
+        "label": "adj. 花俏的；昂貴的",
+        "en": "They went to a fancy restaurant to celebrate their anniversary.",
+        "zh": "他們去了一家高級餐廳慶祝結婚紀念日。"
+      },
+      {
+        "label": "vt. 想像；喜歡（英式口語）",
+        "en": "Fancy meeting you here of all places!",
+        "zh": "真沒想到會在這種地方遇見你！"
+      }
+    ],
+    "hook": "fancy restaurant＝高檔餐廳；Fancy that!＝真想不到！"
+  },
+  {
+    "word": "desperate",
+    "ipa": "ˈdespərət",
+    "pos": "adj.",
+    "zh": "拼命的；絕望的；極需要的",
+    "roots": [
+      {
+        "text": "de",
+        "meaning": "away（離開）"
+      },
+      {
+        "text": "sper",
+        "meaning": "hope（希望）"
+      },
+      {
+        "text": "ate",
+        "meaning": "形容詞字尾"
+      }
+    ],
+    "rootStory": "de（離開）+ sper（希望）+ ate → 離開希望、不再抱持 → 拼命的；絕望的",
+    "example": "They made a desperate attempt to save the sinking company.",
+    "exampleZh": "他們拼命一搏想挽救這家搖搖欲墜的公司。",
+    "hook": "跟 prosperity（盼望成真＝繁榮）相對——desperate 是希望落空。"
+  },
+  {
+    "word": "hideous",
+    "ipa": "ˈhɪdiəs",
+    "pos": "adj.",
+    "zh": "可怕的；醜惡的",
+    "roots": null,
+    "rootStory": null,
+    "example": "The abandoned building had a hideous, crumbling facade.",
+    "exampleZh": "這棟廢棄建築有著醜陋且逐漸崩塌的外牆。",
+    "hook": "常形容外觀極度醜陋，語氣比 ugly 更強烈誇張。"
+  },
+  {
+    "word": "instinct",
+    "ipa": "ˈɪnstɪŋkt",
+    "pos": "n.",
+    "zh": "本能；直覺；天性",
+    "roots": [
+      {
+        "text": "in",
+        "meaning": "into（往內）"
+      },
+      {
+        "text": "stinct",
+        "meaning": "to prick / incite（刺激驅動，源自拉丁 instinguere）"
+      }
+    ],
+    "rootStory": "in（往內）+ stinct（刺激驅動，源自拉丁 instinguere）→ 內心受驅動而行動 → 本能",
+    "example": "Animals rely on instinct to survive in the wild.",
+    "exampleZh": "動物在野外依靠本能求生。",
+    "hook": "instinctive 直覺的、distinguish 分辨，都跟 stinguere（刺）同源。"
+  },
+  {
+    "word": "jealous",
+    "ipa": "ˈdʒeləs",
+    "pos": "adj.",
+    "zh": "妒忌的；羨慕的",
+    "roots": [
+      {
+        "text": "jeal",
+        "meaning": "zeal（熱切，同源 zealous）"
+      },
+      {
+        "text": "ous",
+        "meaning": "形容詞字尾"
+      }
+    ],
+    "rootStory": "jeal（熱切，與 zealous 同源）+ ous → 過度在意、放不下 → 妒忌的",
+    "example": "He felt jealous when his friend got the promotion instead of him.",
+    "exampleZh": "看到朋友升遷而不是自己，他心生妒忌。",
+    "hook": "跟 zealous（熱心的）是同源雙胞胎，都源自希臘字根 zeal 熱切。"
+  },
+  {
+    "word": "startle",
+    "ipa": "ˈstɑːrtl",
+    "pos": "vt./vi./n.",
+    "zh": "使吃驚；驚跳；驚愕",
+    "roots": null,
+    "rootStory": null,
+    "example": "The sudden noise startled everyone in the room.",
+    "exampleZh": "突如其來的聲響讓房裡所有人都嚇了一跳。",
+    "hook": "比 surprise 更強調「瞬間嚇一跳」的反射動作。"
+  },
+  {
+    "word": "develop",
+    "ipa": "dɪˈveləp",
+    "pos": "vt./vi.",
+    "zh": "開發；發展；使顯影",
+    "roots": [
+      {
+        "text": "de",
+        "meaning": "away（離開）"
+      },
+      {
+        "text": "velop",
+        "meaning": "to wrap（包裹）"
+      }
+    ],
+    "rootStory": "de（離開）+ velop（包裹）→ 脫離包裹、顯現出來 → 開發；顯影",
+    "example": "The team is developing a new mobile app for the market.",
+    "exampleZh": "團隊正在為市場開發一款新的手機應用程式。",
+    "hook": "跟 envelope（信封＝包起來）反著走：de 打開、en 包起來。"
+  },
+  {
+    "word": "upset",
+    "ipa": "ʌpˈset",
+    "pos": "adj./vt./n.",
+    "zh": "心煩的；使苦惱；打亂；意外的結果",
+    "roots": null,
+    "rootStory": null,
+    "examples": [
+      {
+        "label": "adj. 心煩的；不高興的",
+        "en": "She was upset after hearing the bad news.",
+        "zh": "聽到壞消息後她感到很難過。"
+      },
+      {
+        "label": "vt. 使苦惱；打亂",
+        "en": "The delay upset the whole project schedule.",
+        "zh": "這次延誤打亂了整個專案的時程。"
+      }
+    ],
+    "hook": "比賽爆冷勝出也叫 an upset——秩序被「打翻」了。"
+  },
+  {
+    "word": "assumption",
+    "ipa": "əˈsʌmpʃn",
+    "pos": "n.",
+    "zh": "假定；臆測",
+    "roots": [
+      {
+        "text": "as",
+        "meaning": "toward（朝向）"
+      },
+      {
+        "text": "sum",
+        "meaning": "to take（拿取）"
+      },
+      {
+        "text": "ption",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "as（朝向）+ sum（拿取）+ ption → 把某件事拿來當作真的 → 假定",
+    "example": "The report is based on the assumption that prices will remain stable.",
+    "exampleZh": "這份報告是基於物價將維持穩定的假設。",
+    "hook": "跟 assume、consume 同字根 sum「拿取」。"
+  },
+  {
+    "word": "director",
+    "ipa": "dəˈrektər",
+    "pos": "n.",
+    "zh": "主管；董事；導演",
+    "roots": [
+      {
+        "text": "direct",
+        "meaning": "to direct（指引）"
+      },
+      {
+        "text": "or",
+        "meaning": "名詞字尾（做…的人／物）"
+      }
+    ],
+    "rootStory": "direct（指引）+ or（…的人）→ 負責指引方向的人 → 主管；導演",
+    "example": "She was recently promoted to marketing director.",
+    "exampleZh": "她最近被升為行銷總監。",
+    "hook": "跟 directory（名錄）同字根 direct——負責「指路」的人。"
+  },
+  {
+    "word": "identity",
+    "ipa": "aɪˈdentəti",
+    "pos": "n.",
+    "zh": "身份；同一性；特性",
+    "roots": [
+      {
+        "text": "ident",
+        "meaning": "the same（相同）"
+      },
+      {
+        "text": "ity",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "ident（相同）+ ity → 與自身完全一致 → 身份；同一性",
+    "example": "The witness refused to reveal her identity to the press.",
+    "exampleZh": "這名目擊者拒絕向媒體透露自己的身份。",
+    "hook": "identical（完全相同的）同字根——身份是與自己一致的證明。"
+  },
+  {
+    "word": "implication",
+    "ipa": "ˌɪmplɪˈkeɪʃn",
+    "pos": "n.",
+    "zh": "暗示；含義；牽連",
+    "roots": [
+      {
+        "text": "im",
+        "meaning": "into（往內）"
+      },
+      {
+        "text": "plic",
+        "meaning": "to fold（摺疊）"
+      },
+      {
+        "text": "ation",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "im（往內）+ plic（摺疊）+ ation → 把意思摺疊藏在裡面 → 暗示；含義",
+    "example": "The report's findings have serious implications for public health policy.",
+    "exampleZh": "這份報告的結論對公共衛生政策有嚴重的含義。",
+    "hook": "plic 是「摺」：implication 摺在話裡的意思，complicate 摺得複雜。"
+  },
+  {
+    "word": "discrimination",
+    "ipa": "dɪˌskrɪmɪˈneɪʃn",
+    "pos": "n.",
+    "zh": "歧視；辨別；識別力",
+    "roots": [
+      {
+        "text": "dis",
+        "meaning": "apart（分開）"
+      },
+      {
+        "text": "crimin",
+        "meaning": "to distinguish（區辨，源自拉丁 discriminare）"
+      },
+      {
+        "text": "ation",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "dis（分開）+ crimin（區辨，源自拉丁 discriminare）+ ation → 把人區分對待 → 歧視；辨別",
+    "example": "The company was sued for age discrimination in hiring.",
+    "exampleZh": "這家公司因招募時的年齡歧視而被控告。",
+    "hook": "同源 critic（判斷、批評）——區辨過了頭就成了歧視。"
+  },
+  {
+    "word": "risk",
+    "ipa": "rɪsk",
+    "pos": "n./vt.",
+    "zh": "風險；冒險",
+    "roots": null,
+    "rootStory": null,
+    "example": "Investing in startups carries a high risk of loss.",
+    "exampleZh": "投資新創公司有很高的虧損風險。",
+    "hook": "at risk＝身處險境；risk Ving＝冒著…的風險，高頻考點。"
+  },
+  {
+    "word": "absurd",
+    "ipa": "əbˈsɜːrd",
+    "pos": "adj.",
+    "zh": "荒謬的；可笑的",
+    "roots": [
+      {
+        "text": "ab",
+        "meaning": "away from（脫離）"
+      },
+      {
+        "text": "surd",
+        "meaning": "deaf / silent（聽不見、無意義，源自拉丁 surdus）"
+      }
+    ],
+    "rootStory": "ab（脫離，此處加強）+ surd（無意義，源自拉丁 surdus 聽不見的）→ 完全講不通 → 荒謬的",
+    "example": "It's absurd to expect the project to finish in one day.",
+    "exampleZh": "指望這個專案一天內完成實在很荒謬。",
+    "hook": "數學的無理數 surd 跟 absurd 同字根——都「說不通、算不清」。"
+  },
+  {
+    "word": "decent",
+    "ipa": "ˈdiːsnt",
+    "pos": "adj.",
+    "zh": "得體的；正派的；相當好的",
+    "roots": [
+      {
+        "text": "dec",
+        "meaning": "to be fitting（合宜，源自拉丁 decere）"
+      },
+      {
+        "text": "ent",
+        "meaning": "形容詞字尾"
+      }
+    ],
+    "rootStory": "dec（合宜，源自拉丁 decere）+ ent → 恰如其分的 → 得體的",
+    "example": "He earns a decent salary working as an engineer.",
+    "exampleZh": "他當工程師領著相當不錯的薪水。",
+    "hook": "跟 decorate（裝飾）同源 dec——合宜得體才顯得好看。"
+  },
+  {
+    "word": "dull",
+    "ipa": "dʌl",
+    "pos": "adj.",
+    "zh": "遲鈍的；無趣的；(刀)鈍的；黯淡的",
+    "roots": null,
+    "rootStory": null,
+    "example": "The lecture was so dull that half the class fell asleep.",
+    "exampleZh": "這場演講太無聊了，半班學生都睡著了。",
+    "hook": "一詞多用：刀鈍、天色暗、頭腦遲鈍、內容無趣都能用 dull。"
+  },
+  {
+    "word": "ingenious",
+    "ipa": "ɪnˈdʒiːniəs",
+    "pos": "adj.",
+    "zh": "靈巧的；巧妙的；有獨創性的",
+    "roots": [
+      {
+        "text": "in",
+        "meaning": "into（往內）"
+      },
+      {
+        "text": "geni",
+        "meaning": "innate talent（天賦，源自拉丁 genius）"
+      },
+      {
+        "text": "ous",
+        "meaning": "形容詞字尾"
+      }
+    ],
+    "rootStory": "in（往內）+ geni（天賦，源自拉丁 genius）+ ous → 內具天賦巧思的 → 靈巧的",
+    "example": "She came up with an ingenious solution to the problem.",
+    "exampleZh": "她想出了一個巧妙的解決方案。",
+    "hook": "跟 genius（天才）同字根 geni——巧妙點子是天賦的展現。"
+  },
+  {
+    "word": "economize",
+    "ipa": "ɪˈkɑːnəmaɪz",
+    "pos": "vi./vt.",
+    "zh": "節省；減少開支",
+    "roots": [
+      {
+        "text": "eco",
+        "meaning": "house（家）"
+      },
+      {
+        "text": "nom",
+        "meaning": "to manage（管理）"
+      },
+      {
+        "text": "ize",
+        "meaning": "動詞字尾（使…化）"
+      }
+    ],
+    "rootStory": "eco（家）+ nom（管理）+ ize → 管理好家中用度 → 節省",
+    "example": "The family decided to economize by eating out less often.",
+    "exampleZh": "這家人決定減少外食以節省開銷。",
+    "hook": "跟 economy 同字根：eco 家、nom 管理——把家管好就是節約。"
+  },
+  {
+    "word": "economy",
+    "ipa": "ɪˈkɑːnəmi",
+    "pos": "n.",
+    "zh": "經濟；節約；經濟艙",
+    "roots": [
+      {
+        "text": "eco",
+        "meaning": "house（家）"
+      },
+      {
+        "text": "nom",
+        "meaning": "to manage（管理）"
+      },
+      {
+        "text": "y",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "eco（家）+ nom（管理）+ y → 管理家務的方法 → 經濟；節約",
+    "example": "The country's economy grew steadily last year.",
+    "exampleZh": "這個國家的經濟去年穩定成長。",
+    "hook": "字面是「治家之道」，引申成國家層級的「經濟」。"
+  },
+  {
+    "word": "oblivious",
+    "ipa": "əˈblɪviəs",
+    "pos": "adj.",
+    "zh": "未察覺的；渾然不覺的",
+    "roots": [
+      {
+        "text": "ob",
+        "meaning": "toward（朝向）"
+      },
+      {
+        "text": "livi",
+        "meaning": "to forget（遺忘，源自拉丁 oblivisci）"
+      },
+      {
+        "text": "ous",
+        "meaning": "形容詞字尾"
+      }
+    ],
+    "rootStory": "ob（朝向，此處表全然）+ livi（遺忘）+ ous → 整個人陷入遺忘之中 → 未察覺的",
+    "example": "He seemed completely oblivious to the danger around him.",
+    "exampleZh": "他似乎完全沒察覺到周遭的危險。",
+    "hook": "跟 oblivion（遺忘、湮滅）同字根——渾然不覺就是忘了留意。"
+  },
+  {
+    "word": "random",
+    "ipa": "ˈrændəm",
+    "pos": "adj.",
+    "zh": "隨機的；任意的；胡亂的",
+    "roots": null,
+    "rootStory": null,
+    "example": "The survey selected participants using a random sampling method.",
+    "exampleZh": "這項調查使用隨機抽樣的方法選取參與者。",
+    "hook": "常考片語 at random（隨意地）；字源與 range 無關，勿混淆。"
+  },
+  {
+    "word": "employer",
+    "ipa": "ɪmˈplɔɪər",
+    "pos": "n.",
+    "zh": "雇主；僱主",
+    "roots": [
+      {
+        "text": "employ",
+        "meaning": "to hire（僱用）"
+      },
+      {
+        "text": "er",
+        "meaning": "名詞字尾（做…的人／物）"
+      }
+    ],
+    "rootStory": "employ（僱用）+ er（做…的人）→ 僱用他人的人 → 雇主",
+    "example": "Her employer offered a generous health insurance plan.",
+    "exampleZh": "她的雇主提供優渥的健康保險方案。",
+    "hook": "跟 employee（員工）是一對：加 er 是出錢的人，加 ee 是被僱的人。"
+  },
+  {
+    "word": "irresistible",
+    "ipa": "ˌɪrɪˈzɪstəbl",
+    "pos": "adj.",
+    "zh": "不可抗拒的；極具吸引力的",
+    "roots": [
+      {
+        "text": "ir",
+        "meaning": "not（否定）"
+      },
+      {
+        "text": "re",
+        "meaning": "again（再）"
+      },
+      {
+        "text": "sist",
+        "meaning": "to stand（站立）"
+      },
+      {
+        "text": "ible",
+        "meaning": "形容詞字尾（可…的）"
+      }
+    ],
+    "rootStory": "ir（否定）+ re（再）+ sist（站立）+ ible（可…的）→ 無法一再抵擋 → 不可抗拒的",
+    "example": "The discount made the offer irresistible to shoppers.",
+    "exampleZh": "這項折扣讓這筆優惠對購物者難以抗拒。",
+    "hook": "resist（抵抗）加上 ir- 否定、-ible 可…的，就是無法抵抗。"
+  },
+  {
+    "word": "encourage",
+    "ipa": "ɪnˈkɜːrɪdʒ",
+    "pos": "vt.",
+    "zh": "鼓勵；激勵；助長",
+    "roots": [
+      {
+        "text": "en",
+        "meaning": "to make / put in（使、放入）"
+      },
+      {
+        "text": "courage",
+        "meaning": "heart / bravery（勇氣，源自拉丁 cor 心）"
+      }
+    ],
+    "rootStory": "en（使）+ courage（勇氣）→ 使人產生勇氣 → 鼓勵",
+    "example": "The manager encouraged the team to share new ideas.",
+    "exampleZh": "經理鼓勵團隊提出新的想法。",
+    "hook": "反義是 discourage（使氣餒）；courage 那顆「心」是關鍵字根。"
+  },
+  {
+    "word": "ultimately",
+    "ipa": "ˈʌltɪmətli",
+    "pos": "adv.",
+    "zh": "最終；歸根究柢",
+    "roots": null,
+    "rootStory": null,
+    "example": "Ultimately, the board decided to postpone the merger.",
+    "exampleZh": "最終，董事會決定延後這項合併案。",
+    "hook": "常放句首，等同 in the end；語氣比 finally 更正式書面。"
+  },
+  {
+    "word": "vague",
+    "ipa": "veɪɡ",
+    "pos": "adj.",
+    "zh": "含糊的；模糊的；不明確的",
+    "roots": null,
+    "rootStory": null,
+    "example": "His answer was too vague to satisfy the interviewer.",
+    "exampleZh": "他的回答太含糊，無法讓面試官滿意。",
+    "hook": "常搭 vague answer/idea；反義可用 specific、clear。"
+  },
+  {
+    "word": "vivid",
+    "ipa": "ˈvɪvɪd",
+    "pos": "adj.",
+    "zh": "生動的；鮮明的；鮮豔的",
+    "roots": [
+      {
+        "text": "viv",
+        "meaning": "to live（活）"
+      },
+      {
+        "text": "id",
+        "meaning": "形容詞字尾"
+      }
+    ],
+    "rootStory": "viv（活）+ id（形容詞字尾）→ 栩栩如生 → 生動的",
+    "example": "She gave a vivid description of the crowded marketplace.",
+    "exampleZh": "她生動地描述了那個擁擠的市集。",
+    "hook": "viv 家族還有 survive（存活）、revive（復甦），都跟「活」有關。"
+  },
+  {
+    "word": "evidence",
+    "ipa": "ˈevɪdəns",
+    "pos": "n.",
+    "zh": "證據；跡象",
+    "roots": [
+      {
+        "text": "e",
+        "meaning": "out（向外）"
+      },
+      {
+        "text": "vid",
+        "meaning": "to see（看）"
+      },
+      {
+        "text": "ence",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "e（向外）+ vid（看）+ ence（名詞字尾）→ 攤在外面可見之物 → 證據",
+    "example": "The researchers found no evidence to support the theory.",
+    "exampleZh": "研究人員沒有找到支持這個理論的證據。",
+    "hook": "vid 跟 visible（可見的）同源，都跟「看見」有關。"
+  },
+  {
+    "word": "excellent",
+    "ipa": "ˈeksələnt",
+    "pos": "adj.",
+    "zh": "優秀的；卓越的；出色的",
+    "roots": [
+      {
+        "text": "ex",
+        "meaning": "out（向外）"
+      },
+      {
+        "text": "cell",
+        "meaning": "to rise（升高，源自拉丁 celsus）"
+      },
+      {
+        "text": "ent",
+        "meaning": "形容詞字尾"
+      }
+    ],
+    "rootStory": "ex（向外）+ cell（升高）+ ent（形容詞字尾）→ 高出眾人 → 優秀的",
+    "example": "The restaurant is known for its excellent customer service.",
+    "exampleZh": "這家餐廳以優秀的顧客服務聞名。",
+    "hook": "cell 這個字根也在 excel（勝過）裡，都是「拔尖、升高」。"
+  },
+  {
+    "word": "experienced",
+    "ipa": "ɪkˈspɪriənst",
+    "pos": "adj.",
+    "zh": "有經驗的；老練的",
+    "roots": [
+      {
+        "text": "ex",
+        "meaning": "out（向外）"
+      },
+      {
+        "text": "peri",
+        "meaning": "to try（嘗試，源自拉丁 experiri）"
+      },
+      {
+        "text": "ence",
+        "meaning": "名詞字尾"
+      },
+      {
+        "text": "d",
+        "meaning": "形容詞字尾"
+      }
+    ],
+    "rootStory": "ex（向外）+ peri（嘗試）+ ence（名詞字尾）+ d（形容詞字尾）→ 試過多次的 → 有經驗的",
+    "example": "They hired an experienced engineer to lead the project.",
+    "exampleZh": "他們聘請了一位經驗豐富的工程師來領導這項專案。",
+    "hook": "peri 也出現在 peril（危險）：嘗試多了，自然懂得避開危險。"
+  },
+  {
+    "word": "explore",
+    "ipa": "ɪkˈsplɔːr",
+    "pos": "vt./vi.",
+    "zh": "探索；探勘；探究",
+    "roots": [
+      {
+        "text": "ex",
+        "meaning": "out（向外）"
+      },
+      {
+        "text": "plor",
+        "meaning": "to cry out（喊叫，源自拉丁 plorare）"
+      },
+      {
+        "text": "e",
+        "meaning": null
+      }
+    ],
+    "rootStory": "ex（向外）+ plor（喊叫）→ 邊喊邊向外搜尋 → 探索",
+    "example": "The company plans to explore new markets in Asia.",
+    "exampleZh": "這家公司計畫探索亞洲的新市場。",
+    "hook": "古時獵人邊喊邊搜尋獵物，就是 explore 的畫面。"
+  },
+  {
+    "word": "fault",
+    "ipa": "fɔːlt",
+    "pos": "n.",
+    "zh": "過失；缺點；（地質）斷層",
+    "roots": null,
+    "rootStory": null,
+    "examples": [
+      {
+        "label": "n. 過失；缺點",
+        "en": "The delay was entirely the supplier's fault.",
+        "zh": "這次延誤完全是供應商的過失。"
+      },
+      {
+        "label": "n.（地質）斷層",
+        "en": "Scientists mapped the fault after the earthquake.",
+        "zh": "地震發生後，科學家繪製了這條斷層的圖。"
+      }
+    ],
+    "hook": "地質斷層也叫 fault；挑毛病則說 find fault with someone。"
+  },
+  {
+    "word": "file",
+    "ipa": "faɪl",
+    "pos": "n./vt.",
+    "zh": "檔案；文件夾；歸檔；提出（申請）",
+    "roots": null,
+    "rootStory": null,
+    "examples": [
+      {
+        "label": "n. 檔案；文件",
+        "en": "Please save the report in the shared file.",
+        "zh": "請將這份報告存進共用檔案裡。"
+      },
+      {
+        "label": "vt. 歸檔；提出（申請）",
+        "en": "The lawyer will file the complaint by Friday.",
+        "zh": "律師將在週五前提出這項訴訟。"
+      }
+    ],
+    "hook": "file a complaint／file for divorce 都是「正式提出」的用法。"
+  },
+  {
+    "word": "fold",
+    "ipa": "foʊld",
+    "pos": "vt.",
+    "zh": "摺疊；合攏；n. 摺痕",
+    "roots": null,
+    "rootStory": null,
+    "example": "She folded the letter and put it in an envelope.",
+    "exampleZh": "她把信摺好放進信封裡。",
+    "hook": "反義是 unfold（展開）；記手把紙對摺的畫面即可。"
+  },
+  {
+    "word": "frank",
+    "ipa": "fræŋk",
+    "pos": "adj.",
+    "zh": "坦白的；直率的",
+    "roots": null,
+    "rootStory": null,
+    "example": "He was frank about the risks of the investment.",
+    "exampleZh": "他坦率地說明了這項投資的風險。",
+    "hook": "常見片語 to be frank（坦白說），語氣比 honest 更直接。"
+  },
+  {
+    "word": "function",
+    "ipa": "ˈfʌŋkʃn",
+    "pos": "n./vi.",
+    "zh": "功能；作用；vi. 運作",
+    "roots": [
+      {
+        "text": "funct",
+        "meaning": "to perform（執行，源自拉丁 fungi）"
+      },
+      {
+        "text": "ion",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "funct（執行）+ ion（名詞字尾）→ 被執行的作用 → 功能",
+    "example": "The new software adds a search function to the app.",
+    "exampleZh": "這款新軟體為應用程式增加了搜尋功能。",
+    "hook": "跟 functional（有功能的）是一家，字根都是 funct。"
+  },
+  {
+    "word": "functional",
+    "ipa": "ˈfʌŋkʃənl",
+    "pos": "adj.",
+    "zh": "功能的；實用的",
+    "roots": [
+      {
+        "text": "funct",
+        "meaning": "to perform（執行，源自拉丁 fungi）"
+      },
+      {
+        "text": "ion",
+        "meaning": "名詞字尾"
+      },
+      {
+        "text": "al",
+        "meaning": "形容詞字尾"
+      }
+    ],
+    "rootStory": "funct（執行）+ ion（名詞字尾）+ al（形容詞字尾）→ 具功能的 → 功能的",
+    "example": "The office was redesigned to be more functional.",
+    "exampleZh": "這間辦公室被重新設計得更加實用。",
+    "hook": "function 的形容詞形，強調「實用、能發揮作用」。"
+  },
+  {
+    "word": "further",
+    "ipa": "ˈfɜːrðər",
+    "pos": "adj./adv./vt.",
+    "zh": "更遠的；進一步地；促進，助長",
+    "roots": null,
+    "rootStory": null,
+    "examples": [
+      {
+        "label": "adv. 進一步地",
+        "en": "The manager wants to discuss the budget further.",
+        "zh": "經理想要進一步討論這項預算。"
+      },
+      {
+        "label": "vt. 促進；助長",
+        "en": "The scholarship helped further her academic career.",
+        "zh": "這筆獎學金有助於促進她的學術生涯。"
+      }
+    ],
+    "hook": "far 的比較級之一：farther 指實際距離，further 常用於抽象層面。"
+  },
+  {
+    "word": "handle",
+    "ipa": "ˈhændl",
+    "pos": "n./vt.",
+    "zh": "把手；手感；vt. 處理；應付；操作",
+    "roots": [
+      {
+        "text": "hand",
+        "meaning": "hand（手）"
+      },
+      {
+        "text": "le",
+        "meaning": "動詞／名詞字尾（表反覆動作或工具）"
+      }
+    ],
+    "rootStory": "hand（手）+ le（反覆動作）→ 用手反覆操作 → 把手；處理",
+    "examples": [
+      {
+        "label": "n. 把手",
+        "en": "The suitcase handle broke during the flight.",
+        "zh": "這只行李箱的把手在飛行途中斷了。"
+      },
+      {
+        "label": "vt. 處理；應付",
+        "en": "She handles all customer complaints personally.",
+        "zh": "她親自處理所有顧客的投訴。"
+      }
+    ],
+    "hook": "從「手」延伸：拿在手上的東西是把手，用手去做就是處理。"
+  },
+  {
+    "word": "handy",
+    "ipa": "ˈhændi",
+    "pos": "adj.",
+    "zh": "便利的；手邊的；靈巧的",
+    "roots": [
+      {
+        "text": "hand",
+        "meaning": "hand（手）"
+      },
+      {
+        "text": "y",
+        "meaning": "形容詞字尾（有…性質的）"
+      }
+    ],
+    "rootStory": "hand（手）+ y（形容詞字尾）→ 在手邊、順手的 → 便利的",
+    "example": "A bilingual dictionary is handy for travelers.",
+    "exampleZh": "雙語字典對旅行者來說很方便。",
+    "hook": "跟 handle 都源自「手」，handy 強調隨手可得、好用。"
+  },
+  {
+    "word": "harbor",
+    "ipa": "ˈhɑːrbər",
+    "pos": "n./vt.",
+    "zh": "港口；港灣；vt. 心懷（想法、感情）；窩藏",
+    "roots": null,
+    "rootStory": null,
+    "examples": [
+      {
+        "label": "n. 港口",
+        "en": "The ship docked safely in the harbor overnight.",
+        "zh": "這艘船整夜安全地停泊在港口。"
+      },
+      {
+        "label": "vt. 心懷（想法、感情）",
+        "en": "He still harbors doubts about the new policy.",
+        "zh": "他對這項新政策仍心懷疑慮。"
+      }
+    ],
+    "hook": "想像心裡有個「避風港」藏著想法──就是心懷、窩藏的意象。"
+  },
+  {
+    "word": "hide",
+    "ipa": "haɪd",
+    "pos": "vt./vi.",
+    "zh": "隱藏；隱瞞；n. 獸皮",
+    "roots": null,
+    "rootStory": null,
+    "example": "The children hid behind the curtain during the game.",
+    "exampleZh": "孩子們在遊戲中躲在窗簾後面。",
+    "hook": "動詞「躲藏」跟名詞「獸皮」同形同音，字源卻不相干。"
+  },
+  {
+    "word": "highlight",
+    "ipa": "ˈhaɪlaɪt",
+    "pos": "vt./n.",
+    "zh": "強調；使顯著；最精彩的部分",
+    "roots": [
+      {
+        "text": "high",
+        "meaning": "high（高）"
+      },
+      {
+        "text": "light",
+        "meaning": "light（光；明亮）"
+      }
+    ],
+    "rootStory": "high（高）+ light（光）→ 打亮最高處 → 強調；精彩片段",
+    "examples": [
+      {
+        "label": "vt. 強調；使顯著",
+        "en": "The report highlights the risks of climate change.",
+        "zh": "這份報告強調了氣候變遷的風險。"
+      },
+      {
+        "label": "n. 最精彩的部分",
+        "en": "The keynote speech was the highlight of the conference.",
+        "zh": "那場主題演講是這場會議最精彩的部分。"
+      }
+    ],
+    "hook": "字面就是「打上高光」：用螢光筆畫重點的畫面即可聯想。"
+  },
+  {
+    "word": "imaginative",
+    "ipa": "ɪˈmædʒɪnətɪv",
+    "pos": "adj.",
+    "zh": "富於想像力的；有創意的",
+    "roots": [
+      {
+        "text": "imagin",
+        "meaning": "image（形象，源自拉丁 imago）"
+      },
+      {
+        "text": "ative",
+        "meaning": "形容詞字尾"
+      }
+    ],
+    "rootStory": "imagin（形象）+ ative（形容詞字尾）→ 善於形塑形象的 → 富想像力的",
+    "example": "The children came up with an imaginative solution.",
+    "exampleZh": "孩子們想出了一個富有想像力的解決方案。",
+    "hook": "跟 image（形象）、imagine（想像）同一家族。"
+  },
+  {
+    "word": "impatient",
+    "ipa": "ɪmˈpeɪʃnt",
+    "pos": "adj.",
+    "zh": "不耐煩的；急切的",
+    "roots": [
+      {
+        "text": "im",
+        "meaning": "not（否定）"
+      },
+      {
+        "text": "pat",
+        "meaning": "to suffer / feel（感受、承受）"
+      },
+      {
+        "text": "ient",
+        "meaning": "形容詞字尾"
+      }
+    ],
+    "rootStory": "im（否定）+ pat（忍受）+ ient（形容詞字尾）→ 無法忍受 → 不耐煩的",
+    "example": "Customers grew impatient waiting for the delayed flight.",
+    "exampleZh": "顧客們因等待延誤的班機而變得不耐煩。",
+    "hook": "反義 patient（有耐心的）也用同一個 pat「忍受」字根。"
+  },
+  {
+    "word": "individual",
+    "ipa": "ˌɪndɪˈvɪdʒuəl",
+    "pos": "adj./n.",
+    "zh": "個別的；獨特的；n. 個人；個體",
+    "roots": [
+      {
+        "text": "in",
+        "meaning": "not（否定）"
+      },
+      {
+        "text": "divid",
+        "meaning": "to divide（分割）"
+      },
+      {
+        "text": "u",
+        "meaning": null
+      },
+      {
+        "text": "al",
+        "meaning": "形容詞字尾"
+      }
+    ],
+    "rootStory": "in（否定）+ divid（分割）+ al（形容詞字尾）→ 不可再分割 → 個別的；個人",
+    "examples": [
+      {
+        "label": "adj. 個別的；獨特的",
+        "en": "Each employee receives individual feedback after the review.",
+        "zh": "每位員工在考核後都會收到個別的回饋。"
+      },
+      {
+        "label": "n. 個人；個體",
+        "en": "The award recognizes outstanding individuals in the field.",
+        "zh": "這項獎項表彰該領域傑出的個人。"
+      }
+    ],
+    "hook": "跟 divide（分割）同一字根，只是前面加了否定的 in。"
+  },
+  {
+    "word": "inflate",
+    "ipa": "ɪnˈfleɪt",
+    "pos": "vt./vi.",
+    "zh": "使充氣；使膨脹；使通貨膨脹",
+    "roots": [
+      {
+        "text": "in",
+        "meaning": "into（往內）"
+      },
+      {
+        "text": "flat",
+        "meaning": "to blow（吹）"
+      },
+      {
+        "text": "e",
+        "meaning": null
+      }
+    ],
+    "rootStory": "in（往內）+ flat（吹）→ 往裡面吹氣 → 使充氣；使膨脹",
+    "example": "Workers use a pump to inflate the tires quickly.",
+    "exampleZh": "工人用打氣筒快速為輪胎充氣。",
+    "hook": "跟 inflation（通貨膨脹）同源：吹氣吹到物價都漲了。"
+  },
+  {
+    "word": "inquiry",
+    "ipa": "ɪnˈkwaɪri",
+    "pos": "n.",
+    "zh": "詢問；調查；探究",
+    "roots": [
+      {
+        "text": "in",
+        "meaning": "into（往內）"
+      },
+      {
+        "text": "quir",
+        "meaning": "to seek / ask（尋求）"
+      },
+      {
+        "text": "y",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "in（往內）+ quir（尋求）+ y（名詞字尾）→ 深入尋求答案 → 詢問",
+    "example": "The department received several inquiries about the new policy.",
+    "exampleZh": "該部門收到了幾件關於新政策的詢問。",
+    "hook": "跟 require（需要）、question 都源自「尋求」的字根家族。"
+  },
+  {
+    "word": "isolate",
+    "ipa": "ˈaɪsəleɪt",
+    "pos": "vt.",
+    "zh": "使孤立；使隔離；使絕緣",
+    "roots": [
+      {
+        "text": "isol",
+        "meaning": "island（島，源自拉丁 insula）"
+      },
+      {
+        "text": "ate",
+        "meaning": "動詞字尾"
+      }
+    ],
+    "rootStory": "isol（島）+ ate（動詞字尾）→ 使變得像孤島一樣 → 使孤立；隔離",
+    "example": "The lab isolated the virus for further study.",
+    "exampleZh": "實驗室將這種病毒分離出來以便進一步研究。",
+    "hook": "跟 island（島）、isolation（隔離）同源，想像孤島意象。"
+  },
+  {
+    "word": "justice",
+    "ipa": "ˈdʒʌstɪs",
+    "pos": "n.",
+    "zh": "正義；公正；法官",
+    "roots": [
+      {
+        "text": "just",
+        "meaning": "right / law（正、法）"
+      },
+      {
+        "text": "ice",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "just（正、法）+ ice（名詞字尾）→ 合乎法理之事 → 正義；法官",
+    "examples": [
+      {
+        "label": "n. 正義；公正",
+        "en": "The victims finally received justice after the trial.",
+        "zh": "受害者在審判後終於獲得了正義。"
+      },
+      {
+        "label": "n. 法官",
+        "en": "The chief justice read the court's final decision.",
+        "zh": "首席法官宣讀了法院的最終裁決。"
+      }
+    ],
+    "hook": "跟 just（公正的）同字根；大寫 Justice 常指大法官。"
+  },
+  {
+    "word": "leak",
+    "ipa": "liːk",
+    "pos": "n./vi.",
+    "zh": "漏洞；洩漏；vi. 漏，滲",
+    "roots": null,
+    "rootStory": null,
+    "example": "A leak in the pipe flooded the basement.",
+    "exampleZh": "水管的漏洞讓地下室淹水了。",
+    "hook": "資訊「洩漏」也用這個字：a leak of confidential documents。"
+  },
+  {
+    "word": "livestock",
+    "ipa": "ˈlaɪvstɑːk",
+    "pos": "n.",
+    "zh": "家畜；牲畜",
+    "roots": [
+      {
+        "text": "live",
+        "meaning": "live（活的）"
+      },
+      {
+        "text": "stock",
+        "meaning": "stock（存量、牲畜）"
+      }
+    ],
+    "rootStory": "live（活的）+ stock（存量）→ 農場裡活的存貨 → 家畜",
+    "example": "The farm raises livestock and grows organic vegetables.",
+    "exampleZh": "這座農場飼養牲畜並種植有機蔬菜。",
+    "hook": "字面就是「活的存貨」，農場常見詞，不可數名詞。"
+  },
+  {
+    "word": "major",
+    "ipa": "ˈmeɪdʒər",
+    "pos": "adj./n.",
+    "zh": "主要的；重要的；n./vi. 主修（科目）；陸軍少校",
+    "roots": null,
+    "rootStory": null,
+    "examples": [
+      {
+        "label": "adj. 主要的",
+        "en": "Traffic congestion is a major problem in the city.",
+        "zh": "交通壅塞是這座城市的一項主要問題。"
+      },
+      {
+        "label": "n./vi. 主修（科目）",
+        "en": "She decided to major in economics at college.",
+        "zh": "她決定在大學主修經濟學。"
+      }
+    ],
+    "hook": "軍階「少校」與學業「主修」共用一字，拉丁原意是「較大的」。"
+  },
+  {
+    "word": "manage",
+    "ipa": "ˈmænɪdʒ",
+    "pos": "vt./vi.",
+    "zh": "管理；經營；設法；vi. 應付過去",
+    "roots": null,
+    "rootStory": null,
+    "example": "He manages a team of twenty sales representatives.",
+    "exampleZh": "他管理一個二十人的業務團隊。",
+    "hook": "常見句型 manage to V（設法做到），強調克服困難完成。"
+  },
+  {
+    "word": "mention",
+    "ipa": "ˈmenʃn",
+    "pos": "vt./n.",
+    "zh": "提及；說起",
+    "roots": [
+      {
+        "text": "ment",
+        "meaning": "mind（心智，源自拉丁 mens）"
+      },
+      {
+        "text": "ion",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "ment（心智）+ ion（名詞字尾）→ 放進心裡提起 → 提及",
+    "example": "The article briefly mentions the company's new strategy.",
+    "exampleZh": "這篇文章簡短提到了這家公司的新策略。",
+    "hook": "常見片語 not to mention（更不用說）、don't mention it（不客氣）。"
+  },
+  {
+    "word": "mere",
+    "ipa": "mɪr",
+    "pos": "adj.",
+    "zh": "僅僅的；純粹的",
+    "roots": null,
+    "rootStory": null,
+    "example": "A mere apology was not enough to fix the damage.",
+    "exampleZh": "僅僅一句道歉並不足以彌補這次的損害。",
+    "hook": "強調「只不過如此」，常見 a mere formality（純屬形式）。"
+  },
+  {
+    "word": "motivation",
+    "ipa": "ˌmoʊtɪˈveɪʃn",
+    "pos": "n.",
+    "zh": "動機；動力；誘因",
+    "roots": [
+      {
+        "text": "mot",
+        "meaning": "to move（移動）"
+      },
+      {
+        "text": "iv",
+        "meaning": "形容詞字尾"
+      },
+      {
+        "text": "ation",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "mot（移動）+ iv（形容詞字尾）+ ation（名詞字尾）→ 推動人行動的力量 → 動機",
+    "example": "Bonuses can be a strong motivation for employees.",
+    "exampleZh": "獎金對員工來說可能是強大的動力。",
+    "hook": "跟 motion（移動）、motivate（激勵）同一個 mot 字根。"
+  },
+  {
+    "word": "original",
+    "ipa": "əˈrɪdʒənl",
+    "pos": "adj./n.",
+    "zh": "原始的；最初的；有創意的；n. 原件；原作",
+    "roots": [
+      {
+        "text": "origin",
+        "meaning": "beginning / source（起源，源自拉丁 origo）"
+      },
+      {
+        "text": "al",
+        "meaning": "形容詞字尾"
+      }
+    ],
+    "rootStory": "origin（起源）+ al（形容詞字尾）→ 源頭的 → 最初的；原件",
+    "example": "The museum displays the artist's original paintings.",
+    "exampleZh": "這座博物館展示這位藝術家的原作。",
+    "hook": "跟 origin（起源）同字根，形容「最初、獨創」的一切。"
+  },
+  {
+    "word": "personal",
+    "ipa": "ˈpɜːrsənl",
+    "pos": "adj.",
+    "zh": "個人的；私人的；親自的",
+    "roots": [
+      {
+        "text": "person",
+        "meaning": "person（人，源自拉丁 persona 面具）"
+      },
+      {
+        "text": "al",
+        "meaning": "形容詞字尾"
+      }
+    ],
+    "rootStory": "person（人）+ al（形容詞字尾）→ 屬於個人的 → 個人的",
+    "example": "Please keep your personal belongings with you at all times.",
+    "exampleZh": "請隨時保管好您的個人物品。",
+    "hook": "拼字易與 personnel（人事部門）混淆，注意字尾差異。"
+  },
+  {
+    "word": "plow",
+    "ipa": "plaʊ",
+    "pos": "n./v.",
+    "zh": "犁；耕；犁地；費力前進",
+    "roots": null,
+    "rootStory": null,
+    "example": "Farmers plow the fields before planting new crops.",
+    "exampleZh": "農夫在種植新作物前先犁地。",
+    "hook": "英式拼法為 plough；口語也用來比喻費力穿過人群。"
+  },
+  {
+    "word": "politics",
+    "ipa": "ˈpɑːlətɪks",
+    "pos": "n.",
+    "zh": "政治；政治學；政見",
+    "roots": [
+      {
+        "text": "polit",
+        "meaning": "city / citizen（城邦，源自希臘文 polis）"
+      },
+      {
+        "text": "ics",
+        "meaning": "名詞字尾（學科、事務）"
+      }
+    ],
+    "rootStory": "polit（城邦）+ ics（學科）→ 治理城邦之事 → 政治",
+    "example": "She has little interest in office politics.",
+    "exampleZh": "她對辦公室政治沒什麼興趣。",
+    "hook": "跟 policy（政策）、police（警察）同源，都跟「城邦治理」有關。"
+  },
+  {
+    "word": "pollute",
+    "ipa": "pəˈluːt",
+    "pos": "vt.",
+    "zh": "污染；玷污；敗壞",
+    "roots": null,
+    "rootStory": null,
+    "example": "Factories along the river continue to pollute the water.",
+    "exampleZh": "河邊的工廠持續污染這條河的水質。",
+    "hook": "名詞 pollution（污染）很常考，動詞字尾改成 -ute。"
+  },
+  {
+    "word": "popular",
+    "ipa": "ˈpɑːpjələr",
+    "pos": "adj.",
+    "zh": "受歡迎的；流行的；大眾的",
+    "roots": [
+      {
+        "text": "popul",
+        "meaning": "people（人民，源自拉丁 populus）"
+      },
+      {
+        "text": "ar",
+        "meaning": "形容詞字尾"
+      }
+    ],
+    "rootStory": "popul（人民）+ ar（形容詞字尾）→ 屬於人民的 → 受歡迎的",
+    "example": "The new smartphone quickly became popular among students.",
+    "exampleZh": "這款新智慧型手機很快就在學生間受到歡迎。",
+    "hook": "跟 population（人口）同字根：受「人民」喜愛就是流行。"
+  },
+  {
+    "word": "practical",
+    "ipa": "ˈpræktɪkl",
+    "pos": "adj.",
+    "zh": "實際的；實用的；務實的",
+    "roots": [
+      {
+        "text": "pract",
+        "meaning": "to do / act（做，源自希臘文 prassein）"
+      },
+      {
+        "text": "ical",
+        "meaning": "形容詞字尾"
+      }
+    ],
+    "rootStory": "pract（做）+ ical（形容詞字尾）→ 注重實作的 → 實際的",
+    "example": "The workshop offers practical advice for job seekers.",
+    "exampleZh": "這場工作坊提供求職者實用的建議。",
+    "hook": "跟 practice（練習、實踐）同字根，都強調「動手做」。"
+  },
+  {
+    "word": "practically",
+    "ipa": "ˈpræktɪkli",
+    "pos": "adv.",
+    "zh": "幾乎；實際上",
+    "roots": [
+      {
+        "text": "pract",
+        "meaning": "to do / act（做，源自希臘文 prassein）"
+      },
+      {
+        "text": "ical",
+        "meaning": "形容詞字尾"
+      },
+      {
+        "text": "ly",
+        "meaning": "副詞字尾"
+      }
+    ],
+    "rootStory": "pract（做）+ ical（形容詞字尾）+ ly（副詞字尾）→ 講求實作地 → 幾乎；實際上",
+    "example": "The project is practically finished, except for final edits.",
+    "exampleZh": "這項專案幾乎已經完成，只剩最後的修改。",
+    "hook": "practical 的副詞形，口語中常直接當 almost 使用。"
+  },
+  {
+    "word": "profession",
+    "ipa": "prəˈfeʃn",
+    "pos": "n.",
+    "zh": "職業；專業；同行",
+    "roots": [
+      {
+        "text": "pro",
+        "meaning": "forward（向前）"
+      },
+      {
+        "text": "fess",
+        "meaning": "to declare（宣告）"
+      },
+      {
+        "text": "ion",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "pro（向前）+ fess（宣告）+ ion（名詞字尾）→ 公開宣告的技藝 → 職業",
+    "example": "Teaching is considered a respected profession.",
+    "exampleZh": "教學被視為一項受人尊敬的職業。",
+    "hook": "跟 confess（坦承）同一個 fess「宣告」字根。"
+  },
+  {
+    "word": "professional",
+    "ipa": "prəˈfeʃənl",
+    "pos": "adj./n.",
+    "zh": "職業的；專業的；n. 專業人士",
+    "roots": [
+      {
+        "text": "pro",
+        "meaning": "forward（向前）"
+      },
+      {
+        "text": "fess",
+        "meaning": "to declare（宣告）"
+      },
+      {
+        "text": "ion",
+        "meaning": "名詞字尾"
+      },
+      {
+        "text": "al",
+        "meaning": "形容詞字尾"
+      }
+    ],
+    "rootStory": "pro（向前）+ fess（宣告）+ ion（名詞字尾）+ al（形容詞字尾）→ 職業的 → 專業的",
+    "examples": [
+      {
+        "label": "adj. 專業的",
+        "en": "She gave a professional presentation to the investors.",
+        "zh": "她向投資人做了一場專業的簡報。"
+      },
+      {
+        "label": "n. 專業人士",
+        "en": "The clinic only hires certified professionals.",
+        "zh": "這間診所只聘用有證照的專業人士。"
+      }
+    ],
+    "hook": "profession（職業）加上 al，就是「職業的」或「業內人士」。"
+  },
+  {
+    "word": "progressive",
+    "ipa": "prəˈɡresɪv",
+    "pos": "adj.",
+    "zh": "進步的；漸進的；先進的",
+    "roots": [
+      {
+        "text": "pro",
+        "meaning": "forward（向前）"
+      },
+      {
+        "text": "gress",
+        "meaning": "to step / go（走、踏）"
+      },
+      {
+        "text": "ive",
+        "meaning": "形容詞字尾"
+      }
+    ],
+    "rootStory": "pro（向前）+ gress（走）+ ive（形容詞字尾）→ 不斷向前走的 → 進步的",
+    "example": "The government introduced a progressive tax system last year.",
+    "exampleZh": "政府去年推行了累進稅制。",
+    "hook": "跟 progress（前進、進展）同字根，稅制中常指「累進的」。"
+  },
+  {
+    "word": "project",
+    "ipa": "ˈprɑːdʒekt",
+    "pos": "n./vt.",
+    "zh": "項目；計畫；vt. 投射；使突出",
+    "roots": [
+      {
+        "text": "pro",
+        "meaning": "forward（向前）"
+      },
+      {
+        "text": "ject",
+        "meaning": "to throw（丟擲）"
+      }
+    ],
+    "rootStory": "pro（向前）+ ject（丟擲）→ 向前拋出 → 投射；項目",
+    "examples": [
+      {
+        "label": "n. 項目；計畫",
+        "en": "The team submitted the project proposal on time.",
+        "zh": "團隊準時提交了這項專案的提案。"
+      },
+      {
+        "label": "vt. 投射；使突出",
+        "en": "The speaker projected his voice to reach the back row.",
+        "zh": "這位講者提高音量投射到最後一排。"
+      }
+    ],
+    "hook": "名詞重音在前 PROject，動詞重音在後 proJECT，考試常考重音。"
+  },
+  {
+    "word": "qualified",
+    "ipa": "ˈkwɑːlɪfaɪd",
+    "pos": "adj.",
+    "zh": "有資格的；合格的；勝任的",
+    "roots": [
+      {
+        "text": "quali",
+        "meaning": "of what kind（性質）"
+      },
+      {
+        "text": "fi",
+        "meaning": "to make（使成為，fy 的變形）"
+      },
+      {
+        "text": "ed",
+        "meaning": "形容詞字尾"
+      }
+    ],
+    "rootStory": "quali（性質）+ fi（使成為）+ ed（形容詞字尾）→ 使具備該性質的 → 合格的",
+    "example": "Only qualified candidates will be invited for an interview.",
+    "exampleZh": "只有合格的應徵者才會受邀面試。",
+    "hook": "跟 qualify（使有資格）、quality（品質）同一個 quali 字根。"
+  },
+  {
+    "word": "rare",
+    "ipa": "rer",
+    "pos": "adj.",
+    "zh": "稀有的；罕見的；(牛排等)半熟的",
+    "roots": null,
+    "rootStory": null,
+    "example": "This is a rare species of orchid found only in remote rainforests.",
+    "exampleZh": "這是一種稀有的蘭花品種，只生長在偏遠的雨林中。",
+    "hook": "點牛排說 rare 就是要半熟；這其實是兩個字源不同的同形詞，只是剛好拼法相同。"
+  },
+  {
+    "word": "realize",
+    "ipa": "ˈriːəlaɪz",
+    "pos": "vt.",
+    "zh": "領悟，了解到；實現",
+    "roots": [
+      {
+        "text": "real",
+        "meaning": "real（真實的）"
+      },
+      {
+        "text": "ize",
+        "meaning": "動詞字尾（使…化）"
+      }
+    ],
+    "rootStory": "real（真實的）+ ize（使…化）→ 使成為真的 → 實現；意識到（某事為真）",
+    "examples": [
+      {
+        "label": "vt. 了解，領悟",
+        "en": "She didn't realize how late it was until she checked her phone.",
+        "zh": "她直到看了手機才意識到已經這麼晚了。"
+      },
+      {
+        "label": "vt. 實現",
+        "en": "The company finally realized its goal of expanding into overseas markets.",
+        "zh": "公司終於實現了拓展海外市場的目標。"
+      }
+    ],
+    "hook": "real（真的）+ ize（使…化）→ 讓某件事變真 → 實現，或驚覺它是真的。"
+  },
+  {
+    "word": "regular",
+    "ipa": "ˈreɡjələr",
+    "pos": "adj./n.",
+    "zh": "規律的，定期的；正規的；(n.)常客",
+    "roots": [
+      {
+        "text": "regul",
+        "meaning": "rule（規則）"
+      },
+      {
+        "text": "ar",
+        "meaning": "形容詞字尾"
+      }
+    ],
+    "rootStory": "regul（規則）+ ar（形容詞字尾）→ 依規則運行的 → 規律的，定期的",
+    "examples": [
+      {
+        "label": "adj. 規律的，定期的",
+        "en": "He goes to the gym on a regular basis, usually three times a week.",
+        "zh": "他定期上健身房，通常一週三次。"
+      },
+      {
+        "label": "n. 常客",
+        "en": "The waiter greeted her by name because she was a regular at that café.",
+        "zh": "服務生直接叫出她的名字，因為她是那間咖啡館的常客。"
+      }
+    ],
+    "hook": "regul（規則）+ ar（…的）→ 照規矩來的 → 規律的；照表操課的常客。"
+  },
+  {
+    "word": "relax",
+    "ipa": "rɪˈlæks",
+    "pos": "vt./vi.",
+    "zh": "（使）放鬆；（使）休息；放寬（規定）",
+    "roots": [
+      {
+        "text": "re",
+        "meaning": "again（再）"
+      },
+      {
+        "text": "lax",
+        "meaning": "loose（鬆弛）"
+      }
+    ],
+    "rootStory": "re（再）+ lax（鬆弛）→ 再次讓它鬆開 → 放鬆，休息",
+    "example": "After a long week at work, she likes to relax by reading a novel.",
+    "exampleZh": "工作一整週後，她喜歡看小說來放鬆。",
+    "hook": "lax 就是鬆，relax 再（re）鬆一次 → 整個人放鬆下來。"
+  },
+  {
+    "word": "remove",
+    "ipa": "rɪˈmuːv",
+    "pos": "vt.",
+    "zh": "移除，除去；解僱",
+    "roots": [
+      {
+        "text": "re",
+        "meaning": "back（往回）"
+      },
+      {
+        "text": "mov",
+        "meaning": "to move（移動）"
+      },
+      {
+        "text": "e",
+        "meaning": null
+      }
+    ],
+    "rootStory": "re（往回）+ mov（移動）→ 把東西移開帶走 → 移除，除去",
+    "example": "The company decided to remove the faulty product from the market immediately.",
+    "exampleZh": "公司決定立即將瑕疵產品下架回收。",
+    "hook": "re（往回）+ mov（移動）→ 把東西挪開帶走 → 移除、拿掉。"
+  },
+  {
+    "word": "rescue",
+    "ipa": "ˈreskjuː",
+    "pos": "vt./n.",
+    "zh": "營救，援救",
+    "roots": null,
+    "rootStory": null,
+    "example": "Firefighters worked for hours to rescue the family trapped in the flooded house.",
+    "exampleZh": "消防員花了好幾個小時搶救受困在淹水屋內的一家人。",
+    "hook": "常見搭配 rescue team（救援隊）、rescue mission（救援行動）。"
+  },
+  {
+    "word": "responsible",
+    "ipa": "rɪˈspɑːnsəbl",
+    "pos": "adj.",
+    "zh": "負責任的，需負責的；可靠的",
+    "roots": [
+      {
+        "text": "re",
+        "meaning": "back（往回）"
+      },
+      {
+        "text": "spons",
+        "meaning": "to promise / answer（承諾、應答）"
+      },
+      {
+        "text": "ible",
+        "meaning": "形容詞字尾（可…的）"
+      }
+    ],
+    "rootStory": "re（往回）+ spons（應答）+ ible（可…的）→ 能夠回應承擔後果的 → 負責任的",
+    "example": "As team leader, she is responsible for meeting all project deadlines.",
+    "exampleZh": "身為團隊領導者，她負責確保所有專案都能如期完成。",
+    "hook": "跟 respond（回應）是兄弟，能回應承擔後果的人就是 responsible。"
+  },
+  {
+    "word": "roughly",
+    "ipa": "ˈrʌfli",
+    "pos": "adv.",
+    "zh": "粗略地，大約；粗暴地",
+    "roots": null,
+    "rootStory": null,
+    "example": "The report gives a roughly accurate picture of last quarter's sales.",
+    "exampleZh": "這份報告大致準確地呈現了上季的銷售狀況。",
+    "hook": "字面「粗糙地」引申為不夠精確、大概估計的「粗略地」。"
+  },
+  {
+    "word": "salvage",
+    "ipa": "ˈsælvɪdʒ",
+    "pos": "n./vt.",
+    "zh": "打撈，搶救（財物）；海難救助",
+    "roots": [
+      {
+        "text": "salv",
+        "meaning": "to save（拯救）"
+      },
+      {
+        "text": "age",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "salv（拯救）+ age（名詞字尾）→ 把東西救回來的行動 → 打撈，搶救",
+    "example": "Divers managed to salvage most of the cargo from the sunken ship.",
+    "exampleZh": "潛水員設法從沉船中打撈出大部分的貨物。",
+    "hook": "跟 save（拯救）系出同源，salvage 專指把東西救回來。"
+  },
+  {
+    "word": "save",
+    "ipa": "seɪv",
+    "pos": "vt./vi.",
+    "zh": "拯救，解救；儲存，節省；(球類)救球",
+    "roots": null,
+    "rootStory": null,
+    "examples": [
+      {
+        "label": "vt. 拯救，解救",
+        "en": "The quick actions of the lifeguard helped save the swimmer's life.",
+        "zh": "救生員的迅速行動幫助挽救了那名泳客的性命。"
+      },
+      {
+        "label": "vt. 儲存，節省",
+        "en": "Remember to save your document before closing the program.",
+        "zh": "關閉程式前記得先儲存文件。"
+      }
+    ],
+    "hook": "動詞核心是保住：save a life 保命，save a file 保存檔案。"
+  },
+  {
+    "word": "scenery",
+    "ipa": "ˈsiːnəri",
+    "pos": "n.",
+    "zh": "風景，景色；(戲劇)舞台佈景",
+    "roots": [
+      {
+        "text": "scen",
+        "meaning": "stage / scene（場景，源自希臘 skene）"
+      },
+      {
+        "text": "ery",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "scen（場景）+ ery（名詞字尾）→ 呈現出來的場景 → 風景，舞台佈景",
+    "example": "Tourists come from all over the world to admire the mountain scenery.",
+    "exampleZh": "遊客從世界各地前來欣賞這片山區風景。",
+    "hook": "跟 scene（場景）同一家族，scenery 是大場景下的自然風光。"
+  },
+  {
+    "word": "selection",
+    "ipa": "sɪˈlekʃn",
+    "pos": "n.",
+    "zh": "選擇，挑選；精選集，選集",
+    "roots": [
+      {
+        "text": "se",
+        "meaning": "apart（分開）"
+      },
+      {
+        "text": "lect",
+        "meaning": "to choose（挑選）"
+      },
+      {
+        "text": "ion",
+        "meaning": "名詞字尾"
+      }
+    ],
+    "rootStory": "se（分開）+ lect（挑選）+ ion（名詞字尾）→ 把東西分開來挑 → 選擇，精選",
+    "example": "The store offers a wide selection of imported cheeses.",
+    "exampleZh": "這家店提供多種進口起司可供選擇。",
+    "hook": "跟 select（挑選）是一家人，selection 是挑選出來的精選成果。"
+  },
+  {
+    "word": "serious",
+    "ipa": "ˈsɪriəs",
+    "pos": "adj.",
+    "zh": "嚴肅的；認真的；嚴重的",
+    "roots": null,
+    "rootStory": null,
+    "example": "The doctor said his condition is serious but stable.",
+    "exampleZh": "醫生說他的病情嚴重但穩定。",
+    "hook": "常見片語 take something seriously，表示認真看待某事。"
+  },
+  {
+    "word": "studio",
+    "ipa": "ˈstuːdioʊ",
+    "pos": "n.",
+    "zh": "工作室；(電影/電視)攝影棚；錄音室；畫室",
+    "roots": null,
+    "rootStory": null,
+    "example": "The band spent two weeks recording their new album in the studio.",
+    "exampleZh": "樂團花了兩週的時間在錄音室錄製新專輯。",
+    "hook": "字源跟 study（研讀）同源，本義是用心鑽研的地方。"
+  },
+  {
+    "word": "suggest",
+    "ipa": "səɡˈdʒest",
+    "pos": "vt.",
+    "zh": "建議；暗示；使人聯想到",
+    "roots": [
+      {
+        "text": "sug",
+        "meaning": "under（在下，sub 的變體）"
+      },
+      {
+        "text": "gest",
+        "meaning": "to carry（運送）"
+      }
+    ],
+    "rootStory": "sug（在下）+ gest（運送）→ 從底下悄悄帶出想法 → 暗示，建議",
+    "example": "The manager suggested that the meeting be moved to Friday afternoon.",
+    "exampleZh": "經理建議把會議改到週五下午。",
+    "hook": "gest（運送）家族還有 digest（消化）、congest（擁塞）。"
+  },
+  {
+    "word": "suitable",
+    "ipa": "ˈsuːtəbl",
+    "pos": "adj.",
+    "zh": "適合的，適當的",
+    "roots": [
+      {
+        "text": "suit",
+        "meaning": "to suit（適合，源自拉丁 sequi 跟隨）"
+      },
+      {
+        "text": "able",
+        "meaning": "形容詞字尾（可…的）"
+      }
+    ],
+    "rootStory": "suit（適合）+ able（可…的）→ 能夠合適的 → 適合的，適當的",
+    "example": "This hotel is suitable for families traveling with young children.",
+    "exampleZh": "這間飯店適合帶著幼兒旅行的家庭入住。",
+    "hook": "跟 suit（套裝／適合）同字根，suitable 就是合身、合適的。"
+  },
+  {
+    "word": "systematic",
+    "ipa": "ˌsɪstəˈmætɪk",
+    "pos": "adj.",
+    "zh": "有系統的；有條理的；徹底的",
+    "roots": [
+      {
+        "text": "system",
+        "meaning": "system（系統）"
+      },
+      {
+        "text": "atic",
+        "meaning": "形容詞字尾"
+      }
+    ],
+    "rootStory": "system（系統）+ atic（形容詞字尾）→ 依照系統來的 → 有系統的，有條理的",
+    "example": "She took a systematic approach to organizing the company's files.",
+    "exampleZh": "她採取有系統的方法來整理公司的檔案。",
+    "hook": "system 加上形容詞尾 -atic，變成有系統性的樣子。"
+  },
+  {
+    "word": "theoretical",
+    "ipa": "ˌθiːəˈretɪkl",
+    "pos": "adj.",
+    "zh": "理論的；理論上的；推測的",
+    "roots": [
+      {
+        "text": "theor",
+        "meaning": "to look at / view（觀察，源自希臘 theoria）"
+      },
+      {
+        "text": "et",
+        "meaning": null
+      },
+      {
+        "text": "ical",
+        "meaning": "形容詞字尾"
+      }
+    ],
+    "rootStory": "theor（觀察，理論）+ ical（形容詞字尾）→ 屬於理論層面的 → 理論的",
+    "example": "The professor's theoretical framework was later confirmed by experimental data.",
+    "exampleZh": "教授的理論架構後來被實驗數據證實。",
+    "hook": "跟 theory（理論）同字根，theoretical 是理論上還沒驗證的。"
+  },
+  {
+    "word": "tip",
+    "ipa": "tɪp",
+    "pos": "n./vt.",
+    "zh": "尖端，末端；小費；祕訣，建議；(vt.)使傾斜，弄翻",
+    "roots": null,
+    "rootStory": null,
+    "examples": [
+      {
+        "label": "n. 尖端，末端",
+        "en": "Be careful — the tip of the knife is very sharp.",
+        "zh": "小心，這把刀的刀尖非常鋭利。"
+      },
+      {
+        "label": "n. 小費",
+        "en": "We left a generous tip for the waiter.",
+        "zh": "我們給了服務生一筆豐厚的小費。"
+      },
+      {
+        "label": "n. 祕訣，建議",
+        "en": "Here's a useful tip for saving money on groceries.",
+        "zh": "這裡有個省下雜貨開銷的實用祕訣。"
+      }
+    ],
+    "hook": "從尖端到小費再到小提示，都跟輕輕一點的動作有關。"
+  },
+  {
+    "word": "tower",
+    "ipa": "ˈtaʊər",
+    "pos": "n./vi.",
+    "zh": "塔，高樓；(vi.)高聳，遠遠超過",
+    "roots": null,
+    "rootStory": null,
+    "example": "The Eiffel Tower towers over the surrounding buildings in Paris.",
+    "exampleZh": "艾菲爾鐵塔高聳於巴黎周圍的建築物之上。",
+    "hook": "名詞是塔，動詞用法 tower over 表示遠遠高於。"
+  },
+  {
+    "word": "triumph",
+    "ipa": "ˈtraɪʌmf",
+    "pos": "n./vi.",
+    "zh": "勝利，凱旋；(vi.)獲勝，戰勝",
+    "roots": null,
+    "rootStory": null,
+    "example": "The team celebrated their triumph after winning the championship game.",
+    "exampleZh": "球隊在贏得冠軍賽後慶祝他們的勝利。",
+    "hook": "小心別跟 tri-（三）搞混，triumph 的 tri 只是巧合。"
+  },
+  {
+    "word": "unfortunately",
+    "ipa": "ʌnˈfɔːrtʃənətli",
+    "pos": "adv.",
+    "zh": "不幸地；遺憾地",
+    "roots": [
+      {
+        "text": "un",
+        "meaning": "not（否定）"
+      },
+      {
+        "text": "fortun",
+        "meaning": "luck（運氣，源自拉丁 fortuna）"
+      },
+      {
+        "text": "ate",
+        "meaning": "形容詞字尾"
+      },
+      {
+        "text": "ly",
+        "meaning": "副詞字尾"
+      }
+    ],
+    "rootStory": "un（不）+ fortun（運氣）+ ate（形容詞字尾）+ ly（副詞字尾）→ 不走運地 → 不幸地，遺憾地",
+    "example": "Unfortunately, the flight was delayed due to bad weather.",
+    "exampleZh": "很遺憾，班機因為天氣不佳而延誤了。",
+    "hook": "跟 fortune（運氣）反著來，un 一否定就變成運氣不好地。"
+  },
+  {
+    "word": "uniform",
+    "ipa": "ˈjuːnɪfɔːrm",
+    "pos": "n./adj.",
+    "zh": "制服；一致的，統一的",
+    "roots": [
+      {
+        "text": "uni",
+        "meaning": "one（一，源自拉丁 unus）"
+      },
+      {
+        "text": "form",
+        "meaning": "shape（形狀）"
+      }
+    ],
+    "rootStory": "uni（一）+ form（形狀）→ 只有一種形狀 → 一致的；制服",
+    "examples": [
+      {
+        "label": "n. 制服",
+        "en": "All employees are required to wear a uniform at work.",
+        "zh": "所有員工上班時都必須穿著制服。"
+      },
+      {
+        "label": "adj. 一致的，統一的",
+        "en": "The bricks were cut to a uniform size for easy stacking.",
+        "zh": "這些磚塊被切割成統一的尺寸，以便堆疊。"
+      }
+    ],
+    "hook": "uni（一）+ form（形狀）→ 大家形狀都一樣 → 制服，統一的。"
+  },
+  {
+    "word": "varied",
+    "ipa": "ˈverid",
+    "pos": "adj.",
+    "zh": "多變的；各式各樣的；雜色的",
+    "roots": [
+      {
+        "text": "vari",
+        "meaning": "to change（改變，源自拉丁 varius 多樣的）"
+      },
+      {
+        "text": "ed",
+        "meaning": "形容詞字尾"
+      }
+    ],
+    "rootStory": "vari（改變，多樣）+ ed（形容詞字尾）→ 呈現多樣變化的 → 多變的，各式各樣的",
+    "example": "The museum offers a varied program of exhibitions throughout the year.",
+    "exampleZh": "這間博物館全年提供多樣化的展覽節目。",
+    "hook": "跟 various、variety 是一家人，字根 vari 都跟多樣、變化有關。"
+  },
+  {
+    "word": "various",
+    "ipa": "ˈveriəs",
+    "pos": "adj.",
+    "zh": "各種各樣的；多方面的",
+    "roots": [
+      {
+        "text": "vari",
+        "meaning": "to change（改變，源自拉丁 varius 多樣的）"
+      },
+      {
+        "text": "ous",
+        "meaning": "形容詞字尾"
+      }
+    ],
+    "rootStory": "vari（多樣，改變）+ ous（形容詞字尾）→ 具有多樣變化的 → 各種各樣的",
+    "example": "The conference attracted participants from various countries around the world.",
+    "exampleZh": "這場研討會吸引了來自世界各國的與會者。",
+    "hook": "跟 varied、variety 同字根 vari，都跟多樣、變化有關。"
+  },
+  {
+    "word": "warn",
+    "ipa": "wɔːrn",
+    "pos": "vt./vi.",
+    "zh": "警告，提醒；預先通知，告誡",
+    "roots": null,
+    "rootStory": null,
+    "example": "The weather bureau warned residents about the approaching typhoon.",
+    "exampleZh": "氣象局警告居民即將來襲的颱風。",
+    "hook": "常見用法 warn A about B，警告某人某事要接 about。"
+  },
+  {
+    "word": "warrant",
+    "ipa": "ˈwɔːrənt",
+    "pos": "n./vt.",
+    "zh": "授權證，許可證，(逮捕/搜索)令；(vt.)使顯得合理，成為…的根據",
+    "roots": null,
+    "rootStory": null,
+    "examples": [
+      {
+        "label": "n. 授權證，(逮捕)令",
+        "en": "Police obtained a warrant before searching the suspect's house.",
+        "zh": "警方在搜查嫌犯住家前先取得了搜索令。"
+      },
+      {
+        "label": "vt. 使顯得合理，成為…的根據",
+        "en": "The seriousness of the situation warrants immediate action.",
+        "zh": "情況的嚴重性足以讓人採取立即行動。"
+      }
+    ],
+    "hook": "跟 guarantee（保證）系出同源，都跟保證、擔保有關。"
+  },
+  {
+    "word": "wrap",
+    "ipa": "ræp",
+    "pos": "vt./n.",
+    "zh": "包裹；纏繞；(n.)披肩，外套",
+    "roots": null,
+    "rootStory": null,
+    "example": "She carefully wrapped the gift in colorful paper before the party.",
+    "exampleZh": "派對前，她仔細地用彩色包裝紙把禮物包起來。",
+    "hook": "常見片語 wrap up，表示包起來，也指結束會議或工作。"
+  },
+  {
+    "word": "x-ray",
+    "ipa": "ˈeksreɪ",
+    "pos": "n./vt.",
+    "zh": "X光，X射線；X光照片；(vt.)照X光檢查",
+    "roots": null,
+    "rootStory": null,
+    "example": "The doctor ordered an x-ray to check for a broken bone.",
+    "exampleZh": "醫生開了X光檢查以確認是否骨折。",
+    "hook": "X 代表未知，發現者當時還不清楚這種射線的本質，因此稱它 X-ray。"
+  },
+  {
+    "word": "zone",
+    "ipa": "zoʊn",
+    "pos": "n./vt.",
+    "zh": "地帶，地區；區域；(vt.)劃定為特定區域",
+    "roots": null,
+    "rootStory": null,
+    "example": "The area near the river has been designated as a flood zone.",
+    "exampleZh": "河邊那一帶已被劃定為洪水氾濫區。",
+    "hook": "常見複合詞 time zone（時區）、comfort zone（舒適圈）。"
   }
 ]

@@ -8,6 +8,9 @@ js/config.js
 # Local Claude Code settings (auto-accumulated permissions)
 .claude/
 
+# Word-generation working files (batch inputs/outputs merge into data/words.json)
+data/batches/
+
 # OS noise
 Thumbs.db
 .DS_Store
