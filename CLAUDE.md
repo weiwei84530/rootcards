@@ -32,7 +32,7 @@ node scripts/gen-config.mjs      # .env -> js/config.js (Gemini key)
 - **每字兩張卡獨立排程**：`<word>|R`（認讀，自評 Again/Good/Easy）與 `<word>|S`（拼寫，對=Good 錯=Again）。
 - **拼寫卡答案一律是完整單字**；卡片未畢業（非 Review 狀態）時顯示挖掉一個字根的虛線提示。測驗面**不播發音**（等於洩題），答完才唸。
 - **新字首見是學習卡**（先教再考）：攤開全部細節，空白鍵繼續，計為第一次 Good。
-- **互動原則**：所有「下一步」＝空白鍵（翻面、學習卡繼續、結果頁繼續、拼寫放棄看答案）；評分＝1/2/3；拼對自動送出。含空白的片語（字表僅 1 個）放棄鍵退回 Enter。
+- **互動原則**：所有「下一步」＝空白鍵（翻面、學習卡繼續、結果頁繼續、拼寫放棄看答案）；評分＝1/2/3；拼對自動送出。含空白的片語（字表共 30 個）放棄鍵退回 Enter。
 - **字根拆解寧缺勿錯**：無法有意義拆解的字 `roots: null`，UI 單色呈現；字根色是位置色序（綠橘紅藍），不是字根固定色。
 - **視覺定位**：單字（襯線大字）→ 字根 → 例句為主角；記憶鉤子是最後手段，維持註腳等級的低調，靠右收合。
 - **多義字**用 `examples` 陣列（含 `label` 標注義項）；單義字用 `example`/`exampleZh`，渲染端已相容兩者。
@@ -46,4 +46,4 @@ GitHub Pages（`main` 分支根目錄，網址 https://weiwei84530.github.io/roo
 
 ## 路線圖與已知未實作
 
-500 字多益核心資料 → 全量 5,424 字；leech 偵測（連錯 4 次自動亮出鉤子）；localStorage → IndexedDB；PWA（manifest + service worker）；FSRS optimizer 個人化。
+全量字表已完成（5,416 字＝TOEIC ∪ TOEFL 聯集 5,424 扣除原始字表髒資料去重；生成流程見 `scripts/prep-batches.mjs`、`scripts/merge-batches.mjs`）。待做：leech 偵測（連錯 4 次自動亮出鉤子）；localStorage → IndexedDB；PWA（manifest + service worker）；FSRS optimizer 個人化。

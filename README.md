@@ -38,4 +38,4 @@ Gemini key 請在 App 的「設定」頁貼上（只存於該裝置的 localStor
 
 ## 路線圖
 
-沙盒 50 字（現況）→ 多益核心 500 字 → 全量聯集約 5,400 字；leech 偵測、IndexedDB、PWA 離線安裝。
+~~沙盒 50 字 → 多益核心 500 字 → 全量聯集~~ **全量 5,416 字已到齊**（TOEIC ∪ TOEFL，扣除原始字表髒資料去重）；後續：leech 偵測、IndexedDB、PWA 離線安裝、FSRS 個人化參數。
