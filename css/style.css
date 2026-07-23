@@ -283,6 +283,23 @@ button.rate-easy { background: var(--easy); }
 .word-display .root-1.blank { border-bottom: 3px dashed var(--root-1); }
 .word-display .root-2.blank { border-bottom: 3px dashed var(--root-2); }
 .word-display .root-3.blank { border-bottom: 3px dashed var(--root-3); }
+.word-display .root-mute.blank { border-bottom: 3px dashed var(--root-mute); }
+/* Letter-level cloze for words without a root breakdown. */
+.word-display .blank.letter { border-bottom: 3px dashed var(--text-dim); margin: 0 1px; }
+
+/* Ladder difficulty badge under the masked word. */
+.level-badge {
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.8rem;
+  margin: 0.2rem 0 0.4rem;
+}
+
+/* Masked target word inside test-face example sentences. */
+.example .en .blank {
+  color: transparent;
+  border-bottom: 2px dashed var(--text-dim);
+}
 
 .ipa { text-align: center; color: var(--text-dim); margin-bottom: 0.6rem; }
 .speak-btn {

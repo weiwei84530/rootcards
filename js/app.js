@@ -3,23 +3,28 @@
 
 import {
   loadProgress,
+  loadLegacyProgress,
   saveProgress,
   resetProgress,
   loadSettings,
   saveSettings,
 } from './storage.js';
 import {
-  Rating,
   State,
   newProgress,
+  migrateProgress,
   buildQueue,
-  rateCard,
+  maxLevel,
+  getCard,
+  cardDue,
+  introduceWord,
+  answerCard,
+  logAttempt,
   skipWord,
   unskipWord,
   humanizeInterval,
-  needsRequeue,
+  fastForwardDay,
   dayStats,
-  getCard,
 } from './scheduler.js';
 import {
   speak,
@@ -44,14 +49,14 @@ let words = [];
 let progress = null;
 let settings = loadSettings();
 let queue = [];
-let current = null; // { word, type, spell? }
-let phase = 'start'; // start | front | back | spell | spell-feedback | learn | triage | done | stats | settings
+let current = null; // { word, kind }
+let phase = 'start'; // start | learn | learn-spell | spell | spell-feedback | triage | done | stats | settings
 let sessionReviews = 0;
 let triageList = [];
 let triageIdx = 0;
 let triageKnown = 0;
 
-const PRACTICE_PHASES = new Set(['front', 'back', 'spell', 'spell-feedback', 'learn', 'triage']);
+const PRACTICE_PHASES = new Set(['learn', 'learn-spell', 'spell', 'spell-feedback', 'triage']);
 const STATE_NAMES = { 0: '新卡', 1: '學習中', 2: '複習', 3: '重學中' };
 const STATS_ROW_CAP = 200;
 let statsShowAll = false;
@@ -60,22 +65,174 @@ const $ = (id) => document.getElementById(id);
 
 // ---------- rendering helpers ----------
 
-// Renders the word with positional root colors. When hideIdx is given,
-// that root segment is replaced by a same-length blank (cloze).
-function coloredWord(w, hideIdx = null) {
+// Renders the word with positional root colors (no cloze).
+function coloredWord(w) {
   if (!w.roots) return `<span>${w.word}</span>`;
   let colorIdx = 0;
   return w.roots
-    .map((r, i) => {
-      const cls = r.meaning ? `root-${colorIdx++ % 4}` : 'root-mute';
-      if (i === hideIdx) {
-        // Real letters kept for exact metrics, hidden via CSS (transparent
-        // text over a dashed rule) so the blank never wraps oddly.
-        return `<span class="${cls} blank">${r.text}</span>`;
-      }
-      return `<span class="${cls}">${r.text}</span>`;
-    })
+    .map((r) => `<span class="${r.meaning ? `root-${colorIdx++ % 4}` : 'root-mute'}">${r.text}</span>`)
     .join('');
+}
+
+// ---------- cloze mask ----------
+
+// Chooses what to hide at a given ladder level. Rooted words hide
+// `level` random meaningful roots; the top level hides every segment
+// (mutes included = full blank). Rootless words hide a proportional
+// set of random letter positions; spaces/hyphens stay visible.
+function buildMask(w, level) {
+  const max = maxLevel(w);
+  if (w.roots && w.roots.some((r) => r.meaning)) {
+    if (level >= max) return { kind: 'roots', hidden: new Set(w.roots.map((_, i) => i)) };
+    const pool = w.roots.map((r, i) => (r.meaning ? i : -1)).filter((i) => i >= 0);
+    const hidden = new Set();
+    for (let n = 0; n < level && pool.length; n++) {
+      hidden.add(pool.splice(Math.floor(Math.random() * pool.length), 1)[0]);
+    }
+    return { kind: 'roots', hidden };
+  }
+  const positions = [];
+  for (let i = 0; i < w.word.length; i++) {
+    if (/[A-Za-z]/.test(w.word[i])) positions.push(i);
+  }
+  const count = level >= max ? positions.length : Math.ceil((positions.length * level) / max);
+  const hidden = new Set();
+  for (let n = 0; n < count && positions.length; n++) {
+    hidden.add(positions.splice(Math.floor(Math.random() * positions.length), 1)[0]);
+  }
+  return { kind: 'letters', hidden };
+}
+
+// Word display with the mask applied. Real letters are kept in the DOM
+// for exact metrics and hidden via CSS (transparent over a dashed rule).
+function maskedWord(w, mask) {
+  if (mask.kind === 'roots' && w.roots) {
+    let colorIdx = 0;
+    return w.roots
+      .map((r, i) => {
+        const cls = r.meaning ? `root-${colorIdx++ % 4}` : 'root-mute';
+        return `<span class="${cls}${mask.hidden.has(i) ? ' blank' : ''}">${r.text}</span>`;
+      })
+      .join('');
+  }
+  return [...w.word]
+    .map((ch, i) => (mask.hidden.has(i) ? `<span class="blank letter">${ch}</span>` : `<span>${ch}</span>`))
+    .join('');
+}
+
+// Irregular verb past / past-participle forms (only what regular
+// suffix rules can't derive). Keyed by base form.
+const IRREGULAR_FORMS = {
+  arise: ['arose', 'arisen'], bear: ['bore', 'borne'], beat: ['beaten'],
+  become: ['became'], begin: ['began', 'begun'], bend: ['bent'],
+  bind: ['bound'], bite: ['bit', 'bitten'], bleed: ['bled'],
+  blow: ['blew', 'blown'], break: ['broke', 'broken'], breed: ['bred'],
+  bring: ['brought'], build: ['built'], buy: ['bought'], catch: ['caught'],
+  choose: ['chose', 'chosen'], cling: ['clung'], come: ['came'],
+  creep: ['crept'], deal: ['dealt'], dig: ['dug'], draw: ['drew', 'drawn'],
+  drink: ['drank', 'drunk'], drive: ['drove', 'driven'], eat: ['ate', 'eaten'],
+  fall: ['fell', 'fallen'], feed: ['fed'], feel: ['felt'], fight: ['fought'],
+  find: ['found'], flee: ['fled'], fling: ['flung'], fly: ['flew', 'flown'],
+  forbid: ['forbade', 'forbidden'], foresee: ['foresaw', 'foreseen'],
+  forget: ['forgot', 'forgotten'], forgive: ['forgave', 'forgiven'],
+  freeze: ['froze', 'frozen'], give: ['gave', 'given'], grind: ['ground'],
+  grow: ['grew', 'grown'], hang: ['hung'], hide: ['hid', 'hidden'],
+  hold: ['held'], keep: ['kept'], kneel: ['knelt'], know: ['knew', 'known'],
+  lay: ['laid'], lead: ['led'], leap: ['leapt'], leave: ['left'],
+  lend: ['lent'], lie: ['lay', 'lain'], light: ['lit'], lose: ['lost'],
+  make: ['made'], mean: ['meant'], meet: ['met'], overcome: ['overcame'],
+  oversee: ['oversaw', 'overseen'], pay: ['paid'], prove: ['proven'],
+  ride: ['rode', 'ridden'], ring: ['rang', 'rung'], rise: ['rose', 'risen'],
+  run: ['ran'], seek: ['sought'], sell: ['sold'], send: ['sent'],
+  shake: ['shook', 'shaken'], shine: ['shone'], shoot: ['shot'],
+  show: ['shown'], shrink: ['shrank', 'shrunk'], sing: ['sang', 'sung'],
+  sink: ['sank', 'sunk'], sit: ['sat'], sleep: ['slept'], slide: ['slid'],
+  speak: ['spoke', 'spoken'], spend: ['spent'], spin: ['spun'],
+  spring: ['sprang', 'sprung'], stand: ['stood'], steal: ['stole', 'stolen'],
+  stick: ['stuck'], sting: ['stung'], stride: ['strode', 'stridden'],
+  strike: ['struck'], strive: ['strove', 'striven'], swear: ['swore', 'sworn'],
+  sweep: ['swept'], swell: ['swollen'], swim: ['swam', 'swum'],
+  swing: ['swung'], take: ['took', 'taken'], teach: ['taught'],
+  tear: ['tore', 'torn'], tell: ['told'], think: ['thought'],
+  throw: ['threw', 'thrown'], tread: ['trod'], undergo: ['underwent', 'undergone'],
+  understand: ['understood'], undertake: ['undertook', 'undertaken'],
+  undo: ['undid', 'undone'], uphold: ['upheld'], wake: ['woke', 'woken'],
+  wear: ['wore', 'worn'], weave: ['wove', 'woven'], weep: ['wept'],
+  win: ['won'], wind: ['wound'], withdraw: ['withdrew', 'withdrawn'],
+  withstand: ['withstood'], wring: ['wrung'], write: ['wrote', 'written'],
+};
+
+// Common inflected forms of a word, for masking it inside example
+// sentences: plural (incl. Latin/Greek -i/-es/-a and f->ves), past,
+// -ing with e-drop/doubling, y->ies, -er/-est/-ly, plus irregulars.
+function inflectionForms(word) {
+  const base = word.toLowerCase();
+  const forms = new Set([base]);
+  for (const suf of ['s', 'es', 'ed', 'd', 'ing', 'er', 'est', 'ly']) forms.add(base + suf);
+  if (base.endsWith('e')) {
+    const stem = base.slice(0, -1);
+    forms.add(stem + 'ing');
+    forms.add(stem + 'ed');
+  }
+  if (base.endsWith('y')) {
+    const stem = base.slice(0, -1);
+    for (const suf of ['ies', 'ied', 'ier', 'iest', 'ily']) forms.add(stem + suf);
+  }
+  const last = base[base.length - 1];
+  if (/[a-z]/.test(last) && !/[aeiou]/.test(last)) {
+    for (const suf of ['ed', 'ing', 'er']) forms.add(base + last + suf);
+  }
+  if (base.endsWith('us')) forms.add(base.slice(0, -2) + 'i'); // cactus -> cacti
+  if (base.endsWith('is')) forms.add(base.slice(0, -2) + 'es'); // analysis -> analyses
+  if (base.endsWith('um') || base.endsWith('on')) forms.add(base.slice(0, -2) + 'a'); // datum/phenomenon
+  if (base.endsWith('f')) forms.add(base.slice(0, -1) + 'ves'); // shelf -> shelves
+  if (base.endsWith('fe')) forms.add(base.slice(0, -2) + 'ves'); // life -> lives
+  for (const f of IRREGULAR_FORMS[base] || []) forms.add(f);
+  return forms;
+}
+
+const TOKEN_RE = /[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ'-]*/g;
+
+// Masks every occurrence of the target word (or an inflected form) in
+// an example sentence; inside hyphenated compounds only the matching
+// part is masked (work-<blank> for "life"). Returns null when nothing
+// matched — the caller must then omit the sentence rather than leak.
+function maskExample(en, word) {
+  if (word.includes(' ')) {
+    // Phrase: whole-phrase match, tolerant of hyphens for spaces.
+    const esc = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').split(' ').join('[\\s-]+');
+    const re = new RegExp(esc, 'gi');
+    if (!re.test(en)) return null;
+    return en.replace(re, (m) => `<span class="blank">${m}</span>`);
+  }
+  const forms = inflectionForms(word);
+  const bareOf = (t) => t.toLowerCase().replace(/'s$|'$/, '');
+  let matched = false;
+  const html = en.replace(TOKEN_RE, (token) => {
+    if (forms.has(bareOf(token))) {
+      matched = true;
+      return `<span class="blank">${token}</span>`;
+    }
+    if (token.includes('-')) {
+      let hit = false;
+      const rebuilt = token
+        .split('-')
+        .map((part) => {
+          if (forms.has(bareOf(part))) {
+            hit = true;
+            return `<span class="blank">${part}</span>`;
+          }
+          return part;
+        })
+        .join('-');
+      if (hit) {
+        matched = true;
+        return rebuilt;
+      }
+    }
+    return token;
+  });
+  return matched ? html : null;
 }
 
 function rootChips(w) {
@@ -105,6 +262,23 @@ function exampleBlocks(w) {
       <span class="zh">${ex.zh}</span>
     </p>`
     )
+    .join('');
+}
+
+// Test-face variant: sentences with the target word blanked out.
+// No speak buttons here (audio would give the answer away), and any
+// sentence where the word can't be found is dropped.
+function maskedExampleBlocks(w) {
+  return examplesOf(w)
+    .map((ex) => {
+      const masked = maskExample(ex.en, w.word);
+      if (!masked) return '';
+      return `
+    <p class="example">
+      ${ex.label ? `<span class="sense">${ex.label}</span>` : ''}
+      <span class="en">${masked}</span>
+    </p>`;
+    })
     .join('');
 }
 
@@ -241,16 +415,15 @@ function startTimerLoop() {
 
 function untriagedWords() {
   return words.filter(
-    (w) => !progress.introduced[w.word] && !progress.skipped[w.word] && !progress.triaged[w.word]
+    (w) => !progress.cards[w.word] && !progress.skipped[w.word] && !progress.triaged[w.word]
   );
 }
 
 function wordStatus(w) {
   if (progress.skipped[w.word]) return 'skipped';
-  const r = getCard(progress, w.word, 'R');
-  const s = getCard(progress, w.word, 'S');
-  if (!r && !s) return 'new';
-  if (r?.state === State.Review && s?.state === State.Review) return 'mastered';
+  const record = getCard(progress, w.word);
+  if (!record) return 'new';
+  if (record.fsrs && record.fsrs.state === State.Review) return 'mastered';
   return 'learning';
 }
 
@@ -259,9 +432,7 @@ function wordStatus(w) {
 function wordStatusEx(w) {
   const st = wordStatus(w);
   if (st !== 'learning') return st;
-  const lapses =
-    (getCard(progress, w.word, 'R')?.lapses || 0) + (getCard(progress, w.word, 'S')?.lapses || 0);
-  return lapses >= 3 ? 'lapse' : 'learning';
+  return (getCard(progress, w.word)?.lapses || 0) >= 3 ? 'lapse' : 'learning';
 }
 
 function renderStart() {
@@ -269,8 +440,8 @@ function renderStart() {
   current = null;
   const now = new Date();
   const allDue = buildQueue(words, progress, now);
-  const dueCount = allDue.filter((it) => progress.cards[`${it.word.word}|${it.type}`]).length;
-  const learned = Object.keys(progress.introduced || {}).length;
+  const dueCount = allDue.filter((it) => it.kind === 'review').length;
+  const learned = Object.keys(progress.cards).length;
   const skipped = Object.keys(progress.skipped || {}).length;
   const day = dayStats(progress, now);
 
@@ -295,14 +466,17 @@ function renderStart() {
 
 // ---------- stats tab ----------
 
-function dueCell(card, now) {
-  if (!card) return '<span class="dim">未開始</span>';
-  const state = STATE_NAMES[card.state] ?? card.state;
-  const due =
-    card.due <= now
-      ? '<span class="due-now">已到期</span>'
-      : humanizeInterval(now, card.due);
-  return `${state} ・ ${due}`;
+// Ladder progress before graduation, FSRS state after.
+function progressCell(w, record) {
+  if (!record) return '<span class="dim">未開始</span>';
+  if (record.fsrs) return `已畢業 ・ ${STATE_NAMES[record.fsrs.state] ?? record.fsrs.state}`;
+  return `階梯 ${Math.min(record.level, maxLevel(w))} / ${maxLevel(w)}`;
+}
+
+function dueCell(record, now) {
+  if (!record) return '<span class="dim">—</span>';
+  const d = cardDue(record);
+  return d <= now ? '<span class="due-now">已到期</span>' : humanizeInterval(now, d);
 }
 
 function renderStats() {
@@ -320,7 +494,7 @@ function renderStats() {
     <span class="chip c-learning"><b>${counts.learning}</b>學習中</span>
     <span class="chip"><b>${counts.skipped}</b>已跳過</span>
     <span class="chip"><b>${words.length - tracked.length}</b>未開始</span>
-    <span class="chip"><b>${totalReviews}</b>總復習次數</span>
+    <span class="chip"><b>${totalReviews}</b>總作答次數</span>
     <span class="chip"><b>${Math.floor((day.seconds || 0) / 60)}</b>今日分鐘</span>
   `;
 
@@ -340,17 +514,14 @@ function renderStats() {
   });
 
   const allRows = candidates.map((w) => {
-    const r = getCard(progress, w.word, 'R');
-    const s = getCard(progress, w.word, 'S');
-    const nextDue = Math.min(r ? r.due.getTime() : Infinity, s ? s.due.getTime() : Infinity);
-    return { w, r, s, nextDue };
+    const rec = getCard(progress, w.word);
+    return { w, rec, nextDue: rec ? cardDue(rec).getTime() : Infinity };
   });
   const sorters = {
     due: (a, b) => a.nextDue - b.nextDue,
     alpha: (a, b) => a.w.word.localeCompare(b.w.word),
-    reps: (a, b) => (b.r?.reps || 0) + (b.s?.reps || 0) - ((a.r?.reps || 0) + (a.s?.reps || 0)),
-    lapses: (a, b) =>
-      (b.r?.lapses || 0) + (b.s?.lapses || 0) - ((a.r?.lapses || 0) + (a.s?.lapses || 0)),
+    reps: (a, b) => (b.rec?.reps || 0) - (a.rec?.reps || 0),
+    lapses: (a, b) => (b.rec?.lapses || 0) - (a.rec?.lapses || 0),
   };
   allRows.sort(sorters[sortBy] || sorters.due);
 
@@ -367,9 +538,9 @@ function renderStats() {
   };
 
   $('stats-table').innerHTML = `
-    <tr><th>單字</th><th>中文</th><th>狀態</th><th>認讀卡</th><th>拼寫卡</th><th>復習</th><th>忘記</th></tr>
+    <tr><th>單字</th><th>中文</th><th>狀態</th><th>進度</th><th>下次到期</th><th>作答</th><th>忘記</th></tr>
     ${rows
-      .map(({ w, r, s }) => {
+      .map(({ w, rec }) => {
         const st = wordStatusEx(w);
         const undo =
           st === 'skipped'
@@ -380,10 +551,10 @@ function renderStats() {
         <td class="w">${coloredWord(w)}</td>
         <td class="zh dim">${w.zh.split('；')[0]}</td>
         <td>${CHIPS[st]}${undo}</td>
-        <td>${dueCell(r, now)}</td>
-        <td>${dueCell(s, now)}</td>
-        <td>${(r?.reps || 0) + (s?.reps || 0)}</td>
-        <td>${(r?.lapses || 0) + (s?.lapses || 0) || ''}</td>
+        <td>${progressCell(w, rec)}</td>
+        <td>${dueCell(rec, now)}</td>
+        <td>${rec?.reps || 0}</td>
+        <td>${rec?.lapses || ''}</td>
       </tr>`;
       })
       .join('')}
@@ -399,7 +570,8 @@ function renderStats() {
 
   const hidden = allRows.length - rows.length;
   $('stats-note').innerHTML =
-    `到期時間是 FSRS 預測你即將遺忘、需要再看的時間點。未開始的字可用搜尋或「未開始」過濾查看。` +
+    `「階梯 n / m」是字根挖空難度：每答對一次多挖一格，全挖空拼對即畢業，改由 FSRS 預測遺忘時間點排程。` +
+    `未開始的字可用搜尋或「未開始」過濾查看。` +
     (hidden > 0
       ? ` <button class="ghost small" id="btn-stats-all">顯示其餘 ${hidden} 筆</button>`
       : '');
@@ -480,7 +652,7 @@ function triageDecide(known) {
   const w = triageList[triageIdx];
   progress.triaged[w.word] = true;
   if (known) {
-    skipWord(progress, w.word);
+    skipWord(progress, w);
     triageKnown++;
   }
   saveProgress(progress);
@@ -517,13 +689,8 @@ function nextCard() {
   }
   current = queue.shift();
   updateHeaderStats();
-  const neverSeen = !progress.cards[`${current.word.word}|${current.type}`];
-  if (current.type === 'R') {
-    if (neverSeen) renderLearnCard();
-    else renderReadingFront();
-  } else {
-    renderSpellingFront();
-  }
+  if (current.kind === 'new') renderLearnCard();
+  else renderSpellingFront();
 }
 
 function finishSession(title = '今晚完成 🎉') {
@@ -532,15 +699,14 @@ function finishSession(title = '今晚完成 🎉') {
   const day = dayStats(progress);
   $('done-title').textContent = title;
   $('done-summary').textContent =
-    `本次共復習 ${sessionReviews} 張卡片，今日已練習 ${Math.floor((day.seconds || 0) / 60)} 分鐘。`;
+    `本次共作答 ${sessionReviews} 次，今日已練習 ${Math.floor((day.seconds || 0) / 60)} 分鐘。`;
   showScreen('done');
 }
 
 // ---------- learn card (first exposure of a new word) ----------
 
-// New words are taught, not quizzed: show the full entry immediately,
-// then continue with the space bar (spelling practice happens on the
-// spelling card that follows).
+// New words are taught first: show the full entry, then the intro
+// spelling (full blank, typed from short-term memory) follows.
 function renderLearnCard() {
   phase = 'learn';
   const w = current.word;
@@ -554,97 +720,117 @@ function renderLearnCard() {
     ${hookBlock(w)}
   `;
   $('card-actions').innerHTML = `
-    <button class="primary big" id="btn-learn-next">記住了，繼續<span class="key-hint">空白鍵</span></button>
+    <button class="primary big" id="btn-learn-next">記住了，拼拼看<span class="key-hint">空白鍵</span></button>
   `;
   wireExampleSpeakers(w);
   wireHookRegen(w);
-  // First learning rep: the card re-enters this session shortly after.
-  $('btn-learn-next').onclick = () => applyRating(Rating.Good);
+  $('btn-learn-next').onclick = renderIntroSpell;
   speak(w.word);
 }
 
-// ---------- reading card ----------
-
-function renderReadingFront() {
-  phase = 'front';
+// Intro spelling: the whole word blanked, typed from the impression the
+// learn card just left. Encoding practice — no scheduling penalty; a
+// miss re-shows the answer and loops until the word is typed correctly.
+function renderIntroSpell() {
+  phase = 'learn-spell';
   const w = current.word;
-  $('card-type-label').textContent = '認讀卡 ─ 想想它的意思';
+  const mask = buildMask(w, maxLevel(w)); // full blank
+  const isPhrase = w.word.includes(' ');
+  const giveUpLabel = isPhrase ? 'Enter' : '空白鍵';
+  $('card-type-label').textContent = '新單字 ─ 憑印象拼一次';
   $('card-body').innerHTML = `
-    <div class="word-display">${coloredWord(w)}</div>
-    <div class="ipa">/${w.ipa}/</div>
-    <button class="speak-btn" id="btn-speak" title="再唸一次">🔊</button>
-  `;
-  $('card-actions').innerHTML = `
-    <button class="primary big" id="btn-flip">翻面看答案<span class="key-hint">空白鍵</span></button>
-  `;
-  $('btn-speak').onclick = () => speak(w.word);
-  $('btn-flip').onclick = renderReadingBack;
-  speak(w.word);
-}
-
-function renderReadingBack() {
-  phase = 'back';
-  const w = current.word;
-  $('card-type-label').textContent = '認讀卡 ─ 剛才想對了嗎？';
-  $('card-body').innerHTML = `
-    <div class="word-display">${coloredWord(w)}</div>
-    <div class="ipa">/${w.ipa}/</div>
     <div class="meaning"><span class="pos">${w.pos}</span>${w.zh}</div>
-    ${rootChips(w)}
-    ${exampleBlocks(w)}
-    ${hookBlock(w)}
+    <div class="word-display">${maskedWord(w, mask)}</div>
+    <input class="spell-input" id="spell-input" type="text"
+           autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
+    <p class="spell-hint">拼對會自動送出；忘了怎麼拼，按${giveUpLabel}再看一次</p>
   `;
-  $('card-actions').innerHTML = `
-    <button class="rate-again" id="btn-again">忘了<span class="key-hint">1</span></button>
-    <button class="rate-good" id="btn-good">想起來了<span class="key-hint">2</span></button>
-    <button class="rate-easy" id="btn-easy">很簡單<span class="key-hint">3</span></button>
-  `;
-  wireExampleSpeakers(w);
-  wireHookRegen(w);
-  $('btn-again').onclick = () => applyRating(Rating.Again);
-  $('btn-good').onclick = () => applyRating(Rating.Good);
-  $('btn-easy').onclick = () => applyRating(Rating.Easy);
+  $('card-actions').innerHTML = '';
+  const input = $('spell-input');
+  input.addEventListener('input', () => {
+    if (input.value.trim().toLowerCase() === w.word.toLowerCase()) submitIntroSpell(true);
+  });
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || (e.key === ' ' && !isPhrase)) {
+      e.preventDefault();
+      submitIntroSpell(false);
+    }
+  });
+  input.focus();
 }
 
-// ---------- spelling card ----------
-
-// The answer is always the FULL word. While the card is still young
-// (not yet in long-term Review state), the word is shown with one root
-// segment blanked out as a visual scaffold; once the card graduates,
-// the scaffold disappears (meaning only). Words without a root
-// breakdown never get a scaffold.
-function decideSpellingMode(w) {
-  if (!w.roots) return { mode: 'full' };
-  const stored = progress.cards[`${w.word}|S`];
-  const mature = stored && stored.state === State.Review;
-  if (mature) return { mode: 'full' };
-  const candidates = w.roots
-    .map((r, i) => (r.meaning ? i : -1))
-    .filter((i) => i >= 0);
-  if (candidates.length === 0) return { mode: 'full' };
-  const hide = candidates[Math.floor(Math.random() * candidates.length)];
-  return { mode: 'cloze', hide };
+function submitIntroSpell(correct) {
+  const w = current.word;
+  const now = new Date();
+  logAttempt(progress, w.word, 'intro', maxLevel(w), correct, now);
+  phase = 'spell-feedback';
+  if (correct) {
+    introduceWord(progress, w, now);
+    saveProgress(progress);
+    sessionReviews++;
+    $('card-type-label').textContent = '新單字 ─ 完成';
+    $('card-body').innerHTML = `
+      <div class="verdict ok">✓ 記住了！</div>
+      <div class="word-display">${coloredWord(w)}</div>
+      <div class="ipa">/${w.ipa}/</div>
+      <div class="meaning"><span class="pos">${w.pos}</span>${w.zh}</div>
+      ${rootChips(w)}
+    `;
+    $('card-actions').innerHTML = `
+      <button class="primary big" id="btn-continue">繼續<span class="key-hint">空白鍵</span></button>
+    `;
+    speak(w.word);
+    toast('明天會再考一次（從最簡單的挖空開始）');
+    $('btn-continue').onclick = nextCard;
+  } else {
+    saveProgress(progress); // keep the logged attempt
+    $('card-type-label').textContent = '新單字 ─ 再看一次';
+    $('card-body').innerHTML = `
+      <div class="word-display">${coloredWord(w)}</div>
+      <div class="ipa">/${w.ipa}/</div>
+      <div class="meaning"><span class="pos">${w.pos}</span>${w.zh}</div>
+      ${rootChips(w)}
+      ${exampleBlocks(w)}
+      ${hookBlock(w)}
+    `;
+    $('card-actions').innerHTML = `
+      <button class="primary big" id="btn-continue">再拼一次<span class="key-hint">空白鍵</span></button>
+    `;
+    wireExampleSpeakers(w);
+    wireHookRegen(w);
+    speak(w.word);
+    $('btn-continue').onclick = renderIntroSpell;
+  }
 }
 
+// ---------- spelling review ----------
+
+// The answer is always the FULL word. The mask difficulty comes from the
+// word's ladder level; the level badge keeps the mechanism transparent.
 function renderSpellingFront() {
   phase = 'spell';
   const w = current.word;
-  const spell = decideSpellingMode(w);
-  current.spell = spell;
-
-  const isCloze = spell.mode === 'cloze';
-  $('card-type-label').textContent = '拼寫卡 ─ 拼出完整單字';
-  // Phrases (rare: 1 entry in 6,000+) need the space bar for typing,
-  // so only they fall back to Enter as the give-up key.
+  const record = getCard(progress, w.word);
+  const max = maxLevel(w);
+  const level = Math.min(record.level, max);
+  const mask = buildMask(w, level);
+  const badge = record.fsrs
+    ? `<div class="level-badge">已畢業${level < max ? ` ・ 鷹架 ${level} / ${max}` : ''}</div>`
+    : `<div class="level-badge">階梯 ${level} / ${max}</div>`;
+  // Phrases (rare) need the space bar for typing, so only they fall
+  // back to Enter as the give-up key.
   const isPhrase = w.word.includes(' ');
   const giveUpLabel = isPhrase ? 'Enter' : '空白鍵';
   // No audio on the test face: hearing the word would give the answer away.
+  $('card-type-label').textContent = '複習 ─ 拼出完整單字';
   $('card-body').innerHTML = `
     <div class="meaning"><span class="pos">${w.pos}</span>${w.zh}</div>
-    ${isCloze ? `<div class="word-display">${coloredWord(w, spell.hide)}</div>` : ''}
+    <div class="word-display">${maskedWord(w, mask)}</div>
+    ${badge}
+    ${maskedExampleBlocks(w)}
     <input class="spell-input" id="spell-input" type="text"
            autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
-    <p class="spell-hint">${isCloze ? '虛線是遮住的字根提示。' : ''}拼對會自動送出；想不起來，按${giveUpLabel}看答案</p>
+    <p class="spell-hint">拼對會自動送出；想不起來，按${giveUpLabel}看答案</p>
   `;
   $('card-actions').innerHTML = '';
   const input = $('spell-input');
@@ -667,11 +853,20 @@ function renderSpellingFront() {
 function submitSpelling(answer) {
   const w = current.word;
   const correct = answer !== null && answer.trim().toLowerCase() === w.word.toLowerCase();
+  const now = new Date();
+  const result = answerCard(progress, w, correct, now);
+  saveProgress(progress);
+  sessionReviews++;
   phase = 'spell-feedback';
-  $('card-type-label').textContent = '拼寫卡 ─ 結果';
+  $('card-type-label').textContent = '結果';
   const attempt = answer === null ? '' : answer.trim();
+  const verdict = correct
+    ? result.graduated
+      ? '🎓 畢業！全挖空拼對了'
+      : '✓ 正確！'
+    : '✗ 再記一下';
   $('card-body').innerHTML = `
-    <div class="verdict ${correct ? 'ok' : 'ng'}">${correct ? '✓ 正確！' : '✗ 再記一下'}</div>
+    <div class="verdict ${correct ? 'ok' : 'ng'}">${verdict}</div>
     ${correct || !attempt ? '' : `<div class="your-answer">${attempt}</div>`}
     <div class="word-display">${coloredWord(w)}</div>
     <div class="ipa">/${w.ipa}/</div>
@@ -682,8 +877,13 @@ function submitSpelling(answer) {
     <button class="primary big" id="btn-continue">繼續<span class="key-hint">空白鍵</span></button>
   `;
   speak(w.word);
-  const rating = correct ? Rating.Good : Rating.Again;
-  $('btn-continue').onclick = () => applyRating(rating);
+  toast(`下次復習：${humanizeInterval(now, result.due)}`);
+  $('btn-continue').onclick = () => {
+    // A miss (or a card still in FSRS learning steps) re-tests within
+    // this session, a few cards later — not at the end of the queue.
+    if (result.requeue) queue.splice(Math.min(4, queue.length), 0, { word: w, kind: 'review' });
+    nextCard();
+  };
 }
 
 // ---------- force refresh ----------
@@ -711,54 +911,29 @@ async function forceRefresh() {
   location.reload();
 }
 
-// ---------- rating / skipping ----------
-
-function applyRating(rating) {
-  const { word, type } = current;
-  const wasLearn = phase === 'learn';
-  const now = new Date();
-  const card = rateCard(progress, word.word, type, rating, now);
-  saveProgress(progress);
-  sessionReviews++;
-  toast(`下次復習：${humanizeInterval(now, card.due)}`);
-  if (needsRequeue(card)) queue.push({ word, type });
-  // After the learn card, delay the word's first spelling card by a few
-  // cards: typing it immediately would be short-term copy-typing, not
-  // recall, and would feed FSRS an inflated signal.
-  if (wasLearn && queue[0]?.word.word === word.word && queue[0].type === 'S') {
-    const [sibling] = queue.splice(0, 1);
-    queue.splice(Math.min(3, queue.length), 0, sibling);
-  }
-  nextCard();
-}
+// ---------- skipping ----------
 
 function handleSkip() {
   if (!current) return;
   const name = current.word.word;
-  skipWord(progress, name);
+  skipWord(progress, current.word);
   saveProgress(progress);
-  queue = queue.filter((it) => it.word.word !== name); // drop sibling card too
+  queue = queue.filter((it) => it.word.word !== name);
   toast(`已標記「${name}」為已掌握，4 個月後會再驗證一次`);
   nextCard();
 }
 
 // ---------- keyboard shortcuts ----------
+// Space is the universal "next" everywhere; inputs handle their own keys.
 
 document.addEventListener('keydown', (e) => {
   if (e.target.tagName === 'INPUT' || e.target.tagName === 'SELECT') return;
-  if (phase === 'front' && (e.key === ' ' || e.key === 'Enter')) {
-    e.preventDefault();
-    renderReadingBack();
-  } else if (phase === 'learn' && (e.key === ' ' || e.key === 'Enter')) {
+  if (phase === 'learn' && (e.key === ' ' || e.key === 'Enter')) {
     e.preventDefault();
     $('btn-learn-next')?.click();
-  } else if (phase === 'back') {
-    // preventDefault: the next card may focus a text input during this
-    // same keydown, and the digit would otherwise be typed into it.
-    if (e.key === '1') { e.preventDefault(); applyRating(Rating.Again); }
-    else if (e.key === '2') { e.preventDefault(); applyRating(Rating.Good); }
-    else if (e.key === '3') { e.preventDefault(); applyRating(Rating.Easy); }
   } else if (phase === 'spell-feedback' && (e.key === ' ' || e.key === 'Enter')) {
+    // preventDefault: the next card focuses a text input during this
+    // same keydown, and the space would otherwise be typed into it.
     e.preventDefault();
     $('btn-continue')?.click();
   } else if (phase === 'triage') {
@@ -772,14 +947,9 @@ document.addEventListener('keydown', (e) => {
 async function boot() {
   const res = await fetch('./data/words.json');
   words = await res.json();
-  progress = loadProgress() || newProgress();
-  // Backfill fields for progress blobs saved by older versions.
-  progress.introduced ??= {};
-  progress.skipped ??= {};
-  progress.triaged ??= {};
-  progress.days ??= {};
-  progress.log ??= [];
-  progress.hooks ??= {};
+  // v2 progress, migrating a v1 blob on first run (v1 kept as backup).
+  progress = migrateProgress(loadProgress() || loadLegacyProgress(), words);
+  saveProgress(progress);
 
   // Tabs
   $('tab-cards').onclick = renderStart;
@@ -832,11 +1002,21 @@ async function boot() {
     $('key-status').textContent = getGeminiKey() ? '✓ 已設定' : '未設定';
     toast(v ? 'API key 已儲存在此裝置' : 'API key 已清除');
   };
+  $('btn-fast-forward').onclick = () => {
+    const n = fastForwardDay(progress);
+    saveProgress(progress);
+    renderTimer();
+    updateHeaderStats();
+    toast(`已快轉一天：${n} 張卡到期，今日計時器已重置`, 3000);
+  };
   $('btn-refresh').onclick = forceRefresh;
   $('btn-reset').onclick = () => {
     if (confirm('確定要清除所有學習進度嗎？此動作無法復原。')) {
       resetProgress();
       progress = newProgress();
+      // Persist the empty blob right away, otherwise a reload would
+      // re-migrate the old v1 backup and resurrect its skipped words.
+      saveProgress(progress);
       renderStart();
       toast('進度已重設');
     }

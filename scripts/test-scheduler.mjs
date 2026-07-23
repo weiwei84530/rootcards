@@ -4,16 +4,21 @@ import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import {
+  State,
   Rating,
   newProgress,
   buildQueue,
-  rateCard,
+  maxLevel,
+  getCard,
+  cardDue,
+  introduceWord,
+  answerCard,
   skipWord,
   unskipWord,
-  humanizeInterval,
-  needsRequeue,
+  migrateProgress,
+  fastForwardDay,
   dayStats,
-  getCard,
+  humanizeInterval,
 } from '../js/scheduler.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -25,67 +30,165 @@ function check(name, cond) {
   if (!cond) failures++;
 }
 
-const now = new Date('2026-07-16T21:00:00');
+const t0 = new Date('2026-07-22T21:00:00');
+const day = (n, mins = 0) => new Date(t0.getTime() + n * 86400000 + mins * 60000);
+const DAY_MS = 86400000;
+
+// Representative test words from the real dataset.
+const meaningfulCount = (w) => (w.roots ? w.roots.filter((r) => r.meaning).length : 0);
+const w3 = words.find((w) => meaningfulCount(w) === 3);
+const w1mute = words.find((w) => meaningfulCount(w) === 1 && w.roots.length > 1);
+const rootless = words.find(
+  (w) => !w.roots && !w.word.includes(' ') && w.word.replace(/[^A-Za-z]/g, '').length >= 6
+);
+const shorty = words
+  .filter((w) => !w.roots && !w.word.includes(' '))
+  .sort((a, b) => a.word.length - b.word.length)[0];
+console.log(
+  `      (test words: 3-root=${w3.word}, 1-root+mute=${w1mute.word}, rootless=${rootless.word}, shortest=${shorty.word})`
+);
+
+// 1. Ladder geometry.
+check('maxLevel: 3 meaningful roots -> 3', maxLevel(w3) === 3);
+check('maxLevel: 1 meaningful root + mute -> 2', maxLevel(w1mute) === 2);
+check('maxLevel: rootless (>=3 letters) -> 3', maxLevel(rootless) === 3);
+const shortyLetters = shorty.word.replace(/[^A-Za-z]/g, '').length;
+check('maxLevel: short rootless word capped at letter count',
+  maxLevel(shorty) === Math.min(3, shortyLetters));
+
+// 2. Fresh queue: one entry per word, all new.
 const progress = newProgress();
+let queue = buildQueue(words, progress, t0);
+check('fresh queue holds every word once', queue.length === words.length);
+check('fresh entries are kind:new', queue.every((it) => it.kind === 'new'));
 
-// 1. Fresh queue: every word contributes an R and an S card, R first.
-//    (Daily intake is bounded by the practice timer, not a word quota.)
-let queue = buildQueue(words, progress, now);
-check('fresh queue holds all words x 2 cards', queue.length === words.length * 2);
-check('first card is a reading card', queue[0].type === 'R');
-check('R comes before S for the same word',
-  queue[0].word.word === queue[1].word.word && queue[1].type === 'S');
+// 3. Introduction: level 1, due tomorrow, gone from today's queue.
+introduceWord(progress, w3, t0);
+const rec = getCard(progress, w3.word);
+check('introduced record starts at level 1', rec.level === 1);
+check('introduced record due ~1 day out',
+  Math.abs(cardDue(rec) - day(1)) < 60000);
+check('introduction counted as new', dayStats(progress, t0).newCount === 1);
+check('introduced word absent from today queue',
+  !buildQueue(words, progress, t0).some((it) => it.word.word === w3.word));
 
-// 2. Rating Good on a new card schedules it into the future.
-const first = queue[0];
-const card = rateCard(progress, first.word.word, first.type, Rating.Good, now);
-check('rated card due is in the future', card.due > now);
-check('review was logged', progress.log.length === 1);
-check('getCard returns the stored card', getCard(progress, first.word.word, 'R') !== null);
-console.log(`      (Good on new card -> due ${humanizeInterval(now, card.due)}, requeue=${needsRequeue(card)})`);
+// 4. Next day: due review; correct climbs the ladder one rung, due +1d.
+queue = buildQueue(words, progress, day(1));
+check('next-day queue leads with the due review',
+  queue[0].word.word === w3.word && queue[0].kind === 'review');
+let r = answerCard(progress, w3, true, day(1));
+check('ladder correct: level 1 -> 2', getCard(progress, w3.word).level === 2);
+check('ladder correct: due +1 day', Math.abs(r.due - day(2)) < 60000);
+check('ladder correct: no requeue', r.requeue === false);
+const lastLog = () => progress.log[progress.log.length - 1];
+check('ladder correct logged', lastLog().phase === 'ladder' && lastLog().level === 1 && lastLog().correct === true);
 
-// 3. Rating Again keeps the card in the learning phase (requeued in session).
-const second = queue[2];
-const againCard = rateCard(progress, second.word.word, second.type, Rating.Again, now);
-check('Again on new card needs requeue', needsRequeue(againCard) === true);
+// 5. Wrong drops a rung, retests in-session; correct restores the rung
+//    ("one miss = lose one day" invariant).
+r = answerCard(progress, w3, false, day(2));
+check('ladder wrong: level 2 -> 1', getCard(progress, w3.word).level === 1);
+check('ladder wrong: requeue in session', r.requeue === true);
+check('ladder wrong: due now (survives abandoned session)', r.due <= day(2));
+check('ladder wrong: lapse counted', getCard(progress, w3.word).lapses === 1);
+check('ladder wrong logged', lastLog().phase === 'ladder' && lastLog().correct === false);
+r = answerCard(progress, w3, true, day(2, 5));
+check('in-session retry correct: level back to 2', getCard(progress, w3.word).level === 2);
+check('retry correct: due tomorrow', Math.abs(r.due - day(3, 5)) < 60000);
 
-// 4. Skip pushes both cards ~4 months out and excludes the word from queues.
-const skipTarget = queue[4].word.word;
-skipWord(progress, skipTarget, now);
-const q2 = buildQueue(words, progress, now);
-check('skipped word absent from queue', !q2.some((it) => it.word.word === skipTarget));
-const skippedCard = progress.cards[`${skipTarget}|R`];
-const daysOut = (new Date(skippedCard.due) - now) / 86400000;
+// 6. Level-1 wrong floors at 1.
+introduceWord(progress, rootless, t0);
+answerCard(progress, rootless, false, day(1));
+check('level floors at 1 on wrong', getCard(progress, rootless.word).level === 1);
+
+// 7. Climbing to the top rung graduates into FSRS.
+answerCard(progress, w3, true, day(3, 10)); // level 2 -> 3 (top)
+check('climbed to top rung', getCard(progress, w3.word).level === 3);
+r = answerCard(progress, w3, true, day(4)); // full-blank success
+const grad = getCard(progress, w3.word);
+check('graduation creates the FSRS card', grad.fsrs !== null);
+check('graduation reported', r.graduated === true);
+check('graduation logged as first FSRS Good',
+  lastLog().phase === 'fsrs' && lastLog().rating === Rating.Good && lastLog().correct === true);
+console.log(`      (graduation -> due ${humanizeInterval(day(4), r.due)}, requeue=${r.requeue})`);
+if (r.requeue) {
+  // ts-fsrs learning steps: confirm once more in-session, then days out.
+  r = answerCard(progress, w3, true, day(4, 15));
+}
+check('post-graduation settles into Review state',
+  getCard(progress, w3.word).fsrs.state === State.Review);
+check('post-graduation due at least 1 day out', r.due - day(4, 15) >= DAY_MS * 0.5);
+console.log(`      (confirmed -> due ${humanizeInterval(day(4, 15), r.due)})`);
+
+// 8. Post-graduation lapse: Again + scaffold (level drops one rung).
+r = answerCard(progress, w3, false, day(6));
+check('graduated wrong: requeue (relearning)', r.requeue === true);
+check('graduated wrong: level drops for scaffold', getCard(progress, w3.word).level === 2);
+check('graduated wrong logged with Again rating', lastLog().rating === Rating.Again);
+r = answerCard(progress, w3, true, day(6, 10));
+check('graduated recovery: level climbs back', getCard(progress, w3.word).level === 3);
+
+// 9. Skip / unskip.
+skipWord(progress, w1mute, t0);
+check('skipped word absent from queue',
+  !buildQueue(words, progress, t0).some((it) => it.word.word === w1mute.word));
+const daysOut = (cardDue(getCard(progress, w1mute.word)) - t0) / DAY_MS;
 check('skipped card due ~120 days out', daysOut > 110 && daysOut < 130);
+unskipWord(progress, w1mute.word);
+check('unskipped word has no record', getCard(progress, w1mute.word) === null);
+check('unskipped word re-enters queue as new',
+  buildQueue(words, progress, t0).some((it) => it.word.word === w1mute.word && it.kind === 'new'));
 
-// 4b. Unskip restores the word to the pipeline as brand-new.
-unskipWord(progress, skipTarget);
-const q2b = buildQueue(words, progress, now);
-check('unskipped word re-enters queue as fresh R card',
-  q2b.some((it) => it.word.word === skipTarget && it.type === 'R'));
-check('unskipped word has no stored cards', getCard(progress, skipTarget, 'R') === null);
-skipWord(progress, skipTarget, now); // restore skip for later checks
+// 10. v1 -> v2 migration: cards reset, everything else preserved.
+const skipName = words[10].word;
+const v1 = {
+  version: 1,
+  cards: {
+    'abandon|R': { due: t0.toISOString(), state: 2, reps: 5, lapses: 1 },
+    'abandon|S': { due: t0.toISOString(), state: 1, reps: 3, lapses: 0 },
+  },
+  introduced: { abandon: true, [skipName]: true },
+  skipped: { [skipName]: true },
+  triaged: { abandon: true, [skipName]: true },
+  days: { '2026-07-01': { newCount: 2, reviews: 8, seconds: 600 } },
+  log: [{ id: 'abandon|R', rating: 3, state: 0, elapsed: 0, ts: t0.toISOString() }],
+  hooks: { abandon: '記憶鉤子' },
+};
+const m = migrateProgress(v1, words, t0);
+check('migration bumps version to 2', m.version === 2);
+check('migration drops old R/S cards', !m.cards['abandon|R'] && !m.cards['abandon|S'] && !m.cards['abandon']);
+check('migration preserves log verbatim', m.log.length === 1 && m.log[0].id === 'abandon|R');
+check('migration preserves days', m.days['2026-07-01'].seconds === 600);
+check('migration preserves hooks', m.hooks['abandon'] === '記憶鉤子');
+check('migration preserves triaged', m.triaged['abandon'] === true);
+check('migration rebuilds skipped word as graduated card',
+  m.skipped[skipName] === true && m.cards[skipName]?.fsrs?.state === State.Review);
+check('migration is idempotent for v2', migrateProgress(m, words, t0) === m);
+check('null migrates to fresh progress', migrateProgress(null, words, t0).version === 2);
 
-// 5. Introduced words no longer reappear as fresh pairs.
-check('introduced word not offered as fresh again',
-  !q2.some((it) => it.word.word === first.word.word && !progress.cards[`${it.word.word}|${it.type}`] && it.type === 'R'));
-
-// 6. Persistence round-trip: serialize -> parse -> still schedulable.
+// 11. Persistence round-trip: serialize -> parse -> still schedulable.
 const revived = JSON.parse(JSON.stringify(progress));
-const tomorrow = new Date(now.getTime() + 86400000);
-const c2 = rateCard(revived, first.word.word, first.type, Rating.Good, tomorrow);
-check('round-tripped progress can be rated again', c2.due > tomorrow);
-console.log(`      (2nd Good next day -> due ${humanizeInterval(tomorrow, c2.due)})`);
+const r2 = answerCard(revived, w3, true, day(8));
+check('round-tripped progress can be answered again', r2.due > day(8));
 
-// 7. Next-day queue contains the learning cards that came due.
-const q3 = buildQueue(words, revived, tomorrow);
-check('next-day queue includes due review cards',
-  q3.some((it) => revived.cards[`${it.word.word}|${it.type}`]));
-
-// 8. Day stats track focus-time seconds.
-const day = dayStats(revived, tomorrow);
-day.seconds = (day.seconds || 0) + 60;
-check('day stats accumulate seconds', dayStats(revived, tomorrow).seconds === 60);
+// 12. Fast-forward one day: due dates and last_review shift back 24h,
+//     today's timer restarts.
+const before = getCard(revived, w3.word);
+const dueBefore = cardDue(before).getTime();
+const lastReviewBefore = new Date(before.fsrs.last_review).getTime();
+const ladderDueBefore = new Date(getCard(revived, rootless.word).due).getTime();
+const d8 = dayStats(revived, day(8));
+d8.seconds = 999;
+d8.timeUpNotified = true;
+const dueCount = fastForwardDay(revived, day(8));
+check('fast-forward shifts FSRS due -24h',
+  cardDue(getCard(revived, w3.word)).getTime() === dueBefore - DAY_MS);
+check('fast-forward shifts last_review -24h',
+  new Date(getCard(revived, w3.word).fsrs.last_review).getTime() === lastReviewBefore - DAY_MS);
+check('fast-forward shifts ladder due -24h',
+  new Date(getCard(revived, rootless.word).due).getTime() === ladderDueBefore - DAY_MS);
+check('fast-forward restarts today timer',
+  dayStats(revived, day(8)).seconds === 0 && dayStats(revived, day(8)).timeUpNotified === undefined);
+check('fast-forward reports due count', typeof dueCount === 'number' && dueCount >= 1);
 
 console.log(failures === 0 ? '\nAll checks passed.' : `\n${failures} check(s) FAILED.`);
 process.exit(failures === 0 ? 0 : 1);

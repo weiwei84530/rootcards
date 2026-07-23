@@ -1,11 +1,23 @@
 // localStorage persistence for learning progress.
 // Sandbox phase uses localStorage; will migrate to IndexedDB later.
 
-const KEY = 'learneng-progress-v1';
+const KEY = 'learneng-progress-v2';
+const LEGACY_KEY = 'learneng-progress-v1';
 
 export function loadProgress() {
   try {
     const raw = localStorage.getItem(KEY);
+    return raw ? JSON.parse(raw) : null;
+  } catch {
+    return null;
+  }
+}
+
+// The v1 blob (dual R/S cards) is read once for migration and kept
+// around untouched as a rollback backup.
+export function loadLegacyProgress() {
+  try {
+    const raw = localStorage.getItem(LEGACY_KEY);
     return raw ? JSON.parse(raw) : null;
   } catch {
     return null;
