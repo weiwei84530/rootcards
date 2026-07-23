@@ -513,6 +513,18 @@ details.hook .regen:hover { opacity: 1; filter: none; }
   max-width: 230px;
 }
 .setting-control button { padding: 0 1rem; }
+.check-label {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.88rem;
+  cursor: pointer;
+}
+.setting-control input[type="checkbox"] {
+  width: 1.15rem;
+  height: 1.15rem;
+  accent-color: var(--gold);
+}
 #key-status { font-size: 0.82rem; }
 
 /* Stats table */

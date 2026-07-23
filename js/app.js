@@ -52,6 +52,7 @@ let queue = [];
 let current = null; // { word, kind }
 let phase = 'start'; // start | learn | learn-spell | spell | spell-feedback | triage | done | stats | settings
 let sessionReviews = 0;
+let timeUpPending = false; // goal reached mid-card: finish the card, then end
 let triageList = [];
 let triageIdx = 0;
 let triageKnown = 0;
@@ -246,6 +247,17 @@ function rootChips(w) {
   return `<div class="roots-box">${chips}${story}</div>`;
 }
 
+// Test faces shuffle the sense order so recall isn't anchored to the
+// first sense only; teaching/answer faces keep the curated order.
+function shuffledZh(w) {
+  const parts = w.zh.split('；');
+  for (let i = parts.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [parts[i], parts[j]] = [parts[j], parts[i]];
+  }
+  return parts.join('；');
+}
+
 // A word can carry multiple sense-labeled examples (multi-POS words);
 // fall back to the single example/exampleZh pair otherwise.
 function examplesOf(w) {
@@ -382,12 +394,16 @@ function renderTimer() {
   }
 }
 
+// Goal reached. Triage decisions are atomic, so that mode ends right
+// away; a card session instead finishes the card in progress (for a new
+// word: the whole intro loop) and ends at the next card boundary.
 function timeUp() {
-  toast(`${settings.minutes} 分鐘到了，今天的練習完成！`, 4000);
   if (phase === 'triage') {
+    toast(`${settings.minutes} 分鐘到了，今天的練習完成！`, 4000);
     endTriage();
   } else {
-    finishSession('時間到 ⏰');
+    timeUpPending = true;
+    toast('⏰ 時間到，這張卡做完就結束今天的練習', 4000);
   }
 }
 
@@ -589,6 +605,7 @@ function renderStats() {
 function renderSettings() {
   phase = 'settings';
   $('input-minutes').value = settings.minutes;
+  $('input-schedule-toast').checked = !!settings.scheduleToast;
   $('select-theme').value = settings.theme || 'system';
   $('key-status').textContent = getGeminiKey() ? '✓ 已設定' : '未設定';
   populateVoicePicker();
@@ -674,6 +691,7 @@ function startSession() {
   if (!ttsAvailable() && !usingFallbackAudio()) toast('此瀏覽器不支援語音合成，發音功能停用');
   queue = buildQueue(words, progress, new Date());
   sessionReviews = 0;
+  timeUpPending = false;
   if (queue.length === 0) {
     finishSession();
     return;
@@ -683,6 +701,10 @@ function startSession() {
 }
 
 function nextCard() {
+  if (timeUpPending) {
+    finishSession('時間到 ⏰');
+    return;
+  }
   if (queue.length === 0) {
     finishSession();
     return;
@@ -696,6 +718,7 @@ function nextCard() {
 function finishSession(title = '今晚完成 🎉') {
   phase = 'done';
   current = null;
+  timeUpPending = false;
   const day = dayStats(progress);
   $('done-title').textContent = title;
   $('done-summary').textContent =
@@ -739,7 +762,7 @@ function renderIntroSpell() {
   const giveUpLabel = isPhrase ? 'Enter' : '空白鍵';
   $('card-type-label').textContent = '新單字 ─ 憑印象拼一次';
   $('card-body').innerHTML = `
-    <div class="meaning"><span class="pos">${w.pos}</span>${w.zh}</div>
+    <div class="meaning"><span class="pos">${w.pos}</span>${shuffledZh(w)}</div>
     <div class="word-display">${maskedWord(w, mask)}</div>
     <input class="spell-input" id="spell-input" type="text"
            autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
@@ -780,7 +803,7 @@ function submitIntroSpell(correct) {
       <button class="primary big" id="btn-continue">繼續<span class="key-hint">空白鍵</span></button>
     `;
     speak(w.word);
-    toast('等一下會再考一次（最簡單的挖空）');
+    if (settings.scheduleToast) toast('等一下會再考一次（最簡單的挖空）');
     $('btn-continue').onclick = () => {
       // First real test comes a few cards later in this same session.
       queue.splice(Math.min(3, queue.length), 0, { word: w, kind: 'review' });
@@ -828,7 +851,7 @@ function renderSpellingFront() {
   // No audio on the test face: hearing the word would give the answer away.
   $('card-type-label').textContent = '複習 ─ 拼出完整單字';
   $('card-body').innerHTML = `
-    <div class="meaning"><span class="pos">${w.pos}</span>${w.zh}</div>
+    <div class="meaning"><span class="pos">${w.pos}</span>${shuffledZh(w)}</div>
     <div class="word-display">${maskedWord(w, mask)}</div>
     ${badge}
     ${maskedExampleBlocks(w)}
@@ -876,14 +899,20 @@ function submitSpelling(answer) {
     <div class="ipa">/${w.ipa}/</div>
     <div class="meaning"><span class="pos">${w.pos}</span>${w.zh}</div>
     ${rootChips(w)}
+    ${exampleBlocks(w)}
+    ${hookBlock(w)}
   `;
   $('card-actions').innerHTML = `
     <button class="primary big" id="btn-continue">繼續<span class="key-hint">空白鍵</span></button>
   `;
+  wireExampleSpeakers(w);
+  wireHookRegen(w);
   speak(w.word);
-  toast(result.requeue
-    ? `約 ${result.requeueGap} 張後再考`
-    : `下次復習：${humanizeInterval(now, result.due)}`);
+  if (settings.scheduleToast) {
+    toast(result.requeue
+      ? `約 ${result.requeueGap} 張後再考`
+      : `下次復習：${humanizeInterval(now, result.due)}`);
+  }
   $('btn-continue').onclick = () => {
     // Requeued cards (miss, level-up consolidation, FSRS learning step)
     // re-test within this session, requeueGap cards later.
@@ -1002,6 +1031,11 @@ async function boot() {
     settings.minutes = v;
     saveSettings(settings);
     toast(`每日練習時間：${v} 分鐘`);
+  };
+  $('input-schedule-toast').onchange = (e) => {
+    settings.scheduleToast = e.target.checked;
+    saveSettings(settings);
+    toast(e.target.checked ? '答題後將顯示排程提示' : '排程提示已關閉');
   };
   $('btn-save-key').onclick = () => {
     const v = $('input-gemini-key').value.trim();

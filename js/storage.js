@@ -33,7 +33,7 @@ export function resetProgress() {
 }
 
 const SETTINGS_KEY = 'learneng-settings-v1';
-const DEFAULT_SETTINGS = { minutes: 30 };
+const DEFAULT_SETTINGS = { minutes: 30, scheduleToast: false };
 
 export function loadSettings() {
   try {
