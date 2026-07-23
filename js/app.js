@@ -780,8 +780,12 @@ function submitIntroSpell(correct) {
       <button class="primary big" id="btn-continue">繼續<span class="key-hint">空白鍵</span></button>
     `;
     speak(w.word);
-    toast('明天會再考一次（從最簡單的挖空開始）');
-    $('btn-continue').onclick = nextCard;
+    toast('等一下會再考一次（最簡單的挖空）');
+    $('btn-continue').onclick = () => {
+      // First real test comes a few cards later in this same session.
+      queue.splice(Math.min(3, queue.length), 0, { word: w, kind: 'review' });
+      nextCard();
+    };
   } else {
     saveProgress(progress); // keep the logged attempt
     $('card-type-label').textContent = '新單字 ─ 再看一次';
@@ -877,11 +881,15 @@ function submitSpelling(answer) {
     <button class="primary big" id="btn-continue">繼續<span class="key-hint">空白鍵</span></button>
   `;
   speak(w.word);
-  toast(`下次復習：${humanizeInterval(now, result.due)}`);
+  toast(result.requeue
+    ? `約 ${result.requeueGap} 張後再考`
+    : `下次復習：${humanizeInterval(now, result.due)}`);
   $('btn-continue').onclick = () => {
-    // A miss (or a card still in FSRS learning steps) re-tests within
-    // this session, a few cards later — not at the end of the queue.
-    if (result.requeue) queue.splice(Math.min(4, queue.length), 0, { word: w, kind: 'review' });
+    // Requeued cards (miss, level-up consolidation, FSRS learning step)
+    // re-test within this session, requeueGap cards later.
+    if (result.requeue) {
+      queue.splice(Math.min(result.requeueGap, queue.length), 0, { word: w, kind: 'review' });
+    }
     nextCard();
   };
 }

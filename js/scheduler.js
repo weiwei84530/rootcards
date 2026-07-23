@@ -1,7 +1,8 @@
 // Scheduling layer. Each word owns ONE card that moves through two
-// stages: a "root ladder" (progressive cloze, fixed short intervals,
-// FSRS untouched) and, after the first full-blank success (graduation),
-// normal FSRS review (correct = Good, wrong = Again).
+// stages: a "root ladder" (progressive cloze, same-day retests spaced
+// by CARD COUNT, cross-day gaps fixed at one day, FSRS untouched) and,
+// after the first full-blank success (graduation), normal FSRS review
+// (correct = Good, wrong = Again). Level may rise at most 1 per day.
 
 import {
   fsrs,
@@ -15,6 +16,13 @@ export { Rating, State };
 
 const SKIP_STABILITY_DAYS = 120; // "already known" words resurface after ~4 months
 const DAY_MS = 86400000;
+
+// Same-day requeue distances, in CARDS (~30s each). A miss (and the
+// post-intro first test) comes back after 3 cards; a level-up earns one
+// consolidation retest further out — higher level, longer gap
+// (expanding retrieval: L2→10, L3→15, L4+→20).
+const WRONG_GAP = 3;
+const consolidationGap = (lvl) => Math.min(20, 5 * lvl);
 
 const params = generatorParameters({
   enable_fuzz: true,
@@ -75,7 +83,8 @@ export function maxLevel(w) {
 
 // ---------- card access ----------
 
-// Raw per-word record: { level, due, fsrs, reps, lapses } or null.
+// Raw per-word record: { level, due, fsrs, reps, lapses } or null;
+// pre-graduation cards also carry { capDay, dayCap } (daily level cap).
 export function getCard(progress, word) {
   return progress.cards[word] || null;
 }
@@ -106,14 +115,19 @@ export function buildQueue(words, progress, now = new Date()) {
 }
 
 // First exposure completed (the intro full-blank retype succeeded):
-// the word enters the ladder at level 1, due tomorrow.
+// the word enters the ladder at level 1, due NOW — the app splices the
+// first real test a few cards ahead in the same session. dayCap is set
+// here (not lazily) so single-rung words (maxLevel 1) cannot graduate
+// minutes after being introduced: their intro-day cap stays at 1.
 export function introduceWord(progress, w, now = new Date()) {
   progress.cards[w.word] = {
     level: 1,
-    due: new Date(now.getTime() + DAY_MS).toISOString(),
+    due: now.toISOString(),
     fsrs: null,
     reps: 0,
     lapses: 0,
+    capDay: todayKey(now),
+    dayCap: Math.min(2, maxLevel(w)),
   };
   dayStats(progress, now).newCount++;
 }
@@ -125,8 +139,10 @@ export function logAttempt(progress, word, phase, level, correct, now = new Date
 }
 
 // Score one answer and reschedule. `record.level` always means the level
-// of the NEXT test: correct climbs (capped), wrong drops (floored at 1)
-// and re-tests within the same session. Returns {requeue, due, graduated}.
+// of the NEXT test: correct climbs (capped at start-of-day level + 1),
+// wrong drops (floored at 1) and re-tests within the same session.
+// Returns {requeue, requeueGap, due, graduated}; requeueGap is the
+// in-session splice distance in cards whenever requeue is true.
 export function answerCard(progress, w, correct, now = new Date()) {
   const record = progress.cards[w.word];
   const max = maxLevel(w);
@@ -136,28 +152,46 @@ export function answerCard(progress, w, correct, now = new Date()) {
   dayStats(progress, now).reviews++;
 
   if (!record.fsrs) {
-    if (correct && level >= max) {
-      // Graduation: full-blank success is the FSRS card's first Good.
-      const { card: next, log } = scheduler.next(createEmptyCard(now), now, Rating.Good);
-      record.fsrs = serializeCard(next);
-      record.level = max;
-      logAttempt(progress, w.word, 'fsrs', level, true, now, {
-        rating: Rating.Good, state: log.state, elapsed: log.elapsed_days,
-      });
-      return { requeue: next.state !== State.Review, due: next.due, graduated: true };
+    // Daily cap: level may end the day at most 1 above where it started.
+    // (Also initializes legacy records that predate capDay/dayCap.)
+    if (record.capDay !== todayKey(now)) {
+      record.capDay = todayKey(now);
+      record.dayCap = level + 1;
     }
     if (correct) {
-      record.level = level + 1;
+      const newLevel = Math.min(level + 1, record.dayCap);
+      if (newLevel > max) {
+        // Graduation: full-blank success is the FSRS card's first Good.
+        // Only reachable when the card STARTED the day at the top rung
+        // (dayCap = max + 1), so graduating always takes an extra day.
+        const { card: next, log } = scheduler.next(createEmptyCard(now), now, Rating.Good);
+        record.fsrs = serializeCard(next);
+        record.level = max;
+        delete record.capDay;
+        delete record.dayCap;
+        logAttempt(progress, w.word, 'fsrs', level, true, now, {
+          rating: Rating.Good, state: log.state, elapsed: log.elapsed_days,
+        });
+        return { requeue: next.state !== State.Review, requeueGap: WRONG_GAP, due: next.due, graduated: true };
+      }
       record.due = new Date(now.getTime() + DAY_MS).toISOString();
       logAttempt(progress, w.word, 'ladder', level, true, now);
+      if (newLevel > level) {
+        // Level-up: due tomorrow, plus one same-day consolidation
+        // retest at the new (harder) level, spliced further out.
+        record.level = newLevel;
+        return { requeue: true, requeueGap: consolidationGap(newLevel), due: new Date(record.due), graduated: false };
+      }
+      // At today's cap (the consolidation passed): done for today.
       return { requeue: false, due: new Date(record.due), graduated: false };
     }
     // Wrong: easier retry shortly (in-session), and due=now so an
-    // abandoned session still resurfaces the word next time.
+    // abandoned session still resurfaces the word next time. Climbing
+    // back up to dayCap later the same day is allowed.
     record.level = Math.max(1, level - 1);
     record.due = now.toISOString();
     logAttempt(progress, w.word, 'ladder', level, false, now);
-    return { requeue: true, due: now, graduated: false };
+    return { requeue: true, requeueGap: WRONG_GAP, due: now, graduated: false };
   }
 
   // Graduated: plain FSRS. Level keeps moving so a lapse re-shows one
@@ -169,7 +203,7 @@ export function answerCard(progress, w, correct, now = new Date()) {
   logAttempt(progress, w.word, 'fsrs', level, correct, now, {
     rating, state: log.state, elapsed: log.elapsed_days,
   });
-  return { requeue: next.state !== State.Review, due: next.due, graduated: false };
+  return { requeue: next.state !== State.Review, requeueGap: WRONG_GAP, due: next.due, graduated: false };
 }
 
 // "Already know this word": a synthetic graduated card far in the
@@ -242,6 +276,10 @@ export function fastForwardDay(progress, now = new Date()) {
       record.fsrs.due = shift(record.fsrs.due);
       if (record.fsrs.last_review) record.fsrs.last_review = shift(record.fsrs.last_review);
     }
+    // The wall-clock date doesn't move, so yesterday's cap would still
+    // read as "today" and wrongly block the simulated day's level-up.
+    delete record.capDay;
+    delete record.dayCap;
   }
   const day = dayStats(progress, now);
   day.seconds = 0;
